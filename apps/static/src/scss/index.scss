@@ -1,0 +1,10 @@
+$govuk-images-path: '/static/govuk-public/images/';
+$govuk-fonts-path: '/static/govuk-public/fonts/';
+
+@import "../../../../node_modules/govuk-frontend/govuk/all";
+@import 'colours';
+@import 'layout';
+
+@import "app-components/all";
+
+@import 'global';

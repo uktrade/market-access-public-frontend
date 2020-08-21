@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load breadcrumbs %}
+{% load headers %}
+
+{% block page_title %}{{ block.super }} - Choose a sector{% endblock %}
+
+{% block breadcrumbs %}
+    {% show_breadcrumbs breadcrumbs %}
+{% endblock %}
+
+{% block page_content %}
+    {% content_header title %}
+
+    <a href="">Select all</a>
+
+{% endblock %}

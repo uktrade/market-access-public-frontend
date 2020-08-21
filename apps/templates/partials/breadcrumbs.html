@@ -1,0 +1,9 @@
+<div class="govuk-breadcrumbs govuk-width-container">
+    <ol class="govuk-breadcrumbs__list">
+        {% for crumb in breadcrumbs %}
+        <li class="govuk-breadcrumbs__list-item{{ crumb.css_classes }}">
+            <a class="govuk-breadcrumbs__link" href="{{ crumb.href }}">{{ crumb.text }}</a>
+        </li>
+        {% endfor %}
+    </ol>
+</div>

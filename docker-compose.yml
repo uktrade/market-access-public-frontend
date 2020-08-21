@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+
+  db:
+    image: postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+      - ./db_dumps:/var/lib/postgresql/dumps
+      - ./docker/local/postgres:/docker-entrypoint-initdb.d
+    ports:
+      - "9932:5432"
+    env_file: dmas-pubfe.local.env
+    networks:
+      - webnet
+
+  web:
+    container_name: dmas_public
+    build:
+      context: .
+      dockerfile: docker/local/django/Dockerfile
+    entrypoint: docker/local/django/entrypoint.sh
+    ports:
+      - "9980:9000"
+      - "9982:22"
+    env_file: dmas-pubfe.local.env
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - webnet
+    depends_on:
+      - db
+
+networks:
+  webnet:
