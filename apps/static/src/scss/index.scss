@@ -6,5 +6,6 @@ $govuk-fonts-path: '/static/govuk-public/fonts/';
 @import 'layout';
 
 @import "app-components/all";
+@import "pages/all";
 
 @import 'global';

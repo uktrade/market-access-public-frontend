@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load breadcrumbs %}
 {% load headers %}
-
-{% block page_title %}{{ block.super }} - Choose a sector{% endblock %}
+{% load query_params %}
+{% block page_title %}{{ block.super }} - {{ title }}{% endblock %}
 
 {% block breadcrumbs %}
     {% show_breadcrumbs breadcrumbs %}
@@ -11,6 +11,20 @@
 {% block page_content %}
     {% content_header title %}
 
-    <a href="">Select all</a>
+    <a href="{% url "barriers:list" %}{% sector_filter "all" %}">Select all</a>
+
+    <h2>Sector</h2>
+    <div class="filter-options__container">
+        {% for letter, sector_list in sectors.items %}
+            <div class="filter-options-group__container">
+                <h3>{{ letter }}</h3>
+                {% for sector in sector_list %}
+                    <p>
+                        <a href="{% url "barriers:list" %}{% sector_filter sector.slug %}">{{ sector.name }}</a>
+                    </p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}

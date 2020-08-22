@@ -3,7 +3,6 @@ from django.urls import reverse
 
 register = template.Library()
 
-
 DEFAULT_BREADCRUMBS = (
     ("Home", "https://www.gov.uk/"),
     ("Find barriers", reverse("barriers:find-barriers-splash"))
@@ -20,7 +19,7 @@ def show_breadcrumbs(context, items=()):
     :return: DICT for the template
     """
     breadcrumbs = []
-    current_path = context["request"].path
+    current_path = context["request"].path + f'?{context["request"].query_string}'
     for i in (*DEFAULT_BREADCRUMBS, *items):
         text, href = i
         d = {

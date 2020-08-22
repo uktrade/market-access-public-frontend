@@ -1,4 +1,3 @@
-import collections
 import json
 
 from django.conf import settings
@@ -105,55 +104,3 @@ def get_metadata():
 
 
 metadata = get_metadata()
-
-
-class Country:
-
-    def __init__(self, **kwargs):
-        expected_attributes = ('id', 'name', 'disabled_on', 'overseas_region', 'iso_alpha2_code')
-        self.id = None
-        self.name = None
-        self.disabled_on = None
-        self.overseas_region = None
-        self.iso_alpha2_code = None
-
-        for key, value in kwargs.items():
-            if key in expected_attributes:
-                setattr(self, key, value)
-            else:
-                raise ValueError("Unexpected item in kwargs", key)
-
-    @property
-    def admin_areas(self):
-        return metadata.get_admin_areas_by_country(self.id)
-
-    @property
-    def slug(self):
-        return self.iso_alpha2_code.lower()
-
-    def __str__(self):
-        return f"{self.name}"
-
-
-class Countries:
-
-    def __init__(self):
-        self.all = set()
-        for i in metadata.get_country_list():
-            country = Country(**i)
-            setattr(self, country.name, country)
-            self.all.add(self.__getattribute__(country.name))
-
-    @property
-    def grouped_alphabetically(self):
-        groups = {}
-        for country in self.all:
-            country_group = groups.get(country.name[0])
-            if country_group:
-                groups[country.name[0]].add(country)
-            else:
-                groups.setdefault(country.name[0], {country,})
-        return collections.OrderedDict(sorted(groups.items()))
-
-
-countries = Countries()

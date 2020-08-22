@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load breadcrumbs %}
+{% load headers %}
+{% load query_params %}
+
+{% block page_title %}{{ block.super }} - Find barriers{% endblock %}
+
+{% block breadcrumbs %}
+    {% show_breadcrumbs breadcrumbs %}
+{% endblock %}
+
+{% block page_content %}
+
+    <section class="govuk-!-margin-bottom-9">
+
+        <span class="govuk-caption-m">{{ barrier.id }}</span>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">{{ barrier.title }}</h1>
+        <span class="govuk-caption-s">in {{ barrier.country }}</span>
+
+    </section>
+
+    <section class="govuk-!-margin-bottom-9">
+        <!-- Summary -->
+        <h4 class="govuk-heading-m">Barrier summary</h4>
+        <p class="govuk-body">{{ barrier.summary }}</p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <!-- Sectors -->
+        <h5 class="govuk-heading-s">Sectors affected</h5>
+        <ul class="govuk-list govuk-list--bullet">
+        {% for sector in barrier.sectors_list %}
+            <li>{{ sector }}</li>
+        {% endfor %}
+        </ul>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <!-- Category -->
+        <h5 class="govuk-heading-s">Categories</h5>
+        <ul class="govuk-list govuk-list--bullet">
+        {% for category in barrier.categories_list %}
+            <li>{{ category }}</li>
+        {% endfor %}
+        </ul>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <!-- Status -->
+        <h5 class="govuk-heading-s">Status</h5>
+        <p class="govuk-body">{{ barrier.status }}</p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </section>
+
+    <section>
+        <a href="{% url "barriers:list" %}{% remove_filter "nada" %}" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+            Back to search results
+        </a>
+    </section>
+
+{% endblock %}

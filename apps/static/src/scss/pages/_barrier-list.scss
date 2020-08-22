@@ -1,0 +1,36 @@
+.govuk-summary-list__key {
+	width: 20%;
+}
+
+.filter-results-header {
+  border-bottom: 5px solid $govuk-black;
+  position: relative;
+}
+
+.filter-results-header__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: govuk-em(10, 16);
+}
+
+.filter-results-header__row-item {
+  align-self: center;
+
+  &--right {
+    margin-left: auto;
+  }
+}
+
+.filter-results-title {
+  @include govuk-font(36, $weight: bold);
+  padding: 0 0 govuk-em(5, 36) 0;
+  margin: govuk-em(50, 36) govuk-em(10, 36) govuk-em(5, 36) 0;
+  display: inline-block;
+}
+
+.filter-results-count__container {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+

@@ -81,6 +81,7 @@ LOCAL_APPS = [
     "apps.barriers",
     "apps.core",
     "apps.healthcheck",
+    "apps.metadata",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -116,6 +117,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "apps.barriers.middleware.FiltersMiddleware"
 ]
 
 # STATIC
@@ -150,6 +152,7 @@ TEMPLATES = [
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
+                "apps.barriers.context_processors.query_params",
                 "django.contrib.auth.context_processors.auth",
                 # "django.template.context_processors.i18n",
                 # "django.template.context_processors.media",
@@ -228,3 +231,8 @@ if SENTRY_DSN:
             DjangoIntegration(),
         ],
     )
+
+
+# Public Data
+# ------------------------------------------------------------------------------
+PUBLIC_API_GATEWAY_BASE_URI = env("PUBLIC_API_GATEWAY_BASE_URI")

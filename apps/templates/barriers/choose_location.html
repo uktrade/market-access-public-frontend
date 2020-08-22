@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load breadcrumbs %}
 {% load headers %}
+{% load query_params %}
 {% block page_title %}{{ block.super }} - {{ title }}{% endblock %}
 
 {% block breadcrumbs %}
@@ -10,10 +11,10 @@
 {% block page_content %}
     {% content_header title %}
 
-    <a href="{% url "barriers:find-barriers-splash" %}?location=all">Select all</a>
+    <a href="{% url "barriers:list" %}{% location_filter "all" %}">Select all</a>
 
-    <h2>Trading Bloc</h2>
-    <a href="{% url "barriers:find-barriers-splash" %}?location=eu">European Union</a>
+{#    <h2>Trading Bloc</h2>#}
+{#    <a href="{% url "barriers:list" %}{% location_filter "eu" %}">European Union</a>#}
 
     <h2>Country</h2>
     <div class="filter-options__container">
@@ -22,7 +23,7 @@
                 <h3>{{ init }}</h3>
                 {% for country in country_list %}
                     <p>
-                        <a href="{% url "barriers:find-barriers-splash" %}?location={{ country.slug }}">{{ country.name }}</a>
+                        <a href="{% url "barriers:list" %}{% location_filter country.slug %}">{{ country.name }}</a>
                     </p>
                 {% endfor %}
             </div>

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load breadcrumbs %}
+{% load headers %}
+{% load query_params %}
+
+{% block page_title %}{{ block.super }} - Find barriers{% endblock %}
+
+{% block breadcrumbs %}
+    {% show_breadcrumbs breadcrumbs %}
+{% endblock %}
+
+{% block page_content %}
+
+    {% content_header title %}
+
+    <section class="restrict-width">
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Location
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <a class="govuk-link" href="{% url "barriers:choose-location" %}{% remove_filter "location" %}">
+                    {% if location %}
+                        {{ location.name }}
+                    {% else %}
+                        Filter by location
+                    {% endif %}
+                    </a>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                {% if location %}
+                    <a class="govuk-link" href="{% url "barriers:list" %}{% remove_filter "location" %}">
+                        Clear<span class="govuk-visually-hidden"> location</span>
+                    </a>
+                {% endif %}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Sector
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <a class="govuk-link" href="{% url "barriers:choose-sector" %}{% remove_filter "sector" %}">
+                    {% if sector %}
+                        {{ sector.name }}
+                    {% else %}
+                        Filter by sector
+                    {% endif %}
+                    </a>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    {% if sector %}
+                    <a class="govuk-link" href="{% url "barriers:list" %}{% remove_filter "sector" %}">
+                        Clear<span class="govuk-visually-hidden"> sector</span>
+                    </a>
+                    {% endif %}
+                </dd>
+            </div>
+        </dl>
+    </section>
+
+    <section>
+        <div class="filter-results-header">
+            <div class="filter-results-header__row">
+                <div class="filter-results-count__container">
+                    <h3 class="filter-results-title">
+                        {{ barriers.count }}
+                    </h3>
+                    <span class="govuk-!-font-size-19"> results found</span>
+                </div>
+            </div>
+        </div>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Title</th>
+                <th scope="col" class="govuk-table__header">Sector</th>
+                <th scope="col" class="govuk-table__header">Location</th>
+                <th scope="col" class="govuk-table__header">Resolved</th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+            {% for barrier in barriers.all %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <a href="{% url "barriers:details" barrier.id %}{% remove_filter "nada" %}">
+                            {{ barrier.title }}
+                        </a>
+                    </td>
+                    <td class="govuk-table__cell">{{ barrier.sectors }}</td>
+                    <td class="govuk-table__cell">{{ barrier.country }}</td>
+                    <td class="govuk-table__cell">{{ barrier.status }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
