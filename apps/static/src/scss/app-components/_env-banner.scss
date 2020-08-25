@@ -1,0 +1,37 @@
+.env-banner {
+  position: absolute;
+  width: 250px;
+  right: 0;
+  top: 0;
+  height: 50px;
+  margin-left: 0;
+  padding-right: 30px;
+  background-color: #cccccc;
+  border: 7px solid black;
+  font-size: 19px;
+  line-height: 36px;
+  text-align: center;
+  opacity: 0.95;
+  color: white;
+  z-index: 999;
+  box-sizing: border-box;
+
+  a {
+    font-weight: bold;
+  }
+
+  &.env-banner-dev {
+    background-color: #3c5cff;
+  }
+
+  &.env-banner-uat {
+    background-color: #FF69B4;
+  }
+
+  .env-banner__dismiss {
+    float: right;
+    color: white !important;
+    text-decoration: none;
+  }
+}
+
