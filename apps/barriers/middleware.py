@@ -3,7 +3,7 @@ from urllib.parse import parse_qs
 from django.utils.deprecation import MiddlewareMixin
 
 from apps.core.utils import convert_to_snake_case
-from apps.metadata.aggregators import countries, sectors
+from apps.metadata.aggregators import countries, sectors, AllLocations, AllSectors
 
 
 class FiltersMiddleware(MiddlewareMixin):
@@ -19,12 +19,16 @@ class FiltersMiddleware(MiddlewareMixin):
 
         if "location" in params:
             location = params["location"][0]
-            if location != "all":
+            if location == "all":
+                request.location = AllLocations()
+            else:
                 request.location = getattr(countries, params["location"][0])
 
         if "sector" in params:
             sector_name = convert_to_snake_case(params["sector"][0])
-            if sector_name != "all":
+            if sector_name == "all":
+                request.sector = AllSectors()
+            else:
                 request.sector = getattr(sectors, sector_name)
 
     def process_response(self, request, response):

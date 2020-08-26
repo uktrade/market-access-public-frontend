@@ -126,3 +126,24 @@ class AdminAreas(DataAggregator):
 
 countries = CountriesAggregator(Country, metadata.get_country_list(), attr_from="iso_alpha2_code")
 sectors = SectorsAggregator(Sector, metadata.get_sector_list(level=0))
+
+
+# Create classes so they can fit in to Countries and Sectors
+class AllLocations:
+    name = "All locations"
+
+    def __str__(self):
+        return f"{self.name}"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__} - {self.name}>"
+
+
+class AllSectors:
+    name = "All sectors"
+
+    def __str__(self):
+        return f"{self.name}"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__} - {self.name}>"
