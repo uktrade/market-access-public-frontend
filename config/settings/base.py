@@ -17,7 +17,7 @@ VCAP_SERVICES = env.json('VCAP_SERVICES', default={})
 
 # GENERAL
 # ------------------------------------------------------------------------------
-SERVICE_NAME = "Public Service Name"
+SERVICE_NAME = env("SERVICE_NAME", default="Public Service Name")
 # SECURITY WARNING: keep the secret key used in production secret!
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env("DJANGO_SECRET_KEY")
