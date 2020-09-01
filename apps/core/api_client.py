@@ -29,29 +29,39 @@ class APIClient:
         except requests.exceptions.HTTPError as e:
             logger.exception(e)
 
-    def filters_string(self, filters):
+    def s3_filters_string(self, filters):
+        ignored_locations = ("All locations",)
+        ignored_sectors = ("All sectors",)
+        location_query_str = ""
+        all_sectors_query_str = ""
         filters_string = ""
         s3_filters = []
 
         if filters.get('id'):
             s3_filters.append(f"b.id = {filters['id']}")
 
-        if filters.get('location'):
-            s3_filters.append(f"b.country.name = '{filters['location']}'")
+        if filters.get('location') and filters.get('location').name not in ignored_locations:
+            location_query_str = f"b.country.name = '{filters['location']}'"
+            s3_filters.append(location_query_str)
 
-        if filters.get('sector'):
+        if filters.get('sector') and filters.get('sector').name not in ignored_sectors:
             s3_filters.append(f"'{filters['sector']}' IN b.sectors[*].name")
+
+        # Barriers that affect `All sectors` have to be included in all searches
+        all_sectors_query_str += f" OR 'All sectors' IN b.sectors[*].name"
+        if location_query_str:
+            all_sectors_query_str += f" AND {location_query_str}"
 
         if s3_filters:
             filters_string += "SELECT * FROM S3Object[*].barriers[*] AS b WHERE "
             filters_string += " AND ".join(s3_filters)
+            filters_string += all_sectors_query_str
             filters_string = f"&query-s3-select={quote_plus(filters_string)}"
 
         return filters_string
 
     def get(self, uri, filters=None, **kwargs):
-        # TODO: the api should not change contract when filters are applied
-        uri += self.filters_string(filters)
+        uri += self.s3_filters_string(filters)
         response = self.request("get", uri, **kwargs)
         data = response.json()
         # Worth noting that if filters are applied through query-s3-select
