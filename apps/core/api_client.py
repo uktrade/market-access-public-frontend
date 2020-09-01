@@ -1,5 +1,5 @@
 import logging
-from urllib.parse import urlencode, quote_plus
+from urllib.parse import quote_plus
 
 import requests
 from django.conf import settings
