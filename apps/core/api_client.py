@@ -3,6 +3,7 @@ from urllib.parse import quote_plus
 
 import requests
 from django.conf import settings
+from django.http import Http404
 from requests import HTTPError
 
 from apps.core.interfaces import Barrier
@@ -40,18 +41,18 @@ class APIClient:
 
         if filters.get('id'):
             s3_filters.append(f"b.id = {filters['id']}")
+        else:
+            if filters.get('location') and filters.get('location').name not in ignored_locations:
+                location_query_str = f"b.country.name = '{filters['location']}'"
+                s3_filters.append(location_query_str)
 
-        if filters.get('location') and filters.get('location').name not in ignored_locations:
-            location_query_str = f"b.country.name = '{filters['location']}'"
-            s3_filters.append(location_query_str)
+            if filters.get('sector') and filters.get('sector').name not in ignored_sectors:
+                s3_filters.append(f"'{filters['sector']}' IN b.sectors[*].name")
 
-        if filters.get('sector') and filters.get('sector').name not in ignored_sectors:
-            s3_filters.append(f"'{filters['sector']}' IN b.sectors[*].name")
-
-        # Barriers that affect `All sectors` have to be included in all searches
-        all_sectors_query_str += f" OR 'All sectors' IN b.sectors[*].name"
-        if location_query_str:
-            all_sectors_query_str += f" AND {location_query_str}"
+            # Barriers that affect `All sectors` have to be included in all searches
+            all_sectors_query_str += f" OR 'All sectors' IN b.sectors[*].name"
+            if location_query_str:
+                all_sectors_query_str += f" AND {location_query_str}"
 
         if s3_filters:
             filters_string += "SELECT * FROM S3Object[*].barriers[*] AS b WHERE "
@@ -109,7 +110,7 @@ class DataGatewayResource(APIClient):
         try:
             return Barrier(barriers[0])
         except (IndexError, TypeError):
-            raise HTTPError("Not found", response=self)
+            raise Http404("Barrier does not exist")
 
 
 data_gateway = DataGatewayResource()
