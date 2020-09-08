@@ -1,0 +1,85 @@
+# Python CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-python/ for more details
+#
+version: 2
+jobs:
+  tests:
+    docker:
+      - image: circleci/python:3.7
+      - image: postgres:9.6.16
+        environment:
+          POSTGRES_DB=market_access_public
+
+    environment:
+      SECRET_KEY: "secretkey"
+      DEBUG: True
+      ALLOWED_HOSTS: "localhost"
+      DJANGO_SETTINGS_MODULE: "config.settings.test"
+      DATABASE_URL: "postgresql://postgres@localhost/market_access_public"
+
+    working_directory: ~/market-access-public-frontend
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ .Branch }}-{{ checksum "poetry.lock" }}
+
+      - run:
+          command: sudo pip install poetry==1.0.5
+
+      - run:
+          name: Install dependencies
+          command: |
+            poetry install
+
+      - save_cache:
+          key: v1-dependencies-{{ .Branch }}-{{ checksum "poetry.lock" }}
+          paths:
+            - /home/circleci/.cache/pypoetry/virtualenvs
+
+      - run:
+          name: run tests
+          command: |
+            poetry run pytest tests
+
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
+
+  pep8:
+    docker:
+      - image: circleci/python:3.7
+
+    working_directory: ~/market-access-public-frontend
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ .Branch }}-{{ checksum "poetry.lock" }}
+
+      - run:
+          command: sudo pip install poetry
+
+      - run:
+          name: Install dependencies
+          command: |
+            poetry install
+
+      - save_cache:
+          key: v1-dependencies-{{ .Branch }}-{{ checksum "poetry.lock" }}
+          paths:
+            - /home/circleci/.cache/pypoetry/virtualenvs
+
+      - run: poetry run flake8 . --exclude=venv --count --max-line-length=120
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - tests
+      - pep8
