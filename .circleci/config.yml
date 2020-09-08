@@ -12,7 +12,7 @@ jobs:
           POSTGRES_DB=market_access_public
 
     environment:
-      SECRET_KEY: "secretkey123"
+      DJANGO_SECRET_KEY: "secretkey123"
       DEBUG: True
       ALLOWED_HOSTS: "localhost"
       DJANGO_SETTINGS_MODULE: "config.settings.test"
