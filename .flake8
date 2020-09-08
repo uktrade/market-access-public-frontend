@@ -1,0 +1,15 @@
+[flake8]
+
+per-file-ignores =
+    ./config/settings/*:F401,F403,F405
+
+max-complexity = 10
+max-line-length = 120
+
+exclude =
+    src,
+    migrations,
+    __pycache__,
+    env,
+    venv,
+    node_modules
