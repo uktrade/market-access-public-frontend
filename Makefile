@@ -18,6 +18,10 @@ help: ## This help.
 django-run: ## Run django's dev server (tailing).
 	docker-compose exec web bash -c "./manage.py runserver 0:9000"
 
+.PHONY: django-gunicorn
+django-gunicorn: ## Run django via gunicorn (tailing).
+	docker-compose exec web gunicorn -c config/gunicorn.py config.wsgi:application --worker-class=gevent --bind 0:9000
+
 .PHONY: django-run-detached
 django-run-detached: ## Run django's dev server (silently).
 	docker-compose exec -d web bash -c "./manage.py runserver 0:9000"
