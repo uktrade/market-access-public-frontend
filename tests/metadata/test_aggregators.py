@@ -10,11 +10,13 @@ class CountriesAggregatorTestCase(TestCase):
         assert 218 == count
 
     def test_empty_admin_areas(self):
-        admin_areas = countries.spain.admin_areas
+        # Spain does not have admin areas
+        admin_areas = countries.es.admin_areas
         assert not admin_areas
 
     def test_admin_areas(self):
-        admin_areas = countries.brazil.admin_areas
+        # Brazil has admin areas
+        admin_areas = countries.br.admin_areas
         expected_admin_areas_count = 27
 
         assert admin_areas
@@ -30,7 +32,7 @@ class CountriesAggregatorTestCase(TestCase):
 class SectorsAggregatorTestCase(TestCase):
 
     def test_sectors(self):
-        assert 44 == len(sectors.all)
+        assert 26 == len(sectors.all)
 
     def test_sector_attributes(self):
         aerospace = sectors.aerospace
