@@ -13,10 +13,14 @@ jobs:
 
     environment:
       DJANGO_SECRET_KEY: "secretkey123"
-      DEBUG: True
-      ALLOWED_HOSTS: "localhost"
+      DJANGO_DEBUG: True
+      DJANGO_ALLOWED_HOSTS: "localhost"
       DJANGO_SETTINGS_MODULE: "config.settings.test"
       DATABASE_URL: "postgresql://postgres@localhost/market_access_public"
+      GTM_ID: ""
+      GTM_AUTH: ""
+      GTM_PREVIEW: ""
+      PUBLIC_API_GATEWAY_BASE_URI: ""
 
     working_directory: ~/market-access-public-frontend
 
