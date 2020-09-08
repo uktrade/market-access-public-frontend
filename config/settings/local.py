@@ -9,7 +9,7 @@ from .base import *  # noqa
 DJANGO_ENV = 'local'
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
-DEBUG = True
+DEBUG = False
 
 LOGGING = {
     'version': 1,
