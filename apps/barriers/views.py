@@ -8,7 +8,7 @@ from apps.metadata.aggregators import countries, sectors
 class FindBarriersSplashView(TemplateView):
     template_name = "barriers/find_barriers_splash.html"
     extra_context = {
-        "title": "Find barriers"
+        "title": "Find trade barriers"
     }
 
 
@@ -38,7 +38,7 @@ class BarriersListView(TemplateView):
     template_name = "barriers/list.html"
 
     def get_title(self, location=None):
-        title = "Barriers"
+        title = "Trade barriers"
         if location and location != "all":
             title += f" in {location}"
         return title
@@ -75,7 +75,7 @@ class BarrierDetailsView(TemplateView):
         self.barrier = data_gateway.barrier_details(id=_id)
 
     def get_search_title(self):
-        title = "Barriers"
+        title = "Trade barriers"
         if self.request.location and self.request.location != "all":
             title += f" in {self.request.location}"
         return title

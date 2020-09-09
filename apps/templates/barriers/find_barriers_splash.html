@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load headers %}
 
-{% block page_title %}{{ block.super }} - Find barriers{% endblock %}
+{% block page_title %}{{ block.super }} - Find trade barriers{% endblock %}
 
 {% block page_content %}
     {% content_header title %}
     <div>
-        <p><a href="{% url 'barriers:choose-location' %}">Find barriers by location</a></p>
+        <p><a href="{% url 'barriers:choose-location' %}">Find trade barriers by location</a></p>
         or
-        <p><a href="{% url 'barriers:choose-sector' %}">Find barriers by sector</a></p>
+        <p><a href="{% url 'barriers:choose-sector' %}">Find trade barriers by sector</a></p>
     </div>
 {% endblock %}

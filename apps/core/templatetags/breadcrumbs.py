@@ -5,7 +5,7 @@ register = template.Library()
 
 DEFAULT_BREADCRUMBS = (
     ("Home", "https://www.gov.uk/"),
-    ("Find barriers", reverse("barriers:find-barriers-splash"))
+    ("Find trade barriers", reverse("barriers:find-barriers-splash"))
 )
 ACTIVE_BREADCRUMB_CSS_CLASS = " govuk-breadcrumbs__list-item--active"
 
