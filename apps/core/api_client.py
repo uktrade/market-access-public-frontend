@@ -4,7 +4,6 @@ from urllib.parse import quote_plus
 import requests
 from django.conf import settings
 from django.http import Http404
-from requests import HTTPError
 
 from apps.core.interfaces import Barrier
 from apps.core.utils import chain
@@ -50,7 +49,7 @@ class APIClient:
                 s3_filters.append(f"'{filters['sector']}' IN b.sectors[*].name")
 
             # Barriers that affect `All sectors` have to be included in all searches
-            all_sectors_query_str += f" OR 'All sectors' IN b.sectors[*].name"
+            all_sectors_query_str += " OR 'All sectors' IN b.sectors[*].name"
             if location_query_str:
                 all_sectors_query_str += f" AND {location_query_str}"
 
@@ -92,7 +91,7 @@ class DataGatewayResource(APIClient):
             partial_match = (
                 b for b in barriers
                 if sector.name in b.sectors
-                   and sector.name != b.sectors
+                and sector.name != b.sectors
             )
             all_sectors = (b for b in barriers if b.sectors == "All sectors")
             barriers = chain(exact_match, partial_match, all_sectors)

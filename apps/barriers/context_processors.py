@@ -6,4 +6,3 @@ def query_params(request):
     }
 
     return context
-

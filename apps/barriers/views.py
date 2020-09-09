@@ -88,7 +88,10 @@ class BarrierDetailsView(TemplateView):
             ),
             (
                 self.barrier.title,
-                reverse_lazy("barriers:details", kwargs={"barrier_id": self.barrier.id}) + f"?{self.request.query_string}"
+                reverse_lazy(
+                    "barriers:details",
+                    kwargs={"barrier_id": self.barrier.id}
+                ) + f"?{self.request.query_string}"
             )
         )
 
