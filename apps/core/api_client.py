@@ -85,21 +85,9 @@ class DataGatewayResource(APIClient):
         count = len(barriers)
         barriers = [Barrier(d) for d in barriers]
 
-        # # Apply ordering
-        # sector = filters.get("sector")
-        # if sector and sector.name != "All sectors":
-        #     # turn barriers back into a list so it can be reused across the following generators
-        #     barriers = list(barriers)
-        #     exact_match = (b for b in barriers if sector.name == b.sectors)
-        #     partial_match = (
-        #         b for b in barriers
-        #         if sector.name in b.sectors
-        #         and sector.name != b.sectors
-        #     )
-        #     all_sectors = (b for b in barriers if b.sectors == "All sectors")
-        #     barriers = chain(exact_match, partial_match, all_sectors)
-
-        # Apply ordering - sectors alphabetically trailed by barriers with "All sectors"
+        # Apply ordering
+        #   - sectors alphabetically trailed by barriers with "All sectors"
+        #   - within each sector order records by location
         barriers_by_sector = {}
 
         for barrier in barriers:
@@ -114,12 +102,7 @@ class DataGatewayResource(APIClient):
         for k, v in barriers_by_sector.items():
             barriers_affecting_specific_sectors += v
 
-        # barriers_affecting_specific_sectors = [b for b in barriers if b.sectors != "All sectors"]
-        # barriers_affecting_specific_sectors.sort(key=operator.attrgetter('sectors'))
-        # barriers_affecting_all_sectors = [b for b in barriers if b.sectors == "All sectors"]
         barriers = chain(barriers_affecting_specific_sectors, barriers_affecting_all_sectors)
-
-
 
         data = {
             "all": barriers,
