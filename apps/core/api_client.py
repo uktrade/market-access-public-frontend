@@ -95,7 +95,12 @@ class DataGatewayResource(APIClient):
             filtered_barriers.sort(key=operator.attrgetter('location'))
             barriers_by_sector[slugify(barrier.sectors)] = filtered_barriers
 
-        barriers_affecting_all_sectors = barriers_by_sector.pop("all-sectors")
+        barriers_affecting_all_sectors = []
+        try:
+            barriers_affecting_all_sectors = barriers_by_sector.pop("all-sectors")
+        except KeyError:
+            # No records that would affect "All sectors"
+            pass
         barriers_by_sector = collections.OrderedDict(sorted(barriers_by_sector.items()))
 
         barriers_affecting_specific_sectors = []
