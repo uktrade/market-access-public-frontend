@@ -1,9 +1,12 @@
+import collections
 import logging
 from urllib.parse import quote_plus
 
+import operator
 import requests
 from django.conf import settings
 from django.http import Http404
+from django.utils.text import slugify
 
 from apps.core.interfaces import Barrier
 from apps.core.utils import chain
@@ -80,21 +83,43 @@ class DataGatewayResource(APIClient):
         uri = self.versioned_data_uri(version)
         barriers = self.get(uri, filters) or ()
         count = len(barriers)
-        barriers = (Barrier(d) for d in barriers)
+        barriers = [Barrier(d) for d in barriers]
 
-        # Apply ordering
-        sector = filters.get("sector")
-        if sector and sector.name != "All sectors":
-            # turn barriers back into a list so it can be reused across the following generators
-            barriers = list(barriers)
-            exact_match = (b for b in barriers if sector.name == b.sectors)
-            partial_match = (
-                b for b in barriers
-                if sector.name in b.sectors
-                and sector.name != b.sectors
-            )
-            all_sectors = (b for b in barriers if b.sectors == "All sectors")
-            barriers = chain(exact_match, partial_match, all_sectors)
+        # # Apply ordering
+        # sector = filters.get("sector")
+        # if sector and sector.name != "All sectors":
+        #     # turn barriers back into a list so it can be reused across the following generators
+        #     barriers = list(barriers)
+        #     exact_match = (b for b in barriers if sector.name == b.sectors)
+        #     partial_match = (
+        #         b for b in barriers
+        #         if sector.name in b.sectors
+        #         and sector.name != b.sectors
+        #     )
+        #     all_sectors = (b for b in barriers if b.sectors == "All sectors")
+        #     barriers = chain(exact_match, partial_match, all_sectors)
+
+        # Apply ordering - sectors alphabetically trailed by barriers with "All sectors"
+        barriers_by_sector = {}
+
+        for barrier in barriers:
+            filtered_barriers = [b for b in barriers if b.sectors == barrier.sectors]
+            filtered_barriers.sort(key=operator.attrgetter('location'))
+            barriers_by_sector[slugify(barrier.sectors)] = filtered_barriers
+
+        barriers_affecting_all_sectors = barriers_by_sector.pop("all-sectors")
+        barriers_by_sector = collections.OrderedDict(sorted(barriers_by_sector.items()))
+
+        barriers_affecting_specific_sectors = []
+        for k, v in barriers_by_sector.items():
+            barriers_affecting_specific_sectors += v
+
+        # barriers_affecting_specific_sectors = [b for b in barriers if b.sectors != "All sectors"]
+        # barriers_affecting_specific_sectors.sort(key=operator.attrgetter('sectors'))
+        # barriers_affecting_all_sectors = [b for b in barriers if b.sectors == "All sectors"]
+        barriers = chain(barriers_affecting_specific_sectors, barriers_affecting_all_sectors)
+
+
 
         data = {
             "all": barriers,
