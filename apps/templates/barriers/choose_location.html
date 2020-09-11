@@ -23,7 +23,10 @@
                 <h3>{{ init }}</h3>
                 {% for country in country_list %}
                     <p>
-                        <a href="{% url "barriers:list" %}{% location_filter country.slug %}">{{ country.name }}</a>
+                        <a href="{% url "barriers:list" %}{% location_filter country.slug %}"
+                           class="govuk-link{% if not country.records_count %} govuk-link--muted{% endif %}">
+                            {{ country.name }}{% if country.records_count %} ({{ country.records_count }}){% endif %}
+                        </a>
                     </p>
                 {% endfor %}
             </div>

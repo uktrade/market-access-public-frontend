@@ -33,6 +33,7 @@ class Country:
         self.overseas_region = kwargs["overseas_region"]
         self.iso_alpha2_code = kwargs["iso_alpha2_code"]
         self.admin_areas = kwargs.get("admin_areas")
+        self.records_count = 0
 
         if not self.admin_areas:
             self.set_admin_areas()
@@ -63,6 +64,7 @@ class Sector:
         self.segment = kwargs["segment"]
         self.disabled_on = kwargs["disabled_on"]
         self.level = kwargs["level"]
+        self.records_count = 0
 
     @property
     def slug(self):
@@ -108,12 +110,26 @@ class DataAggregator:
 
         return collections.OrderedDict(sorted(new_groups.items()))
 
+    def count_records(self, by_field, dataset=(), op="exact", offset=0):
+        dataset = list(dataset)
+        for item in self.all:
+            if op == "exact":
+                item.records_count = len(
+                    [d for d in dataset if item.name == getattr(d, by_field)]
+                ) + offset
+            if op == "include":
+                item.records_count = len(
+                    [d for d in dataset if item.name in getattr(d, by_field)]
+                ) + offset
 
-class SectorsAggregator(DataAggregator):
-    pass
+        return self.grouped_alphabetically
 
 
 class CountriesAggregator(DataAggregator):
+    pass
+
+
+class SectorsAggregator(DataAggregator):
     pass
 
 
