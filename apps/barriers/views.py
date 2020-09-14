@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 
 from apps.core.api_client import data_gateway
-from apps.metadata.aggregators import countries, sectors, AllSectors
+from apps.metadata.aggregators import countries, sectors, AllSectors, trading_blocs
 
 
 class BarriersListMixin:
@@ -31,6 +31,13 @@ class LocationFiltersView(BarriersListMixin, TemplateView):
             ("Choose a location", reverse_lazy("barriers:choose-location")),
         )
 
+    def get_trading_blocs(self):
+        barriers = self.get_barriers_list()
+        choices = trading_blocs.count_records(
+            "location", barriers["all"], op="include"
+        )
+        return choices
+
     def get_countries(self):
         barriers = self.get_barriers_list()
         choices = countries.count_records("country", barriers["all"])
@@ -38,6 +45,7 @@ class LocationFiltersView(BarriersListMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["trading_blocs"] = self.get_trading_blocs()
         context["countries"] = self.get_countries()
         context["breadcrumbs"] = self.get_breadcrumbs()
         context["title"] = "Choose a location"

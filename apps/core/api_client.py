@@ -10,6 +10,7 @@ from django.utils.text import slugify
 
 from apps.core.interfaces import Barrier
 from apps.core.utils import chain
+from apps.metadata.aggregators import TradingBloc
 
 logger = logging.getLogger(__name__)
 
@@ -44,13 +45,24 @@ class APIClient:
         if filters.get('id'):
             s3_filters.append(f"b.id = {filters['id']}")
         else:
-            if filters.get('location') and filters.get('location').name not in ignored_locations:
-                location_query_str = f"b.country.name = '{filters['location']}'"
+            # LOCATION filter
+            location = filters.get('location')
+            if location and location.name not in ignored_locations:
+                if isinstance(location, TradingBloc):
+                    # Trading Bloc
+                    location_query_str = f"b.location LIKE '%{location.name}%'"
+                else:
+                    # Country
+                    # Exact match
+                    location_query_str = f"'{location.name}' = b.location"
+                    # Country with trading bloc
+                    location_query_str += f" OR b.location LIKE '%{location.name} (%'"
                 s3_filters.append(location_query_str)
 
             if filters.get('sector') and filters.get('sector').name not in ignored_sectors:
                 s3_filters.append(f"'{filters['sector']}' IN b.sectors[*].name")
 
+            # SECTOR filter
             # Barriers that affect `All sectors` have to be included in all searches
             all_sectors_query_str += " OR 'All sectors' IN b.sectors[*].name"
             if location_query_str:

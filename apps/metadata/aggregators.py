@@ -1,4 +1,5 @@
 import collections
+import logging
 import operator
 
 from django.utils.text import slugify
@@ -7,8 +8,44 @@ from apps.core.utils import convert_to_snake_case
 from .base import metadata
 
 
+logger = logging.getLogger(__name__)
+
+
 # INTERFACES
 # ========================================================
+
+class TradingBloc:
+
+    def __init__(self, **kwargs):
+        self.code = kwargs["code"]
+        self.name = kwargs["name"]
+        self.short_name = kwargs.get("short_name", "")
+        self.iso_alpha2_code = kwargs["iso_alpha2_code"]
+        self.country_iso_codes = kwargs["country_iso_codes"]
+        self.members = kwargs.get("members") or set()
+        self.records_count = 0
+
+        self.refresh_members()
+
+    def refresh_members(self):
+        for code in self.country_iso_codes:
+            attr = code.lower()
+            try:
+                self.members.add(getattr(countries, attr))
+            except AttributeError as e:
+                logger.error(f"Could not find country with iso code [{attr}]", e)
+                pass
+
+    @property
+    def slug(self):
+        return self.iso_alpha2_code.lower()
+
+    def __str__(self):
+        return f"{self.name}"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__} - {self.name}>"
+
 
 class AdminArea:
 
@@ -125,6 +162,10 @@ class DataAggregator:
         return self.grouped_alphabetically
 
 
+class TradingBlocsAggregator(DataAggregator):
+    pass
+
+
 class CountriesAggregator(DataAggregator):
     pass
 
@@ -141,6 +182,8 @@ class AdminAreas(DataAggregator):
 
 
 countries = CountriesAggregator(Country, metadata.get_country_list(), attr_from="iso_alpha2_code")
+# Trading Blocs Aggregator has to be defined after countries as it depends on it
+trading_blocs = TradingBlocsAggregator(TradingBloc, metadata.get_trading_bloc_list(), attr_from="iso_alpha2_code")
 sectors = SectorsAggregator(Sector, metadata.get_sector_list(level=0))
 
 

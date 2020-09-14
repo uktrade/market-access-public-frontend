@@ -3,7 +3,7 @@ from urllib.parse import parse_qs
 from django.utils.deprecation import MiddlewareMixin
 
 from apps.core.utils import convert_to_snake_case
-from apps.metadata.aggregators import countries, sectors, AllLocations, AllSectors
+from apps.metadata.aggregators import countries, sectors, AllLocations, AllSectors, trading_blocs
 
 
 class FiltersMiddleware(MiddlewareMixin):
@@ -21,6 +21,8 @@ class FiltersMiddleware(MiddlewareMixin):
             location = params["location"][0]
             if location == "all":
                 request.location = AllLocations()
+            if location == "eu":
+                request.location = trading_blocs.eu
             else:
                 request.location = getattr(countries, params["location"][0])
 
