@@ -5707,5 +5707,43 @@
       "level": 0,
       "disabled_on": null
     }
+  ],
+  "trading_blocs": [
+    {
+      "code": "TB00016",
+      "name": "European Union",
+      "short_name": "the EU",
+      "iso_alpha2_code": "EU",
+      "country_iso_codes": [
+        "AT",
+        "BE",
+        "BG",
+        "HR",
+        "CY",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "GR",
+        "HU",
+        "IE",
+        "IT",
+        "LV",
+        "LT",
+        "LU",
+        "MT",
+        "NL",
+        "PL",
+        "PT",
+        "RO",
+        "SK",
+        "SI",
+        "ES",
+        "SE",
+        "GB"
+      ]
+    }
   ]
 }

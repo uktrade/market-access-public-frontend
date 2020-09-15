@@ -1,12 +1,16 @@
+import collections
 import logging
 from urllib.parse import quote_plus
 
+import operator
 import requests
 from django.conf import settings
 from django.http import Http404
+from django.utils.text import slugify
 
 from apps.core.interfaces import Barrier
 from apps.core.utils import chain
+from apps.metadata.aggregators import TradingBloc
 
 logger = logging.getLogger(__name__)
 
@@ -41,13 +45,24 @@ class APIClient:
         if filters.get('id'):
             s3_filters.append(f"b.id = {filters['id']}")
         else:
-            if filters.get('location') and filters.get('location').name not in ignored_locations:
-                location_query_str = f"b.country.name = '{filters['location']}'"
+            # LOCATION filter
+            location = filters.get('location')
+            if location and location.name not in ignored_locations:
+                if isinstance(location, TradingBloc):
+                    # Trading Bloc
+                    location_query_str = f"b.location LIKE '%{location.name}%'"
+                else:
+                    # Country
+                    # Exact match
+                    location_query_str = f"'{location.name}' = b.location"
+                    # Country with trading bloc
+                    location_query_str += f" OR b.location LIKE '%{location.name} (%'"
                 s3_filters.append(location_query_str)
 
             if filters.get('sector') and filters.get('sector').name not in ignored_sectors:
                 s3_filters.append(f"'{filters['sector']}' IN b.sectors[*].name")
 
+            # SECTOR filter
             # Barriers that affect `All sectors` have to be included in all searches
             all_sectors_query_str += " OR 'All sectors' IN b.sectors[*].name"
             if location_query_str:
@@ -80,21 +95,31 @@ class DataGatewayResource(APIClient):
         uri = self.versioned_data_uri(version)
         barriers = self.get(uri, filters) or ()
         count = len(barriers)
-        barriers = (Barrier(d) for d in barriers)
+        barriers = [Barrier(d) for d in barriers]
 
         # Apply ordering
-        sector = filters.get("sector")
-        if sector and sector.name != "All sectors":
-            # turn barriers back into a list so it can be reused across the following generators
-            barriers = list(barriers)
-            exact_match = (b for b in barriers if sector.name == b.sectors)
-            partial_match = (
-                b for b in barriers
-                if sector.name in b.sectors
-                and sector.name != b.sectors
-            )
-            all_sectors = (b for b in barriers if b.sectors == "All sectors")
-            barriers = chain(exact_match, partial_match, all_sectors)
+        #   - sectors alphabetically trailed by barriers with "All sectors"
+        #   - within each sector order records by location
+        barriers_by_sector = {}
+
+        for barrier in barriers:
+            filtered_barriers = [b for b in barriers if b.sectors == barrier.sectors]
+            filtered_barriers.sort(key=operator.attrgetter('location'))
+            barriers_by_sector[slugify(barrier.sectors)] = filtered_barriers
+
+        barriers_affecting_all_sectors = []
+        try:
+            barriers_affecting_all_sectors = barriers_by_sector.pop("all-sectors")
+        except KeyError:
+            # No records that would affect "All sectors"
+            pass
+        barriers_by_sector = collections.OrderedDict(sorted(barriers_by_sector.items()))
+
+        barriers_affecting_specific_sectors = []
+        for k, v in barriers_by_sector.items():
+            barriers_affecting_specific_sectors += v
+
+        barriers = chain(barriers_affecting_specific_sectors, barriers_affecting_all_sectors)
 
         data = {
             "all": barriers,

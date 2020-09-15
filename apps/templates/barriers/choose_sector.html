@@ -15,12 +15,15 @@
 
     <h2>Sector</h2>
     <div class="filter-options__container">
-        {% for letter, sector_list in sectors.items %}
+        {% for initial_letter, sector_list in sectors.items %}
             <div class="filter-options-group__container">
-                <h3>{{ letter }}</h3>
+                <h3>{{ initial_letter }}</h3>
                 {% for sector in sector_list %}
                     <p>
-                        <a href="{% url "barriers:list" %}{% sector_filter sector.slug %}">{{ sector.name }}</a>
+                        <a href="{% url "barriers:list" %}{% sector_filter sector.slug %}"
+                           class="govuk-link{% if not sector.records_count %} govuk-link--muted{% endif %}">
+                            {{ sector.name }}{% if sector.records_count %} ({{ sector.records_count }}){% endif %}
+                        </a>
                     </p>
                 {% endfor %}
             </div>

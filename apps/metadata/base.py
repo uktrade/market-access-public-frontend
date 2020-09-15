@@ -11,6 +11,9 @@ class Metadata:
     def __init__(self, data):
         self.data = data
 
+    def get_trading_bloc_list(self):
+        return self.data["trading_blocs"]
+
     def get_admin_area(self, admin_area_id):
         for admin_area in self.data["country_admin_areas"]:
             if admin_area["id"] == admin_area_id and admin_area["disabled_on"] is None:
@@ -40,25 +43,6 @@ class Metadata:
         for country in self.data["countries"]:
             if country["id"] == country_id:
                 return country
-
-    def get_location_text(self, country_id, admin_area_ids):
-        country_data = self.get_country(country_id)
-
-        if country_data:
-            country_name = country_data["name"]
-        else:
-            country_name = ""
-
-        if admin_area_ids:
-            admin_areas_string = ", ".join(
-                [
-                    self.get_admin_area(admin_area_id)["name"]
-                    for admin_area_id in admin_area_ids
-                ]
-            )
-            return f"{admin_areas_string} ({country_name})"
-
-        return country_name
 
     def get_country_list(self):
         return self.data["countries"]

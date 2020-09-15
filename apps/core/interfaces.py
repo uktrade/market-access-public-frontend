@@ -18,7 +18,11 @@ class Barrier(APIModel):
 
     @property
     def country(self):
-        return self.data["country"]["name"]
+        return self.data["country"].get("name")
+
+    @property
+    def location(self):
+        return self.data["location"]
 
     @property
     def sectors(self):
