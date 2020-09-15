@@ -31,14 +31,17 @@
             <li>{{ sector }}</li>
         {% endfor %}
         </ul>
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-        <!-- Category -->
-        <h5 class="govuk-heading-s">Categories</h5>
-        <ul class="govuk-list govuk-list--bullet">
-        {% for category in barrier.categories_list %}
-            <li>{{ category }}</li>
-        {% endfor %}
-        </ul>
+{# Remove Category field until further notice #}
+{# ========================================================================================   #}
+{#        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">#}
+{#        <!-- Category -->#}
+{#        <h5 class="govuk-heading-s">Categories</h5>#}
+{#        <ul class="govuk-list govuk-list--bullet">#}
+{#        {% for category in barrier.categories_list %}#}
+{#            <li>{{ category }}</li>#}
+{#        {% endfor %}#}
+{#        </ul>#}
+{# ========================================================================================   #}
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
         <!-- Status -->
         <h5 class="govuk-heading-s">Status</h5>
