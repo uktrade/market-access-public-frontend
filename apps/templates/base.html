@@ -4,19 +4,11 @@
 <html lang="{{ htmlLang | default:'en' }}" class="govuk-template {{ htmlClasses }}">
 <head>
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start':
-                new Date().getTime(), event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl + '&gtm_auth={{ settings.GTM_AUTH }}&gtm_preview={{ settings.GTM_PREVIEW }}&gtm_cookies_win=x';
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', '{{ settings.GTM_ID }}');</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ settings.GTM_ID }}');</script>
     <!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <title>{% block page_title %}{{ settings.SERVICE_NAME }}{% endblock %}</title>
@@ -49,10 +41,8 @@
 </head>
 <body class="govuk-template__body {{ bodyClasses }}">
 <!-- Google Tag Manager (noscript) -->
-<noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id={{ settings.GTM_ID }}&gtm_auth={{ settings.GTM_AUTH }}&gtm_preview={{ settings.GTM_PREVIEW }}&gtm_cookies_win=x"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ settings.GTM_ID }}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 {% block bodyStart %}{% endblock %}
