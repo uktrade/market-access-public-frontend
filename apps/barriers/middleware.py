@@ -21,7 +21,7 @@ class FiltersMiddleware(MiddlewareMixin):
             location = params["location"][0]
             if location == "all":
                 request.location = AllLocations()
-            if location == "eu":
+            elif location == "eu":
                 request.location = trading_blocs.eu
             else:
                 request.location = getattr(countries, params["location"][0])
