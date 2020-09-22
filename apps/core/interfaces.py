@@ -16,6 +16,14 @@ class APIModel:
 class Barrier(APIModel):
 
     @property
+    def is_resolved_text(self):
+        if self.is_resolved:
+            if self.status_date:
+                return f"Yes - {self.status_date.strftime('%B %Y')}"
+            return "Yes"
+        return "No"
+
+    @property
     def status_date(self):
         if self.data.get("status_date"):
             return dateutil.parser.parse(self.data["status_date"])
