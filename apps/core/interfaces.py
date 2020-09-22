@@ -16,10 +16,6 @@ class APIModel:
 class Barrier(APIModel):
 
     @property
-    def status(self):
-        return self.data["status"]["name"]
-
-    @property
     def status_date(self):
         if self.data.get("status_date"):
             return dateutil.parser.parse(self.data["status_date"])

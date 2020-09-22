@@ -91,7 +91,7 @@
                     </td>
                     <td class="govuk-table__cell">{{ barrier.sectors }}</td>
                     <td class="govuk-table__cell">{{ barrier.location }}</td>
-                    <td class="govuk-table__cell">{{ barrier.status }}</td>
+                    <td class="govuk-table__cell">{{ barrier.is_resolved|yesno:"Yes,No" }}</td>
                 </tr>
             {% endfor %}
             </tbody>
