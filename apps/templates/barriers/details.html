@@ -3,7 +3,7 @@
 {% load headers %}
 {% load query_params %}
 
-{% block page_title %}{{ block.super }} - Find trade barriers{% endblock %}
+{% block page_title %}{{ barrier.title }} - {{ block.super }}{% endblock %}
 
 {% block breadcrumbs %}
     {% show_breadcrumbs breadcrumbs %}
@@ -55,7 +55,7 @@
     </section>
 
     <section>
-        <a href="{% url "barriers:list" %}{% remove_filter "nada" %}" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        <a href="{% url "barriers:list" %}{% remove_filter "nada" %}" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
             Back to search results
         </a>
     </section>

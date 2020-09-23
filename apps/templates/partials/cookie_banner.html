@@ -1,0 +1,30 @@
+{% load query_params %}
+
+{% if not request.cookie_preferences_set and request.path != '/cookies/' %}
+    <div id="cookie-banner">
+        <div class="govuk-grid-row govuk-width-container">
+            <div class="govuk-grid-column-two-thirds">
+                <div class="cookie-banner__message">
+                    <h2 class="govuk-heading-m">Tell us whether you accept cookies</h2>
+                    <p class="govuk-body">We use <a href="{% url 'core:cookies' %}" class="govuk-link">cookies to
+                        collect
+                        information</a> about how
+                        you use GOV.UK. We use this information to make the website work as well as possible and improve
+                        government services.</p>
+                </div>
+                <form action="{% url 'core:cookies' %}{% next_filter %}" method="POST">
+                    {% csrf_token %}
+                    <div class="cookie-banner__buttons-container">
+                        {% csrf_token %}
+                        <input type="hidden" name="google_analytics" value="1">
+                        <button class="govuk-button" type="submit" data-accept-cookies="true"
+                                data-track-category="cookieBanner"
+                                data-track-action="Cookie banner accepted">Accept all cookies
+                        </button>
+                        <a class="govuk-button" role="button" href="{% url 'core:cookies' %}{% next_filter %}">Set cookie preferences</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endif %}

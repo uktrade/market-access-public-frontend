@@ -3,7 +3,7 @@
 {% load headers %}
 {% load query_params %}
 
-{% block page_title %}{{ block.super }} - Find trade barriers{% endblock %}
+{% block page_title %}Search results - {{ block.super }}{% endblock %}
 
 {% block breadcrumbs %}
     {% show_breadcrumbs breadcrumbs %}
@@ -20,7 +20,7 @@
                     Location
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    <a class="govuk-link" href="{% url "barriers:choose-location" %}{% remove_filter "location" %}">
+                    <a href="{% url "barriers:choose-location" %}{% remove_filter "location" %}" class="govuk-link">
                     {% if location %}
                         {{ location.name }}
                     {% else %}
@@ -30,7 +30,7 @@
                 </dd>
                 <dd class="govuk-summary-list__actions">
                 {% if location %}
-                    <a class="govuk-link" href="{% url "barriers:list" %}{% remove_filter "location" %}">
+                    <a href="{% url "barriers:list" %}{% remove_filter "location" %}" class="govuk-link">
                         Clear<span class="govuk-visually-hidden"> location</span>
                     </a>
                 {% endif %}
@@ -41,7 +41,7 @@
                     Sector
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    <a class="govuk-link" href="{% url "barriers:choose-sector" %}{% remove_filter "sector" %}">
+                    <a href="{% url "barriers:choose-sector" %}{% remove_filter "sector" %}" class="govuk-link">
                     {% if sector %}
                         {{ sector.name }}
                     {% else %}
@@ -51,7 +51,7 @@
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     {% if sector %}
-                    <a class="govuk-link" href="{% url "barriers:list" %}{% remove_filter "sector" %}">
+                    <a href="{% url "barriers:list" %}{% remove_filter "sector" %}" class="govuk-link">
                         Clear<span class="govuk-visually-hidden"> sector</span>
                     </a>
                     {% endif %}
@@ -85,7 +85,7 @@
             {% for barrier in barriers.all %}
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">
-                        <a href="{% url "barriers:details" barrier.id %}{% remove_filter "nada" %}">
+                        <a href="{% url "barriers:details" barrier.id %}{% remove_filter "nada" %}" class="govuk-link">
                             {{ barrier.title }}
                         </a>
                     </td>

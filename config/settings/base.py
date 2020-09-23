@@ -17,7 +17,7 @@ VCAP_SERVICES = env.json('VCAP_SERVICES', default={})
 
 # GENERAL
 # ------------------------------------------------------------------------------
-SERVICE_NAME = env("SERVICE_NAME", default="Public Service Name")
+SERVICE_NAME = env("SERVICE_NAME", default="Local Trade Barriers")
 # SECURITY WARNING: keep the secret key used in production secret!
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env("DJANGO_SECRET_KEY")
@@ -117,7 +117,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "apps.barriers.middleware.FiltersMiddleware"
+    "apps.barriers.middleware.FiltersMiddleware",
+    "apps.core.middleware.CookiesMiddleware"
 ]
 
 # STATIC
@@ -208,10 +209,15 @@ GTM_ID = env('GTM_ID')
 GTM_AUTH = env('GTM_AUTH')
 GTM_PREVIEW = env('GTM_PREVIEW')
 
+# COOKIE SETTINGS
+# ------------------------------------------------------------------------------
+COOKIE_SETTINGS_EXPIRY = 365  # days
+
 # Settings made available in templates
 # ------------------------------------------------------------------------------
 # https://github.com/jakubroztocil/django-settings-export#usage
 SETTINGS_EXPORT = (
+    'COOKIE_SETTINGS_EXPIRY',
     'DJANGO_ENV',
     'GTM_ID',
     'GTM_AUTH',

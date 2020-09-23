@@ -44,5 +44,6 @@ if settings.DEBUG:
 
 urlpatterns += [
     path("", include("apps.barriers.urls", namespace="barriers")),
+    path("", include("apps.core.urls", namespace="core")),
     path("", include("apps.healthcheck.urls", namespace="healthcheck")),
 ]

@@ -28,6 +28,27 @@ def sector_filter(context, sector):
 
 
 @register.simple_tag(takes_context=True)
+def next_filter(context, path=None):
+    """
+    Appends the query params next= to the url.
+    Views should respect this and redirect to the path set in next.
+    """
+    query_string = context.get("query_string")
+    # remove any unwanted "next" params that might have been added by the user
+    params = parse_qs(query_string)
+    params.pop("next", None)
+    query_string = urlencode(params, doseq=True)
+    if not path:
+        path = context.request.path
+    if query_string:
+        query_string = f'?{query_string}&next={path}'
+    else:
+        query_string = f'?next={path}'
+
+    return query_string
+
+
+@register.simple_tag(takes_context=True)
 def remove_filter(context, filter_name):
     params = parse_qs(context.get("query_string"))
     params.pop(filter_name, None)
