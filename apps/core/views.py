@@ -14,7 +14,8 @@ class CookieToggle:
     @classmethod
     def choices(cls):
         return (
-            (cls.OFF,
+            (
+                cls.OFF,
                 {
                     "label": "OFF"
                 }
