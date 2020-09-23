@@ -13,7 +13,7 @@
 
     <section class="govuk-!-margin-bottom-9">
 
-        <span class="govuk-caption-m">{{ barrier.id }}</span>
+        <span class="govuk-caption-m">Public ID: {{ barrier.public_id }}</span>
         <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">{{ barrier.title }}</h1>
         <span class="govuk-caption-s">in {{ barrier.location }}</span>
 
@@ -24,6 +24,11 @@
         <h4 class="govuk-heading-m">Trade barrier summary</h4>
         <p class="govuk-body">{{ barrier.summary }}</p>
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h5 class="govuk-heading-s">Public ID</h5>
+        <p class="govuk-body">{{ barrier.public_id }}</p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
         <!-- Sectors -->
         <h5 class="govuk-heading-s">Sectors affected</h5>
         <ul class="govuk-list govuk-list--bullet">
