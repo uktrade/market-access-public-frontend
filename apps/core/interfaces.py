@@ -48,3 +48,7 @@ class Barrier(APIModel):
     @property
     def categories_list(self):
         return [s.get("name") for s in self.data.get("categories", {})]
+
+    @property
+    def public_id(self):
+        return f"PID-{self.id}"
