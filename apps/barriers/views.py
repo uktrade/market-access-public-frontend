@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 
 from apps.core.api_client import data_gateway
+from apps.core.mixins import BreadCrumbsMixin
 from apps.metadata.aggregators import countries, sectors, AllSectors, trading_blocs
 
 
@@ -23,13 +24,11 @@ class FindBarriersSplashView(TemplateView):
     }
 
 
-class LocationFiltersView(BarriersListMixin, TemplateView):
+class LocationFiltersView(BreadCrumbsMixin, BarriersListMixin, TemplateView):
     template_name = "barriers/choose_location.html"
-
-    def get_breadcrumbs(self):
-        return (
-            ("Choose a location", reverse_lazy("barriers:choose-location")),
-        )
+    breadcrumbs = (
+        ("Choose a location", reverse_lazy("barriers:choose-location")),
+    )
 
     def get_trading_blocs(self):
         barriers = self.get_barriers_list()
@@ -47,18 +46,15 @@ class LocationFiltersView(BarriersListMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context["trading_blocs"] = self.get_trading_blocs()
         context["countries"] = self.get_countries()
-        context["breadcrumbs"] = self.get_breadcrumbs()
         context["title"] = "Choose a location"
         return context
 
 
-class SectorFiltersView(BarriersListMixin, TemplateView):
+class SectorFiltersView(BreadCrumbsMixin, BarriersListMixin, TemplateView):
     template_name = "barriers/choose_sector.html"
-
-    def get_breadcrumbs(self):
-        return (
-            ("Choose a sector", reverse_lazy("barriers:choose-sector")),
-        )
+    breadcrumbs = (
+        ("Choose a sector", reverse_lazy("barriers:choose-sector")),
+    )
 
     def get_sectors(self):
         barriers = self.get_barriers_list()
@@ -71,13 +67,12 @@ class SectorFiltersView(BarriersListMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["breadcrumbs"] = self.get_breadcrumbs()
         context["sectors"] = self.get_sectors()
         context["title"] = "Choose a sector"
         return context
 
 
-class BarriersListView(BarriersListMixin, TemplateView):
+class BarriersListView(BreadCrumbsMixin, BarriersListMixin, TemplateView):
     template_name = "barriers/list.html"
 
     def get_title(self, location=None):
@@ -97,12 +92,11 @@ class BarriersListView(BarriersListMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["barriers"] = self.get_barriers_list()
-        context["breadcrumbs"] = self.get_breadcrumbs()
         context["title"] = self.get_title(self.request.location)
         return context
 
 
-class BarrierDetailsView(TemplateView):
+class BarrierDetailsView(BreadCrumbsMixin, TemplateView):
     template_name = "barriers/details.html"
     barrier = None
 
@@ -135,5 +129,4 @@ class BarrierDetailsView(TemplateView):
         self.fetch_barrier(context["barrier_id"])
         context["title"] = self.barrier.title
         context["barrier"] = self.barrier
-        context["breadcrumbs"] = self.get_breadcrumbs()
         return context

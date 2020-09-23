@@ -3,7 +3,7 @@
 {% load headers %}
 {% load query_params %}
 
-{% block page_title %}Cookie Policy - {{ block.super }}{% endblock %}
+{% block page_title %}Cookie Details - {{ block.super }}{% endblock %}
 
 {% block breadcrumbs %}
     {% show_breadcrumbs breadcrumbs %}
@@ -12,8 +12,7 @@
 {% block page_content %}
     <div class="govuk-grid-row cookie-preferences">
         <div class="govuk-grid-column-two-thirds">
-            <span class="govuk-caption-xl">{{ settings.SERVICE_NAME }}</span>
-            <h1 class="govuk-heading-xl">Cookies</h1>
+            <h1 class="govuk-heading-xl">Details about cookies on {{ settings.SERVICE_NAME }}</h1>
 
             <p class="govuk-body">{{ settings.SERVICE_NAME }} Service puts small files (known as ‘cookies’) onto your
                 computer to collect information about how you browse the site and to enable the service to function

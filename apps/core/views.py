@@ -3,8 +3,11 @@ import json
 
 from django import forms
 from django.conf import settings
+from django.urls import reverse_lazy
 
 from django.views.generic import FormView, TemplateView
+
+from apps.core.mixins import BreadCrumbsMixin
 
 
 class CookieToggle:
@@ -35,13 +38,19 @@ class CookieSettingsForm(forms.Form):
     )
 
 
-class CookiePolicyView(TemplateView):
+class CookiePolicyView(BreadCrumbsMixin, TemplateView):
     template_name = "pages/cookie-policy.html"
+    breadcrumbs = (
+        ("Cookie Policy", reverse_lazy("core:cookie-policy")),
+    )
 
 
 class CookiesView(FormView):
     template_name = "pages/cookies.html"
     form_class = CookieSettingsForm
+    breadcrumbs = (
+        ("Cookies", reverse_lazy("core:cookies")),
+    )
 
     def get_success_url(self):
         return self.request.next or "/"

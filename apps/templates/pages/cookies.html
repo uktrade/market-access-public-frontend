@@ -12,8 +12,7 @@
 {% block page_content %}
     <div class="govuk-grid-row cookie-preferences">
         <div class="govuk-grid-column-two-thirds">
-            <span class="govuk-caption-xl">{{ settings.SERVICE_NAME }}</span>
-            <h1 class="govuk-heading-xl">Cookies on the {{ settings.SERVICE_NAME }} service</h1>
+            <h1 class="govuk-heading-xl">Cookies on {{ settings.SERVICE_NAME }}</h1>
 
             <form action="" method="POST">
                 {% csrf_token %}
