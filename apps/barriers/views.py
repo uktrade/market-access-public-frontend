@@ -96,7 +96,7 @@ class BarriersListView(BreadCrumbsMixin, BarriersListMixin, TemplateView):
         return context
 
 
-class BarrierDetailsView(BreadCrumbsMixin, TemplateView):
+class BarrierDetailsView(TemplateView):
     template_name = "barriers/details.html"
     barrier = None
 
@@ -129,4 +129,5 @@ class BarrierDetailsView(BreadCrumbsMixin, TemplateView):
         self.fetch_barrier(context["barrier_id"])
         context["title"] = self.barrier.title
         context["barrier"] = self.barrier
+        context["breadcrumbs"] = self.get_breadcrumbs()
         return context
