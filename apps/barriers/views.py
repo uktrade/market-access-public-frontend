@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 
 from apps.core.api_client import data_gateway
-from apps.core.mixins import BreadCrumbsMixin
+from apps.core.mixins import BreadcrumbsMixin
 from apps.metadata.aggregators import countries, sectors, AllSectors, trading_blocs
 
 
@@ -24,7 +24,7 @@ class FindBarriersSplashView(TemplateView):
     }
 
 
-class LocationFiltersView(BreadCrumbsMixin, BarriersListMixin, TemplateView):
+class LocationFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
     template_name = "barriers/choose_location.html"
     breadcrumbs = (
         ("Choose a location", reverse_lazy("barriers:choose-location")),
@@ -50,7 +50,7 @@ class LocationFiltersView(BreadCrumbsMixin, BarriersListMixin, TemplateView):
         return context
 
 
-class SectorFiltersView(BreadCrumbsMixin, BarriersListMixin, TemplateView):
+class SectorFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
     template_name = "barriers/choose_sector.html"
     breadcrumbs = (
         ("Choose a sector", reverse_lazy("barriers:choose-sector")),
@@ -72,7 +72,7 @@ class SectorFiltersView(BreadCrumbsMixin, BarriersListMixin, TemplateView):
         return context
 
 
-class BarriersListView(BreadCrumbsMixin, BarriersListMixin, TemplateView):
+class BarriersListView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
     template_name = "barriers/list.html"
 
     def get_title(self, location=None):

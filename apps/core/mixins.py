@@ -1,4 +1,4 @@
-class BreadCrumbsMixin:
+class BreadcrumbsMixin:
     """
     Helper mixin to help adding breadcrumbs to a Django view.
     Breadcrumbs should be a list of tuples (title, url)

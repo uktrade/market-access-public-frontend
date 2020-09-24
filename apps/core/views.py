@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 
 from django.views.generic import FormView, TemplateView
 
-from apps.core.mixins import BreadCrumbsMixin
+from apps.core.mixins import BreadcrumbsMixin
 
 
 class CookieToggle:
@@ -38,7 +38,7 @@ class CookieSettingsForm(forms.Form):
     )
 
 
-class CookiePolicyView(BreadCrumbsMixin, TemplateView):
+class CookiePolicyView(BreadcrumbsMixin, TemplateView):
     template_name = "pages/cookie-policy.html"
     breadcrumbs = (
         ("Cookie Policy", reverse_lazy("core:cookie-policy")),
