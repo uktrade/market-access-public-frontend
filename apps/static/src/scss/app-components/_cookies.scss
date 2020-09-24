@@ -1,0 +1,12 @@
+#cookie-banner {
+  background-color: $govuk-light-grey;
+  padding: 20px 0;
+  box-sizing: border-box;
+
+  .cookie-banner__buttons-container {
+    .govuk-button {
+      margin-bottom: 5px;
+      margin-right: 10px;
+    }
+  }
+}

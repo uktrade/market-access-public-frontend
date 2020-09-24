@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load breadcrumbs %}
+{% load headers %}
+{% load query_params %}
+
+{% block page_title %}Cookies - {{ block.super }}{% endblock %}
+
+{% block breadcrumbs %}
+    {% show_breadcrumbs breadcrumbs %}
+{% endblock %}
+
+{% block page_content %}
+    <div class="govuk-grid-row cookie-preferences">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Cookies on {{ settings.SERVICE_NAME }}</h1>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="redirect_url" value="{{ redirect_url }}">
+
+                <p class="govuk-body">Cookies are files saved on your phone, tablet or computer when you visit a website.</p>
+                <p class="govuk-body">We use cookies to store information about how you use the {{ settings.SERVICE_NAME }} website, such as the
+                    pages you visit.</p>
+
+                <h2 class="govuk-heading-l">Cookie settings</h2>
+                <p class="govuk-body">We use two types of cookie. You can choose which cookies you're happy for us to use.</p>
+
+                <div class="govuk-form-group" aria-describedby="ga-hint">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            <h1 class="govuk-fieldset__heading">
+                                Cookies that measure website use
+                            </h1>
+                        </legend>
+                        <div id="ga-hint" class="govuk-hint">
+                            <span>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</span>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>how you got to the site</li>
+                                <li>the pages you visit on GOV.UK and government digital services, and how long you spend on
+                                    each page
+                                </li>
+                                <li>what you click on while you're visiting the site</li>
+                            </ul>
+                            <span>We do not allow Google to use or share the data about how you use this site.</span>
+                        </div>
+                        <div class="govuk-radios govuk-radios--inline">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="ga" name="google_analytics" type="radio" value="1" {% if form.initial.google_analytics|lower == '1' %}checked{% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="ga">
+                                  On
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="ga-2" name="google_analytics" type="radio" value="0" {% if form.initial.google_analytics|lower == '0' %}checked{% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="ga-2">
+                                  Off
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <h3 class="govuk-heading-m">Strictly necessary cookies</h3>
+                <p class="govuk-body">These essential cookies do things like remember your progress through a form.</p>
+                <p class="govuk-body">They always need to be on.</p>
+                <p class="govuk-body">
+                    <a href="{% url 'core:cookie-policy' %}" class="govuk-link">Find out more about cookies on the {{ settings.SERVICE_NAME }} service</a>
+                </p>
+                <input type="submit" value="Save changes" class="govuk-button">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -27,7 +27,7 @@ class APIClient:
         return f"{self.get_base_uri().rstrip('/')}/{path.lstrip('/')}"
 
     def request(self, method, uri, **kwargs):
-        response = getattr(requests, method)(uri, **kwargs)
+        response = getattr(requests, method)(uri, timeout=5, **kwargs)
         try:
             response.raise_for_status()
             return response

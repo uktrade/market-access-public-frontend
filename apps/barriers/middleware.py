@@ -1,4 +1,4 @@
-from urllib.parse import parse_qs
+from urllib.parse import parse_qs, urlencode
 
 from django.utils.deprecation import MiddlewareMixin
 
@@ -14,6 +14,7 @@ class FiltersMiddleware(MiddlewareMixin):
         """
         request.location = None
         request.sector = None
+        request.next = None
         request.query_string = request.META.get("QUERY_STRING")
         params = parse_qs(request.query_string)
 
@@ -32,6 +33,14 @@ class FiltersMiddleware(MiddlewareMixin):
                 request.sector = AllSectors()
             else:
                 request.sector = getattr(sectors, sector_name)
+
+        if "next" in params:
+            next = params.pop("next")[0]
+            query_params = urlencode(params, doseq=True)
+            url = next
+            if query_params:
+                url += f"?{query_params}"
+            request.next = url
 
     def process_response(self, request, response):
         return response
