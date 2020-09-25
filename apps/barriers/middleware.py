@@ -7,7 +7,7 @@ from apps.metadata.aggregators import countries, sectors, AllLocations, AllSecto
 
 
 class FiltersMiddleware(MiddlewareMixin):
-    def process_request(self, request):
+    def process_request(self, request):  # noqa: C901
         """
         Add location and sector from the uri to request
         so the selection is available across the views
