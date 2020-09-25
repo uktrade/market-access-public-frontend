@@ -78,7 +78,7 @@
                 <th scope="col" class="govuk-table__header">Title</th>
                 <th scope="col" class="govuk-table__header">Sector</th>
                 <th scope="col" class="govuk-table__header">Location</th>
-                {% if resolved %}
+                {% if request.resolved %}
                     <th scope="col" class="govuk-table__header">Resolved date</th>
                 {% endif %}
             </tr>
@@ -93,7 +93,7 @@
                     </td>
                     <td class="govuk-table__cell">{{ barrier.sectors }}</td>
                     <td class="govuk-table__cell">{{ barrier.location }}</td>
-                    {% if resolved %}
+                    {% if request.resolved %}
                         <td class="govuk-table__cell">
                             {% if barrier.is_resolved and barrier.status_date %}
                                 {{ barrier.status_date|date:"F Y" }}

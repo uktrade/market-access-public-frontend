@@ -133,7 +133,6 @@ class BarriersListView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context["barriers"] = self.get_barriers_list()
         context["title"] = self.get_title(self.request.location)
-        context["resolved"] = self.request.resolved
         return context
 
 
