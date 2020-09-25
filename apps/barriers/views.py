@@ -50,7 +50,10 @@ class LocationFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
                 ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
                 ("Choose a location", None),
             )
-        return (("Choose a location", None),)
+        return (
+            ("Find trade barriers", reverse("barriers:find-active-barriers")),
+            ("Choose a location", None),
+        )
 
     def get_trading_blocs(self):
         barriers = self.get_barriers_list()
@@ -82,7 +85,10 @@ class SectorFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
                 ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
                 ("Choose a sector", None),
             )
-        return (("Choose a sector", None),)
+        return (
+            ("Find trade barriers", reverse("barriers:find-active-barriers")),
+            ("Choose a sector", None),
+        )
 
     def get_sectors(self):
         barriers = self.get_barriers_list()
@@ -116,9 +122,12 @@ class BarriersListView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
         if self.request.resolved:
             return (
                 ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
-                (self.get_title(self.request.location), None),
+                ("Trade barriers", None),
             )
-        return ((self.get_title(self.request.location), None),)
+        return (
+            ("Find trade barriers", reverse("barriers:find-active-barriers")),
+            ("Trade barriers", None),
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -128,23 +137,27 @@ class BarriersListView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
         return context
 
 
-class BarrierDetailsView(TemplateView):
+class BarrierDetailsView(BreadcrumbsMixin, TemplateView):
     template_name = "barriers/details.html"
     barrier = None
 
-    def fetch_barrier(self, _id):
-        self.barrier = data_gateway.barrier_details(id=_id)
-
-    def get_search_title(self):
-        title = "Trade barriers"
-        if self.request.location and self.request.location != "all":
-            title += f" in {self.request.location}"
-        return title
+    def get(self, request, *args, **kwargs):
+        self.barrier = data_gateway.barrier_details(id=self.kwargs["barrier_id"])
+        return super().get(request, *args, **kwargs)
 
     def get_breadcrumbs(self):
+        if self.request.resolved:
+            find_barriers_breadcrumb = (
+                "Find resolved trade barriers", reverse("barriers:find-resolved-barriers")
+            )
+        else:
+            find_barriers_breadcrumb = (
+                "Find trade barriers", reverse("barriers:find-active-barriers")
+            )
         return (
+            find_barriers_breadcrumb,
             (
-                self.get_search_title(),
+                "Trade barriers",
                 reverse("barriers:list") + f"?{self.request.query_string}"
             ),
             (
@@ -158,8 +171,6 @@ class BarrierDetailsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        self.fetch_barrier(context["barrier_id"])
         context["title"] = self.barrier.title
         context["barrier"] = self.barrier
-        context["breadcrumbs"] = self.get_breadcrumbs()
         return context
