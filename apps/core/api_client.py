@@ -37,9 +37,6 @@ class APIClient:
     def s3_filters_string(self, filters):
         ignored_locations = ("All locations",)
         ignored_sectors = ("All sectors",)
-        location_query_str = ""
-        all_sectors_query_str = ""
-        resolved_query_str = ""
         filters_string = ""
         s3_filters = []
 
