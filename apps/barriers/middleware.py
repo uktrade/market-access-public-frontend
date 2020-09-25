@@ -7,7 +7,7 @@ from apps.metadata.aggregators import countries, sectors, AllLocations, AllSecto
 
 
 class FiltersMiddleware(MiddlewareMixin):
-    def process_request(self, request):
+    def process_request(self, request):  # noqa: C901
         """
         Add location and sector from the uri to request
         so the selection is available across the views
@@ -15,6 +15,7 @@ class FiltersMiddleware(MiddlewareMixin):
         request.location = None
         request.sector = None
         request.next = None
+        request.resolved = None
         request.query_string = request.META.get("QUERY_STRING")
         params = parse_qs(request.query_string)
 
@@ -33,6 +34,13 @@ class FiltersMiddleware(MiddlewareMixin):
                 request.sector = AllSectors()
             else:
                 request.sector = getattr(sectors, sector_name)
+
+        if "resolved" in params:
+            resolved = params["resolved"][0]
+            if resolved == "1":
+                request.resolved = True
+            elif resolved == "0":
+                request.resolved = False
 
         if "next" in params:
             next = params.pop("next")[0]

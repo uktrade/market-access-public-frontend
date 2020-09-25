@@ -1,11 +1,11 @@
 from django import template
-from django.urls import reverse
+from django.urls import reverse_lazy
 
 register = template.Library()
 
 DEFAULT_BREADCRUMBS = (
     ("Home", "https://www.gov.uk/"),
-    ("Find trade barriers", reverse("barriers:find-barriers-splash"))
+    ("What are you looking for?", reverse_lazy("barriers:find-barriers-splash")),
 )
 ACTIVE_BREADCRUMB_CSS_CLASS = " govuk-breadcrumbs__list-item--active"
 

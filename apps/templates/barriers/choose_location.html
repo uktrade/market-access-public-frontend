@@ -21,8 +21,7 @@
                     <p>
                         <a href="{% url "barriers:list" %}{% location_filter trading_bloc.slug %}"
                            class="govuk-link{% if not trading_bloc.records_count %} govuk-link--muted{% endif %}">
-                            {{ trading_bloc.name }}{% if trading_bloc.records_count %} ({{ trading_bloc.records_count }}
-                                ){% endif %}
+                            {{ trading_bloc.name }}{% if trading_bloc.records_count %} ({{ trading_bloc.records_count }}){% endif %}
                         </a>
                     </p>
                 {% endfor %}
