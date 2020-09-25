@@ -39,6 +39,7 @@ class APIClient:
         ignored_sectors = ("All sectors",)
         location_query_str = ""
         all_sectors_query_str = ""
+        resolved_query_str = ""
         filters_string = ""
         s3_filters = []
 
@@ -57,21 +58,23 @@ class APIClient:
                     location_query_str = f"'{location.name}' = b.location"
                     # Country with trading bloc
                     location_query_str += f" OR b.location LIKE '%{location.name} (%'"
-                s3_filters.append(location_query_str)
+                s3_filters.append(f"( {location_query_str} )")
 
             if filters.get('sector') and filters.get('sector').name not in ignored_sectors:
-                s3_filters.append(f"'{filters['sector']}' IN b.sectors[*].name")
+                sectors_query_str = f"'{filters['sector']}' IN b.sectors[*].name"
+                sectors_query_str += " OR 'All sectors' IN b.sectors[*].name"
+                s3_filters.append(f"( {sectors_query_str} )")
 
-            # SECTOR filter
-            # Barriers that affect `All sectors` have to be included in all searches
-            all_sectors_query_str += " OR 'All sectors' IN b.sectors[*].name"
-            if location_query_str:
-                all_sectors_query_str += f" AND {location_query_str}"
+            # IS_RESOLVED filter
+            is_resolved = filters.get("is_resolved")
+            if is_resolved is True:
+                s3_filters.append("b.is_resolved = true")
+            elif is_resolved is False:
+                s3_filters.append("b.is_resolved = false")
 
         if s3_filters:
             filters_string += "SELECT * FROM S3Object[*].barriers[*] AS b WHERE "
             filters_string += " AND ".join(s3_filters)
-            filters_string += all_sectors_query_str
             filters_string = f"&query-s3-select={quote_plus(filters_string)}"
 
         return filters_string

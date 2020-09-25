@@ -1,4 +1,4 @@
-from django.urls import reverse_lazy
+from django.urls import reverse
 from django.views.generic import TemplateView
 
 from apps.core.api_client import data_gateway
@@ -11,7 +11,8 @@ class BarriersListMixin:
     def get_barriers_list(self):
         filters = {
             "location": self.request.location,
-            "sector": self.request.sector
+            "sector": self.request.sector,
+            "is_resolved": self.request.resolved,
         }
         response = data_gateway.barriers_list(filters=filters)
         return response
@@ -20,15 +21,36 @@ class BarriersListMixin:
 class FindBarriersSplashView(TemplateView):
     template_name = "barriers/find_barriers_splash.html"
     extra_context = {
+        "title": "What are you looking for?"
+    }
+
+
+class FindActiveBarriers(BreadcrumbsMixin, TemplateView):
+    template_name = "barriers/find_active_barriers.html"
+    breadcrumbs = (("Find trade barriers", None),)
+    extra_context = {
         "title": "Find trade barriers"
+    }
+
+
+class FindResolvedBarriers(BreadcrumbsMixin, TemplateView):
+    template_name = "barriers/find_resolved_barriers.html"
+    breadcrumbs = (("Find resolved trade barriers", None),)
+    extra_context = {
+        "title": "Find resolved trade barriers"
     }
 
 
 class LocationFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
     template_name = "barriers/choose_location.html"
-    breadcrumbs = (
-        ("Choose a location", reverse_lazy("barriers:choose-location")),
-    )
+
+    def get_breadcrumbs(self):
+        if self.request.resolved:
+            return (
+                ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
+                ("Choose a location", None),
+            )
+        return (("Choose a location", None),)
 
     def get_trading_blocs(self):
         barriers = self.get_barriers_list()
@@ -47,14 +69,20 @@ class LocationFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
         context["trading_blocs"] = self.get_trading_blocs()
         context["countries"] = self.get_countries()
         context["title"] = "Choose a location"
+        context["resolved"] = self.request.resolved
         return context
 
 
 class SectorFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
     template_name = "barriers/choose_sector.html"
-    breadcrumbs = (
-        ("Choose a sector", reverse_lazy("barriers:choose-sector")),
-    )
+
+    def get_breadcrumbs(self):
+        if self.request.resolved:
+            return (
+                ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
+                ("Choose a sector", None),
+            )
+        return (("Choose a sector", None),)
 
     def get_sectors(self):
         barriers = self.get_barriers_list()
@@ -76,23 +104,27 @@ class BarriersListView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
     template_name = "barriers/list.html"
 
     def get_title(self, location=None):
-        title = "Trade barriers"
+        if self.request.resolved:
+            title = "Resolved trade barriers"
+        else:
+            title = "Trade barriers"
         if location and location != "all":
             title += f" in {location}"
         return title
 
     def get_breadcrumbs(self):
-        return (
-            (
-                self.get_title(self.request.location),
-                reverse_lazy("barriers:list") + f"?{self.request.query_string}"
-            ),
-        )
+        if self.request.resolved:
+            return (
+                ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
+                (self.get_title(self.request.location), None),
+            )
+        return ((self.get_title(self.request.location), None),)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["barriers"] = self.get_barriers_list()
         context["title"] = self.get_title(self.request.location)
+        context["resolved"] = self.request.resolved
         return context
 
 
@@ -113,11 +145,11 @@ class BarrierDetailsView(TemplateView):
         return (
             (
                 self.get_search_title(),
-                reverse_lazy("barriers:list") + f"?{self.request.query_string}"
+                reverse("barriers:list") + f"?{self.request.query_string}"
             ),
             (
                 self.barrier.title,
-                reverse_lazy(
+                reverse(
                     "barriers:details",
                     kwargs={"barrier_id": self.barrier.id}
                 ) + f"?{self.request.query_string}"

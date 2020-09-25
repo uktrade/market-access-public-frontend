@@ -15,6 +15,7 @@ class FiltersMiddleware(MiddlewareMixin):
         request.location = None
         request.sector = None
         request.next = None
+        request.resolved = None
         request.query_string = request.META.get("QUERY_STRING")
         params = parse_qs(request.query_string)
 
@@ -41,6 +42,13 @@ class FiltersMiddleware(MiddlewareMixin):
             if query_params:
                 url += f"?{query_params}"
             request.next = url
+
+        if "resolved" in params:
+            resolved = params.pop("resolved")[0]
+            if resolved == "1":
+                request.resolved = True
+            elif resolved == "0":
+                request.resolved = False
 
     def process_response(self, request, response):
         return response

@@ -2,7 +2,11 @@
     <ol class="govuk-breadcrumbs__list">
         {% for crumb in breadcrumbs %}
         <li class="govuk-breadcrumbs__list-item{{ crumb.css_classes }}">
-            <a class="govuk-breadcrumbs__link" href="{{ crumb.href }}">{{ crumb.text }}</a>
+            {% if crumb.href %}
+                <a class="govuk-breadcrumbs__link" href="{{ crumb.href }}">{{ crumb.text }}</a>
+            {% else %}
+                {{ crumb.text }}
+            {% endif %}
         </li>
         {% endfor %}
     </ol>

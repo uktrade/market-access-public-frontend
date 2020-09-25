@@ -54,7 +54,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% include 'partials/header.html' %}
     {% include 'partials/feedback_banner.html' %}
     {% block breadcrumbs %}
-        {% show_breadcrumbs %}
+        {% if breadcrumbs %}
+            {% show_breadcrumbs breadcrumbs %}
+        {% else %}
+            {% show_breadcrumbs %}
+        {% endif %}
     {% endblock %}
 {% endblock %}
 
