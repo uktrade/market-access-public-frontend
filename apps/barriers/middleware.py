@@ -35,6 +35,13 @@ class FiltersMiddleware(MiddlewareMixin):
             else:
                 request.sector = getattr(sectors, sector_name)
 
+        if "resolved" in params:
+            resolved = params["resolved"][0]
+            if resolved == "1":
+                request.resolved = True
+            elif resolved == "0":
+                request.resolved = False
+
         if "next" in params:
             next = params.pop("next")[0]
             query_params = urlencode(params, doseq=True)
@@ -42,13 +49,6 @@ class FiltersMiddleware(MiddlewareMixin):
             if query_params:
                 url += f"?{query_params}"
             request.next = url
-
-        if "resolved" in params:
-            resolved = params.pop("resolved")[0]
-            if resolved == "1":
-                request.resolved = True
-            elif resolved == "0":
-                request.resolved = False
 
     def process_response(self, request, response):
         return response
