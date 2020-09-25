@@ -156,17 +156,8 @@ class BarrierDetailsView(BreadcrumbsMixin, TemplateView):
             )
         return (
             find_barriers_breadcrumb,
-            (
-                "Trade barriers",
-                reverse("barriers:list") + f"?{self.request.query_string}"
-            ),
-            (
-                self.barrier.title,
-                reverse(
-                    "barriers:details",
-                    kwargs={"barrier_id": self.barrier.id}
-                ) + f"?{self.request.query_string}"
-            )
+            ("Trade barriers", reverse("barriers:list") + f"?{self.request.query_string}"),
+            (self.barrier.title, None),
         )
 
     def get_context_data(self, **kwargs):
