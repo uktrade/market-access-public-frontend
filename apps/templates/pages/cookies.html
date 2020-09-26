@@ -45,13 +45,13 @@
                         </div>
                         <div class="govuk-radios govuk-radios--inline">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="ga" name="google_analytics" type="radio" value="1" {% if form.initial.google_analytics|lower == '1' %}checked{% endif %}>
+                                <input class="govuk-radios__input" id="ga" name="{{ settings.GOOGLE_ANALYTICS_COOKIE_NAME }}" type="radio" value="True" {% if form.initial.usage == True %}checked{% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="ga">
                                   On
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="ga-2" name="google_analytics" type="radio" value="0" {% if form.initial.google_analytics|lower == '0' %}checked{% endif %}>
+                                <input class="govuk-radios__input" id="ga-2" name="{{ settings.GOOGLE_ANALYTICS_COOKIE_NAME }}" type="radio" value="False" {% if form.initial.usage == False %}checked{% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="ga-2">
                                   Off
                                 </label>

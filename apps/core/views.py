@@ -1,6 +1,8 @@
 import datetime
 import json
 
+from distutils import util
+
 from django import forms
 from django.conf import settings
 from django.urls import reverse_lazy
@@ -8,11 +10,12 @@ from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
 from apps.core.mixins import BreadcrumbsMixin
+from apps.core.utils import get_future_date
 
 
 class CookieToggle:
-    OFF = 0
-    ON = 1
+    OFF = False
+    ON = True
 
     @classmethod
     def choices(cls):
@@ -33,7 +36,8 @@ class CookieToggle:
 
 
 class CookieSettingsForm(forms.Form):
-    google_analytics = forms.ChoiceField(
+    # see - GOOGLE_ANALYTICS_COOKIE_NAME
+    usage = forms.ChoiceField(
         choices=CookieToggle.choices,
     )
 
@@ -45,7 +49,7 @@ class CookiePolicyView(BreadcrumbsMixin, TemplateView):
     )
 
 
-class CookiesView(FormView):
+class CookiesView(BreadcrumbsMixin, FormView):
     template_name = "pages/cookies.html"
     form_class = CookieSettingsForm
     breadcrumbs = (
@@ -57,20 +61,23 @@ class CookiesView(FormView):
 
     def get_initial(self):
         data = super().get_initial()
-        cookies = ("google_analytics",)
+        cookies = (settings.GOOGLE_ANALYTICS_COOKIE_NAME,)
         for item in cookies:
             # always opt in
             data[item] = self.request.cookie_settings.get(item) or CookieToggle.OFF
         return data
 
-    def get_future_date(self, days):
-        date = datetime.datetime.now() + datetime.timedelta(days=days)
-        date = datetime.datetime.replace(date, hour=0, minute=0, second=0)
-        return datetime.datetime.strftime(date, "%a, %d-%b-%Y %H:%M:%S GMT")
-
     def form_valid(self, form):
         response = super().form_valid(form)
-        data = form.cleaned_data
-        expires = self.get_future_date(days=settings.COOKIE_SETTINGS_EXPIRY)
-        response.set_cookie("cookie_settings", json.dumps(data), expires=expires)
+        data = {}
+        # convert from values to bool
+        for k, v in form.cleaned_data.items():
+            data[k] = bool(util.strtobool(v))
+        settings_expires = get_future_date(days=settings.COOKIE_SETTINGS_EXPIRY)
+        response.set_cookie(
+            settings.COOKIE_SETTINGS_COOKIE_NAME, json.dumps(data), expires=settings_expires
+        )
+        response.set_cookie(
+            settings.COOKIE_PREFERENCES_SET_COOKIE_NAME, json.dumps(True), expires=settings_expires
+        )
         return response
