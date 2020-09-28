@@ -9,7 +9,7 @@
                     <p class="govuk-body">We use <a href="{% url 'core:cookies' %}" class="govuk-link">cookies to
                         collect
                         information</a> about how
-                        you use GOV.UK. We use this information to make the website work as well as possible and improve
+                        you use {{ settings.SERVICE_NAME }}. We use this information to make the website work as well as possible and improve
                         government services.</p>
                 </div>
                 <form action="{% url 'core:cookies' %}{% next_filter %}" method="POST">
