@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load headers %}
+
+{% block page_title %}{{ title }} - {{ block.super }}{% endblock %}
+
+{% block page_content %}
+    {% content_header title %}
+    <p class="govuk-body">A trade barrier is something that slows down or stops your company from exporting goods or services to an overseas market.</p>
+    <p class="govuk-body">
+        <a href="https://www.great.gov.uk/report-trade-barrier">Report a trade barrier or an issue with an existing trade barrier</a> on great.gov.uk.
+    </p>
+    <p class="govuk-body">
+        If you need urgent help with a trade barrier, consider contacting your local <a href="https://www.gov.uk/world/embassies">British embassy, consulate or high commission</a> their local knowledge may help to resolve your issue.
+    </p>
+{% endblock %}

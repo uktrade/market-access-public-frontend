@@ -1,0 +1,10 @@
+.footer-feedback-banner {
+  background-color: $govuk-blue;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: right;
+
+  .govuk-link {
+    color: $govuk-white;
+  }
+}

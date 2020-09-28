@@ -52,7 +52,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 {% block header %}
     {% include 'partials/header.html' %}
-    {% include 'partials/feedback_banner.html' %}
+    {% include 'feedback/header_banner.html' %}
     {% block breadcrumbs %}
         {% if breadcrumbs %}
             {% show_breadcrumbs breadcrumbs %}
@@ -72,6 +72,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% endblock %}
 
 {% block footer %}
+    {% include 'feedback/footer_banner.html' %}
     {% include 'partials/footer.html' %}
 {% endblock %}
 

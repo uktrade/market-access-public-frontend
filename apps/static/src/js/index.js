@@ -1,1 +1,1 @@
-let hello = "world";
+window.GOVUKFrontend.initAll()
