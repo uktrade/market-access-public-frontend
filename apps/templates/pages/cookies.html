@@ -5,10 +5,6 @@
 
 {% block page_title %}Cookies - {{ block.super }}{% endblock %}
 
-{% block breadcrumbs %}
-    {% show_breadcrumbs breadcrumbs %}
-{% endblock %}
-
 {% block page_content %}
     <div class="govuk-grid-row cookie-preferences">
         <div class="govuk-grid-column-two-thirds">
@@ -36,7 +32,7 @@
                             <span>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</span>
                             <ul class="govuk-list govuk-list--bullet">
                                 <li>how you got to the site</li>
-                                <li>the pages you visit on GOV.UK and government digital services, and how long you spend on
+                                <li>the pages you visit on {{ settings.SERVICE_NAME }} and government digital services, and how long you spend on
                                     each page
                                 </li>
                                 <li>what you click on while you're visiting the site</li>
@@ -45,13 +41,13 @@
                         </div>
                         <div class="govuk-radios govuk-radios--inline">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="ga" name="google_analytics" type="radio" value="1" {% if form.initial.google_analytics|lower == '1' %}checked{% endif %}>
+                                <input class="govuk-radios__input" id="ga" name="{{ settings.GOOGLE_ANALYTICS_COOKIE_NAME }}" type="radio" value="True" {% if form.initial.usage == True %}checked{% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="ga">
                                   On
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="ga-2" name="google_analytics" type="radio" value="0" {% if form.initial.google_analytics|lower == '0' %}checked{% endif %}>
+                                <input class="govuk-radios__input" id="ga-2" name="{{ settings.GOOGLE_ANALYTICS_COOKIE_NAME }}" type="radio" value="False" {% if form.initial.usage == False %}checked{% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="ga-2">
                                   Off
                                 </label>

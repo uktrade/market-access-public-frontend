@@ -9,4 +9,19 @@
       margin-right: 10px;
     }
   }
+
+  #global-bar-seen {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
+
+    .govuk-button {
+      margin: 0 20px;
+    }
+
+  }
 }

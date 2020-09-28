@@ -54,3 +54,13 @@ def remove_filter(context, filter_name):
     params.pop(filter_name, None)
     query_string = f"?{urlencode(params, doseq=True)}"
     return query_string
+
+
+@register.simple_tag(takes_context=True)
+def current_path(context):
+    path = context.request.path
+    query_string = context.get("query_string")
+    if query_string:
+        return f"{path}?{query_string}"
+    else:
+        return path

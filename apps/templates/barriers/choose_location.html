@@ -4,10 +4,6 @@
 {% load query_params %}
 {% block page_title %}{{ title }} - {{ block.super }}{% endblock %}
 
-{% block breadcrumbs %}
-    {% show_breadcrumbs breadcrumbs %}
-{% endblock %}
-
 {% block page_content %}
     {% content_header title %}
 
