@@ -1,4 +1,4 @@
-gitimport json
+import json
 
 from distutils import util
 
