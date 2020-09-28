@@ -26,6 +26,10 @@
   padding: 0 0 govuk-em(5, 36) 0;
   margin: govuk-em(50, 36) govuk-em(10, 36) govuk-em(5, 36) 0;
   display: inline-block;
+  &__caption {
+    font-weight: normal;
+    font-size: 19px;
+  }
 }
 
 .filter-results-count__container {
