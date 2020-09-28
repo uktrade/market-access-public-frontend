@@ -211,14 +211,24 @@ GTM_PREVIEW = env('GTM_PREVIEW')
 
 # COOKIE SETTINGS
 # ------------------------------------------------------------------------------
+# More on naming convention
+# https://readme.trade.gov.uk/docs/howtos/analytics-cookie-policy.html
+COOKIE_SETTINGS_COOKIE_NAME = "cookies_policy"
 COOKIE_SETTINGS_EXPIRY = 365  # days
+COOKIE_SETTINGS_CONFIRMATION_BANNER = 90  # days
+GOOGLE_ANALYTICS_COOKIE_NAME = "usage"
+GLOBAL_BAR_SEEN_COOKIE_NAME = "global_bar_seen"
+COOKIE_PREFERENCES_SET_COOKIE_NAME = "cookies_preferences_set"
+
 
 # Settings made available in templates
 # ------------------------------------------------------------------------------
 # https://github.com/jakubroztocil/django-settings-export#usage
 SETTINGS_EXPORT = (
+    'COOKIE_SETTINGS_CONFIRMATION_BANNER',
     'COOKIE_SETTINGS_EXPIRY',
     'DJANGO_ENV',
+    'GOOGLE_ANALYTICS_COOKIE_NAME',
     'GTM_ID',
     'GTM_AUTH',
     'GTM_PREVIEW',
