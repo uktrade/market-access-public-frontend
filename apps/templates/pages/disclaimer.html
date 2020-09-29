@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block page_title %}Disclaimer - {{ block.super }}{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block page_content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Disclaimer</h1>
+
+            <p class="govuk-body">The information in the 'Check international trade barriers' service may not be used for resale (or in the provision of consultancy services), redistribution, building of databases, storage, or for any purpose other than reference use by a United Kingdom user personally located within Great Britain and Northern Ireland in support of the user's own international business processes in the United Kingdom.</p>
+
+            <p class="govuk-body">The information obtained from this service are not official documents. Care has been taken to ensure the accuracy of the information contained within the service, but no responsibility can be accepted by the Department for International Trade for any inadvertent errors or omissions.</p>
+
+            <p class="govuk-body">By proceeding and viewing the data you are agreeing to these terms.</p>
+
+            <h2 class="govuk-heading-m">What barriers are not included in the service</h2>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Barriers affecting import into the UK</li>
+                <li>Sensitive for security reasons</li>
+                <li>Barriers that identify a business even once individual details are removed due to niche/closed nature of market</li>
+                <li>Politically sensitive</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
