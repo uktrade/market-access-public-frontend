@@ -6,8 +6,8 @@
 {% block page_content %}
     {% content_header title %}
     <div>
-        <p><a href="{% url 'barriers:choose-location' %}?resolved=0">Find trade barriers by location</a></p>
+        <p><a href="{% url 'barriers:choose-location' %}?resolved=0">Find active trade barriers by location</a></p>
         or
-        <p><a href="{% url 'barriers:choose-sector' %}?resolved=0">Find trade barriers by sector</a></p>
+        <p><a href="{% url 'barriers:choose-sector' %}?resolved=0">Find active trade barriers by sector</a></p>
     </div>
 {% endblock %}
