@@ -48,13 +48,15 @@ class APIClient:
             if location and location.name not in ignored_locations:
                 if isinstance(location, TradingBloc):
                     # Trading Bloc
-                    location_query_str = f"b.location LIKE '%{location.name}%'"
+                    location_query_str = f"b.location = '{location.name}'"
                 else:
                     # Country
                     # Exact match
                     location_query_str = f"'{location.name}' = b.location"
                     # Country with trading bloc
                     location_query_str += f" OR b.location LIKE '%{location.name} (%'"
+                    if location.trading_bloc:
+                        location_query_str += f" OR b.location = '{location.trading_bloc['name']}'"
                 s3_filters.append(f"( {location_query_str} )")
 
             if filters.get('sector') and filters.get('sector').name not in ignored_sectors:

@@ -70,6 +70,7 @@ class Country:
         self.overseas_region = kwargs["overseas_region"]
         self.iso_alpha2_code = kwargs["iso_alpha2_code"]
         self.admin_areas = kwargs.get("admin_areas")
+        self.trading_bloc = kwargs.get("trading_bloc")
         self.records_count = 0
 
         if not self.admin_areas:

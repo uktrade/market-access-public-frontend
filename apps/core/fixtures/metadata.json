@@ -8,7 +8,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "AF"
+      "iso_alpha2_code": "AF",
+      "trading_bloc": null
     },
     {
       "id": "945f66a0-5d95-e211-a939-e4115bead28a",
@@ -18,7 +19,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "AL"
+      "iso_alpha2_code": "AL",
+      "trading_bloc": null
     },
     {
       "id": "955f66a0-5d95-e211-a939-e4115bead28a",
@@ -28,7 +30,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "DZ"
+      "iso_alpha2_code": "DZ",
+      "trading_bloc": null
     },
     {
       "id": "975f66a0-5d95-e211-a939-e4115bead28a",
@@ -38,7 +41,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "AD"
+      "iso_alpha2_code": "AD",
+      "trading_bloc": null
     },
     {
       "id": "985f66a0-5d95-e211-a939-e4115bead28a",
@@ -48,14 +52,16 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "AO"
+      "iso_alpha2_code": "AO",
+      "trading_bloc": null
     },
     {
       "id": "995f66a0-5d95-e211-a939-e4115bead28a",
       "name": "Anguilla",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "AI"
+      "iso_alpha2_code": "AI",
+      "trading_bloc": null
     },
     {
       "id": "9b5f66a0-5d95-e211-a939-e4115bead28a",
@@ -65,7 +71,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "AG"
+      "iso_alpha2_code": "AG",
+      "trading_bloc": null
     },
     {
       "id": "9c5f66a0-5d95-e211-a939-e4115bead28a",
@@ -75,7 +82,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "AR"
+      "iso_alpha2_code": "AR",
+      "trading_bloc": null
     },
     {
       "id": "9d5f66a0-5d95-e211-a939-e4115bead28a",
@@ -85,7 +93,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "AM"
+      "iso_alpha2_code": "AM",
+      "trading_bloc": null
     },
     {
       "id": "9f5f66a0-5d95-e211-a939-e4115bead28a",
@@ -95,7 +104,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "AU"
+      "iso_alpha2_code": "AU",
+      "trading_bloc": null
     },
     {
       "id": "a05f66a0-5d95-e211-a939-e4115bead28a",
@@ -105,7 +115,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "AT"
+      "iso_alpha2_code": "AT",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "a15f66a0-5d95-e211-a939-e4115bead28a",
@@ -115,7 +129,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "AZ"
+      "iso_alpha2_code": "AZ",
+      "trading_bloc": null
     },
     {
       "id": "a35f66a0-5d95-e211-a939-e4115bead28a",
@@ -125,7 +140,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "BH"
+      "iso_alpha2_code": "BH",
+      "trading_bloc": null
     },
     {
       "id": "a45f66a0-5d95-e211-a939-e4115bead28a",
@@ -135,7 +151,8 @@
         "name": "South Asia",
         "id": "12ed13cf-4b2c-4a46-b2f9-068e397d8c84"
       },
-      "iso_alpha2_code": "BD"
+      "iso_alpha2_code": "BD",
+      "trading_bloc": null
     },
     {
       "id": "a55f66a0-5d95-e211-a939-e4115bead28a",
@@ -145,7 +162,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "BB"
+      "iso_alpha2_code": "BB",
+      "trading_bloc": null
     },
     {
       "id": "a65f66a0-5d95-e211-a939-e4115bead28a",
@@ -155,7 +173,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "BY"
+      "iso_alpha2_code": "BY",
+      "trading_bloc": null
     },
     {
       "id": "a75f66a0-5d95-e211-a939-e4115bead28a",
@@ -165,7 +184,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "BE"
+      "iso_alpha2_code": "BE",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "a85f66a0-5d95-e211-a939-e4115bead28a",
@@ -175,7 +198,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "BZ"
+      "iso_alpha2_code": "BZ",
+      "trading_bloc": null
     },
     {
       "id": "a95f66a0-5d95-e211-a939-e4115bead28a",
@@ -185,7 +209,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "BJ"
+      "iso_alpha2_code": "BJ",
+      "trading_bloc": null
     },
     {
       "id": "aa5f66a0-5d95-e211-a939-e4115bead28a",
@@ -195,7 +220,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "BM"
+      "iso_alpha2_code": "BM",
+      "trading_bloc": null
     },
     {
       "id": "ab5f66a0-5d95-e211-a939-e4115bead28a",
@@ -205,7 +231,8 @@
         "name": "South Asia",
         "id": "12ed13cf-4b2c-4a46-b2f9-068e397d8c84"
       },
-      "iso_alpha2_code": "BT"
+      "iso_alpha2_code": "BT",
+      "trading_bloc": null
     },
     {
       "id": "ac5f66a0-5d95-e211-a939-e4115bead28a",
@@ -215,7 +242,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "BO"
+      "iso_alpha2_code": "BO",
+      "trading_bloc": null
     },
     {
       "id": "ad5f66a0-5d95-e211-a939-e4115bead28a",
@@ -225,7 +253,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "BA"
+      "iso_alpha2_code": "BA",
+      "trading_bloc": null
     },
     {
       "id": "ae5f66a0-5d95-e211-a939-e4115bead28a",
@@ -235,7 +264,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "BW"
+      "iso_alpha2_code": "BW",
+      "trading_bloc": null
     },
     {
       "id": "b05f66a0-5d95-e211-a939-e4115bead28a",
@@ -245,14 +275,16 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "BR"
+      "iso_alpha2_code": "BR",
+      "trading_bloc": null
     },
     {
       "id": "b25f66a0-5d95-e211-a939-e4115bead28a",
       "name": "British Virgin Islands",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "VG"
+      "iso_alpha2_code": "VG",
+      "trading_bloc": null
     },
     {
       "id": "56af72a6-5d95-e211-a939-e4115bead28a",
@@ -262,7 +294,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "BN"
+      "iso_alpha2_code": "BN",
+      "trading_bloc": null
     },
     {
       "id": "57af72a6-5d95-e211-a939-e4115bead28a",
@@ -272,7 +305,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "BG"
+      "iso_alpha2_code": "BG",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "58af72a6-5d95-e211-a939-e4115bead28a",
@@ -282,7 +319,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "BF"
+      "iso_alpha2_code": "BF",
+      "trading_bloc": null
     },
     {
       "id": "5aaf72a6-5d95-e211-a939-e4115bead28a",
@@ -292,7 +330,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "BI"
+      "iso_alpha2_code": "BI",
+      "trading_bloc": null
     },
     {
       "id": "5baf72a6-5d95-e211-a939-e4115bead28a",
@@ -302,7 +341,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "KH"
+      "iso_alpha2_code": "KH",
+      "trading_bloc": null
     },
     {
       "id": "5caf72a6-5d95-e211-a939-e4115bead28a",
@@ -312,7 +352,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "CM"
+      "iso_alpha2_code": "CM",
+      "trading_bloc": null
     },
     {
       "id": "5daf72a6-5d95-e211-a939-e4115bead28a",
@@ -322,7 +363,8 @@
         "name": "North America",
         "id": "fdfbbc8d-0e8a-479a-b10f-4979d582ff87"
       },
-      "iso_alpha2_code": "CA"
+      "iso_alpha2_code": "CA",
+      "trading_bloc": null
     },
     {
       "id": "5eaf72a6-5d95-e211-a939-e4115bead28a",
@@ -332,14 +374,16 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "CV"
+      "iso_alpha2_code": "CV",
+      "trading_bloc": null
     },
     {
       "id": "5faf72a6-5d95-e211-a939-e4115bead28a",
       "name": "Cayman Islands",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "KY"
+      "iso_alpha2_code": "KY",
+      "trading_bloc": null
     },
     {
       "id": "60af72a6-5d95-e211-a939-e4115bead28a",
@@ -349,7 +393,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "CF"
+      "iso_alpha2_code": "CF",
+      "trading_bloc": null
     },
     {
       "id": "61af72a6-5d95-e211-a939-e4115bead28a",
@@ -359,7 +404,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "TD"
+      "iso_alpha2_code": "TD",
+      "trading_bloc": null
     },
     {
       "id": "62af72a6-5d95-e211-a939-e4115bead28a",
@@ -369,7 +415,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "CL"
+      "iso_alpha2_code": "CL",
+      "trading_bloc": null
     },
     {
       "id": "63af72a6-5d95-e211-a939-e4115bead28a",
@@ -379,7 +426,8 @@
         "name": "China",
         "id": "b97749fb-2273-4447-a239-62dd8fb29e01"
       },
-      "iso_alpha2_code": "CN"
+      "iso_alpha2_code": "CN",
+      "trading_bloc": null
     },
     {
       "id": "66af72a6-5d95-e211-a939-e4115bead28a",
@@ -389,7 +437,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "CO"
+      "iso_alpha2_code": "CO",
+      "trading_bloc": null
     },
     {
       "id": "67af72a6-5d95-e211-a939-e4115bead28a",
@@ -399,7 +448,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "KM"
+      "iso_alpha2_code": "KM",
+      "trading_bloc": null
     },
     {
       "id": "69af72a6-5d95-e211-a939-e4115bead28a",
@@ -409,7 +459,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "CG"
+      "iso_alpha2_code": "CG",
+      "trading_bloc": null
     },
     {
       "id": "68af72a6-5d95-e211-a939-e4115bead28a",
@@ -419,7 +470,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "CD"
+      "iso_alpha2_code": "CD",
+      "trading_bloc": null
     },
     {
       "id": "6baf72a6-5d95-e211-a939-e4115bead28a",
@@ -429,7 +481,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "CR"
+      "iso_alpha2_code": "CR",
+      "trading_bloc": null
     },
     {
       "id": "6caf72a6-5d95-e211-a939-e4115bead28a",
@@ -439,7 +492,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "HR"
+      "iso_alpha2_code": "HR",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "6daf72a6-5d95-e211-a939-e4115bead28a",
@@ -449,7 +506,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "CU"
+      "iso_alpha2_code": "CU",
+      "trading_bloc": null
     },
     {
       "id": "6eaf72a6-5d95-e211-a939-e4115bead28a",
@@ -459,7 +517,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "CY"
+      "iso_alpha2_code": "CY",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "6faf72a6-5d95-e211-a939-e4115bead28a",
@@ -469,7 +531,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "CZ"
+      "iso_alpha2_code": "CZ",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "70af72a6-5d95-e211-a939-e4115bead28a",
@@ -479,7 +545,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "DK"
+      "iso_alpha2_code": "DK",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "71af72a6-5d95-e211-a939-e4115bead28a",
@@ -489,7 +559,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "DJ"
+      "iso_alpha2_code": "DJ",
+      "trading_bloc": null
     },
     {
       "id": "72af72a6-5d95-e211-a939-e4115bead28a",
@@ -499,7 +570,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "DM"
+      "iso_alpha2_code": "DM",
+      "trading_bloc": null
     },
     {
       "id": "73af72a6-5d95-e211-a939-e4115bead28a",
@@ -509,7 +581,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "DO"
+      "iso_alpha2_code": "DO",
+      "trading_bloc": null
     },
     {
       "id": "74af72a6-5d95-e211-a939-e4115bead28a",
@@ -519,7 +592,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "TL"
+      "iso_alpha2_code": "TL",
+      "trading_bloc": null
     },
     {
       "id": "75af72a6-5d95-e211-a939-e4115bead28a",
@@ -529,7 +603,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "EC"
+      "iso_alpha2_code": "EC",
+      "trading_bloc": null
     },
     {
       "id": "76af72a6-5d95-e211-a939-e4115bead28a",
@@ -539,7 +614,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "EG"
+      "iso_alpha2_code": "EG",
+      "trading_bloc": null
     },
     {
       "id": "d2f682ac-5d95-e211-a939-e4115bead28a",
@@ -549,7 +625,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "SV"
+      "iso_alpha2_code": "SV",
+      "trading_bloc": null
     },
     {
       "id": "d3f682ac-5d95-e211-a939-e4115bead28a",
@@ -559,7 +636,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "GQ"
+      "iso_alpha2_code": "GQ",
+      "trading_bloc": null
     },
     {
       "id": "d4f682ac-5d95-e211-a939-e4115bead28a",
@@ -569,7 +647,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "ER"
+      "iso_alpha2_code": "ER",
+      "trading_bloc": null
     },
     {
       "id": "d5f682ac-5d95-e211-a939-e4115bead28a",
@@ -579,7 +658,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "EE"
+      "iso_alpha2_code": "EE",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "2f0be5c4-5d95-e211-a939-e4115bead28a",
@@ -589,7 +672,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "SZ"
+      "iso_alpha2_code": "SZ",
+      "trading_bloc": null
     },
     {
       "id": "d6f682ac-5d95-e211-a939-e4115bead28a",
@@ -599,21 +683,24 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "ET"
+      "iso_alpha2_code": "ET",
+      "trading_bloc": null
     },
     {
       "id": "d7f682ac-5d95-e211-a939-e4115bead28a",
       "name": "Falkland Islands",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "FK"
+      "iso_alpha2_code": "FK",
+      "trading_bloc": null
     },
     {
       "id": "d8f682ac-5d95-e211-a939-e4115bead28a",
       "name": "Faroe Islands",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "FO"
+      "iso_alpha2_code": "FO",
+      "trading_bloc": null
     },
     {
       "id": "d9f682ac-5d95-e211-a939-e4115bead28a",
@@ -623,7 +710,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "FJ"
+      "iso_alpha2_code": "FJ",
+      "trading_bloc": null
     },
     {
       "id": "daf682ac-5d95-e211-a939-e4115bead28a",
@@ -633,7 +721,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "FI"
+      "iso_alpha2_code": "FI",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "82756b9a-5d95-e211-a939-e4115bead28a",
@@ -643,7 +735,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "FR"
+      "iso_alpha2_code": "FR",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "def682ac-5d95-e211-a939-e4115bead28a",
@@ -653,7 +749,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "GA"
+      "iso_alpha2_code": "GA",
+      "trading_bloc": null
     },
     {
       "id": "e0f682ac-5d95-e211-a939-e4115bead28a",
@@ -663,7 +760,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "GE"
+      "iso_alpha2_code": "GE",
+      "trading_bloc": null
     },
     {
       "id": "83756b9a-5d95-e211-a939-e4115bead28a",
@@ -673,7 +771,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "DE"
+      "iso_alpha2_code": "DE",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "e1f682ac-5d95-e211-a939-e4115bead28a",
@@ -683,7 +785,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "GH"
+      "iso_alpha2_code": "GH",
+      "trading_bloc": null
     },
     {
       "id": "e2f682ac-5d95-e211-a939-e4115bead28a",
@@ -693,7 +796,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "GI"
+      "iso_alpha2_code": "GI",
+      "trading_bloc": null
     },
     {
       "id": "e3f682ac-5d95-e211-a939-e4115bead28a",
@@ -703,7 +807,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "GR"
+      "iso_alpha2_code": "GR",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "e4f682ac-5d95-e211-a939-e4115bead28a",
@@ -713,7 +821,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "GL"
+      "iso_alpha2_code": "GL",
+      "trading_bloc": null
     },
     {
       "id": "e5f682ac-5d95-e211-a939-e4115bead28a",
@@ -723,7 +832,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "GD"
+      "iso_alpha2_code": "GD",
+      "trading_bloc": null
     },
     {
       "id": "e8f682ac-5d95-e211-a939-e4115bead28a",
@@ -733,14 +843,16 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "GT"
+      "iso_alpha2_code": "GT",
+      "trading_bloc": null
     },
     {
       "id": "77756b9a-5d95-e211-a939-e4115bead28a",
       "name": "Guernsey",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "GG"
+      "iso_alpha2_code": "GG",
+      "trading_bloc": null
     },
     {
       "id": "e9f682ac-5d95-e211-a939-e4115bead28a",
@@ -750,7 +862,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "GN"
+      "iso_alpha2_code": "GN",
+      "trading_bloc": null
     },
     {
       "id": "eaf682ac-5d95-e211-a939-e4115bead28a",
@@ -760,7 +873,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "GW"
+      "iso_alpha2_code": "GW",
+      "trading_bloc": null
     },
     {
       "id": "ebf682ac-5d95-e211-a939-e4115bead28a",
@@ -770,7 +884,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "GY"
+      "iso_alpha2_code": "GY",
+      "trading_bloc": null
     },
     {
       "id": "ecf682ac-5d95-e211-a939-e4115bead28a",
@@ -780,7 +895,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "HT"
+      "iso_alpha2_code": "HT",
+      "trading_bloc": null
     },
     {
       "id": "eff682ac-5d95-e211-a939-e4115bead28a",
@@ -790,7 +906,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "HN"
+      "iso_alpha2_code": "HN",
+      "trading_bloc": null
     },
     {
       "id": "f0f682ac-5d95-e211-a939-e4115bead28a",
@@ -800,7 +917,8 @@
         "name": "China",
         "id": "b97749fb-2273-4447-a239-62dd8fb29e01"
       },
-      "iso_alpha2_code": "HK"
+      "iso_alpha2_code": "HK",
+      "trading_bloc": null
     },
     {
       "id": "6d6a9ab2-5d95-e211-a939-e4115bead28a",
@@ -810,7 +928,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "HU"
+      "iso_alpha2_code": "HU",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "6e6a9ab2-5d95-e211-a939-e4115bead28a",
@@ -820,7 +942,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "IS"
+      "iso_alpha2_code": "IS",
+      "trading_bloc": null
     },
     {
       "id": "6f6a9ab2-5d95-e211-a939-e4115bead28a",
@@ -830,7 +953,8 @@
         "name": "South Asia",
         "id": "12ed13cf-4b2c-4a46-b2f9-068e397d8c84"
       },
-      "iso_alpha2_code": "IN"
+      "iso_alpha2_code": "IN",
+      "trading_bloc": null
     },
     {
       "id": "706a9ab2-5d95-e211-a939-e4115bead28a",
@@ -840,7 +964,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "ID"
+      "iso_alpha2_code": "ID",
+      "trading_bloc": null
     },
     {
       "id": "716a9ab2-5d95-e211-a939-e4115bead28a",
@@ -850,7 +975,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "IR"
+      "iso_alpha2_code": "IR",
+      "trading_bloc": null
     },
     {
       "id": "726a9ab2-5d95-e211-a939-e4115bead28a",
@@ -860,7 +986,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "IQ"
+      "iso_alpha2_code": "IQ",
+      "trading_bloc": null
     },
     {
       "id": "736a9ab2-5d95-e211-a939-e4115bead28a",
@@ -870,14 +997,19 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "IE"
+      "iso_alpha2_code": "IE",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "79756b9a-5d95-e211-a939-e4115bead28a",
       "name": "Isle of Man",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "IM"
+      "iso_alpha2_code": "IM",
+      "trading_bloc": null
     },
     {
       "id": "746a9ab2-5d95-e211-a939-e4115bead28a",
@@ -887,7 +1019,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "IL"
+      "iso_alpha2_code": "IL",
+      "trading_bloc": null
     },
     {
       "id": "84756b9a-5d95-e211-a939-e4115bead28a",
@@ -897,7 +1030,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "IT"
+      "iso_alpha2_code": "IT",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "756a9ab2-5d95-e211-a939-e4115bead28a",
@@ -907,7 +1044,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "CI"
+      "iso_alpha2_code": "CI",
+      "trading_bloc": null
     },
     {
       "id": "766a9ab2-5d95-e211-a939-e4115bead28a",
@@ -917,7 +1055,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "JM"
+      "iso_alpha2_code": "JM",
+      "trading_bloc": null
     },
     {
       "id": "85756b9a-5d95-e211-a939-e4115bead28a",
@@ -927,14 +1066,16 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "JP"
+      "iso_alpha2_code": "JP",
+      "trading_bloc": null
     },
     {
       "id": "78756b9a-5d95-e211-a939-e4115bead28a",
       "name": "Jersey",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "JE"
+      "iso_alpha2_code": "JE",
+      "trading_bloc": null
     },
     {
       "id": "776a9ab2-5d95-e211-a939-e4115bead28a",
@@ -944,7 +1085,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "JO"
+      "iso_alpha2_code": "JO",
+      "trading_bloc": null
     },
     {
       "id": "786a9ab2-5d95-e211-a939-e4115bead28a",
@@ -954,7 +1096,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "KZ"
+      "iso_alpha2_code": "KZ",
+      "trading_bloc": null
     },
     {
       "id": "796a9ab2-5d95-e211-a939-e4115bead28a",
@@ -964,7 +1107,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "KE"
+      "iso_alpha2_code": "KE",
+      "trading_bloc": null
     },
     {
       "id": "7a6a9ab2-5d95-e211-a939-e4115bead28a",
@@ -974,7 +1118,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "KI"
+      "iso_alpha2_code": "KI",
+      "trading_bloc": null
     },
     {
       "id": "7a756b9a-5d95-e211-a939-e4115bead28a",
@@ -984,7 +1129,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "XK"
+      "iso_alpha2_code": "XK",
+      "trading_bloc": null
     },
     {
       "id": "7d6a9ab2-5d95-e211-a939-e4115bead28a",
@@ -994,7 +1140,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "KW"
+      "iso_alpha2_code": "KW",
+      "trading_bloc": null
     },
     {
       "id": "7e6a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1004,7 +1151,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "KG"
+      "iso_alpha2_code": "KG",
+      "trading_bloc": null
     },
     {
       "id": "7f6a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1014,7 +1162,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "LA"
+      "iso_alpha2_code": "LA",
+      "trading_bloc": null
     },
     {
       "id": "806a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1024,7 +1173,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "LV"
+      "iso_alpha2_code": "LV",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "816a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1034,7 +1187,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "LB"
+      "iso_alpha2_code": "LB",
+      "trading_bloc": null
     },
     {
       "id": "826a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1044,7 +1198,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "LS"
+      "iso_alpha2_code": "LS",
+      "trading_bloc": null
     },
     {
       "id": "836a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1054,7 +1209,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "LR"
+      "iso_alpha2_code": "LR",
+      "trading_bloc": null
     },
     {
       "id": "846a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1064,7 +1220,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "LY"
+      "iso_alpha2_code": "LY",
+      "trading_bloc": null
     },
     {
       "id": "856a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1074,7 +1231,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "LI"
+      "iso_alpha2_code": "LI",
+      "trading_bloc": null
     },
     {
       "id": "866a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1084,7 +1242,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "LT"
+      "iso_alpha2_code": "LT",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "876a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1094,7 +1256,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "LU"
+      "iso_alpha2_code": "LU",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "886a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1104,7 +1270,8 @@
         "name": "China",
         "id": "b97749fb-2273-4447-a239-62dd8fb29e01"
       },
-      "iso_alpha2_code": "MO"
+      "iso_alpha2_code": "MO",
+      "trading_bloc": null
     },
     {
       "id": "0350bdb8-5d95-e211-a939-e4115bead28a",
@@ -1114,7 +1281,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "MG"
+      "iso_alpha2_code": "MG",
+      "trading_bloc": null
     },
     {
       "id": "0450bdb8-5d95-e211-a939-e4115bead28a",
@@ -1124,7 +1292,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "MW"
+      "iso_alpha2_code": "MW",
+      "trading_bloc": null
     },
     {
       "id": "0550bdb8-5d95-e211-a939-e4115bead28a",
@@ -1134,7 +1303,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "MY"
+      "iso_alpha2_code": "MY",
+      "trading_bloc": null
     },
     {
       "id": "0650bdb8-5d95-e211-a939-e4115bead28a",
@@ -1144,7 +1314,8 @@
         "name": "South Asia",
         "id": "12ed13cf-4b2c-4a46-b2f9-068e397d8c84"
       },
-      "iso_alpha2_code": "MV"
+      "iso_alpha2_code": "MV",
+      "trading_bloc": null
     },
     {
       "id": "0750bdb8-5d95-e211-a939-e4115bead28a",
@@ -1154,7 +1325,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "ML"
+      "iso_alpha2_code": "ML",
+      "trading_bloc": null
     },
     {
       "id": "0850bdb8-5d95-e211-a939-e4115bead28a",
@@ -1164,7 +1336,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "MT"
+      "iso_alpha2_code": "MT",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "0950bdb8-5d95-e211-a939-e4115bead28a",
@@ -1174,7 +1350,8 @@
         "name": "North America",
         "id": "fdfbbc8d-0e8a-479a-b10f-4979d582ff87"
       },
-      "iso_alpha2_code": "MH"
+      "iso_alpha2_code": "MH",
+      "trading_bloc": null
     },
     {
       "id": "0b50bdb8-5d95-e211-a939-e4115bead28a",
@@ -1184,7 +1361,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "MR"
+      "iso_alpha2_code": "MR",
+      "trading_bloc": null
     },
     {
       "id": "0c50bdb8-5d95-e211-a939-e4115bead28a",
@@ -1194,7 +1372,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "MU"
+      "iso_alpha2_code": "MU",
+      "trading_bloc": null
     },
     {
       "id": "0e50bdb8-5d95-e211-a939-e4115bead28a",
@@ -1204,7 +1383,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "MX"
+      "iso_alpha2_code": "MX",
+      "trading_bloc": null
     },
     {
       "id": "0f50bdb8-5d95-e211-a939-e4115bead28a",
@@ -1214,7 +1394,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "FM"
+      "iso_alpha2_code": "FM",
+      "trading_bloc": null
     },
     {
       "id": "1050bdb8-5d95-e211-a939-e4115bead28a",
@@ -1224,7 +1405,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "MD"
+      "iso_alpha2_code": "MD",
+      "trading_bloc": null
     },
     {
       "id": "1150bdb8-5d95-e211-a939-e4115bead28a",
@@ -1234,7 +1416,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "MC"
+      "iso_alpha2_code": "MC",
+      "trading_bloc": null
     },
     {
       "id": "1250bdb8-5d95-e211-a939-e4115bead28a",
@@ -1244,7 +1427,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "MN"
+      "iso_alpha2_code": "MN",
+      "trading_bloc": null
     },
     {
       "id": "7f756b9a-5d95-e211-a939-e4115bead28a",
@@ -1254,14 +1438,16 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "ME"
+      "iso_alpha2_code": "ME",
+      "trading_bloc": null
     },
     {
       "id": "1350bdb8-5d95-e211-a939-e4115bead28a",
       "name": "Montserrat",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "MS"
+      "iso_alpha2_code": "MS",
+      "trading_bloc": null
     },
     {
       "id": "1450bdb8-5d95-e211-a939-e4115bead28a",
@@ -1271,7 +1457,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "MA"
+      "iso_alpha2_code": "MA",
+      "trading_bloc": null
     },
     {
       "id": "1550bdb8-5d95-e211-a939-e4115bead28a",
@@ -1281,7 +1468,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "MZ"
+      "iso_alpha2_code": "MZ",
+      "trading_bloc": null
     },
     {
       "id": "59af72a6-5d95-e211-a939-e4115bead28a",
@@ -1291,7 +1479,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "MM"
+      "iso_alpha2_code": "MM",
+      "trading_bloc": null
     },
     {
       "id": "1650bdb8-5d95-e211-a939-e4115bead28a",
@@ -1301,7 +1490,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "NA"
+      "iso_alpha2_code": "NA",
+      "trading_bloc": null
     },
     {
       "id": "1750bdb8-5d95-e211-a939-e4115bead28a",
@@ -1311,7 +1501,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "NR"
+      "iso_alpha2_code": "NR",
+      "trading_bloc": null
     },
     {
       "id": "1850bdb8-5d95-e211-a939-e4115bead28a",
@@ -1321,7 +1512,8 @@
         "name": "South Asia",
         "id": "12ed13cf-4b2c-4a46-b2f9-068e397d8c84"
       },
-      "iso_alpha2_code": "NP"
+      "iso_alpha2_code": "NP",
+      "trading_bloc": null
     },
     {
       "id": "1950bdb8-5d95-e211-a939-e4115bead28a",
@@ -1331,7 +1523,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "NL"
+      "iso_alpha2_code": "NL",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "1a50bdb8-5d95-e211-a939-e4115bead28a",
@@ -1341,7 +1537,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": ""
+      "iso_alpha2_code": "",
+      "trading_bloc": null
     },
     {
       "id": "1c50bdb8-5d95-e211-a939-e4115bead28a",
@@ -1351,7 +1548,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "NZ"
+      "iso_alpha2_code": "NZ",
+      "trading_bloc": null
     },
     {
       "id": "1d50bdb8-5d95-e211-a939-e4115bead28a",
@@ -1361,7 +1559,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "NI"
+      "iso_alpha2_code": "NI",
+      "trading_bloc": null
     },
     {
       "id": "4461b8be-5d95-e211-a939-e4115bead28a",
@@ -1371,7 +1570,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "NE"
+      "iso_alpha2_code": "NE",
+      "trading_bloc": null
     },
     {
       "id": "4561b8be-5d95-e211-a939-e4115bead28a",
@@ -1381,7 +1581,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "NG"
+      "iso_alpha2_code": "NG",
+      "trading_bloc": null
     },
     {
       "id": "7b6a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1391,7 +1592,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "KP"
+      "iso_alpha2_code": "KP",
+      "trading_bloc": null
     },
     {
       "id": "896a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1401,7 +1603,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "MK"
+      "iso_alpha2_code": "MK",
+      "trading_bloc": null
     },
     {
       "id": "4961b8be-5d95-e211-a939-e4115bead28a",
@@ -1411,7 +1614,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "NO"
+      "iso_alpha2_code": "NO",
+      "trading_bloc": null
     },
     {
       "id": "35afd8d0-5d95-e211-a939-e4115bead28a",
@@ -1421,7 +1625,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "PS"
+      "iso_alpha2_code": "PS",
+      "trading_bloc": null
     },
     {
       "id": "4a61b8be-5d95-e211-a939-e4115bead28a",
@@ -1431,7 +1636,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "OM"
+      "iso_alpha2_code": "OM",
+      "trading_bloc": null
     },
     {
       "id": "4b61b8be-5d95-e211-a939-e4115bead28a",
@@ -1441,7 +1647,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "PK"
+      "iso_alpha2_code": "PK",
+      "trading_bloc": null
     },
     {
       "id": "4c61b8be-5d95-e211-a939-e4115bead28a",
@@ -1451,7 +1658,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "PW"
+      "iso_alpha2_code": "PW",
+      "trading_bloc": null
     },
     {
       "id": "4d61b8be-5d95-e211-a939-e4115bead28a",
@@ -1461,7 +1669,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "PA"
+      "iso_alpha2_code": "PA",
+      "trading_bloc": null
     },
     {
       "id": "4e61b8be-5d95-e211-a939-e4115bead28a",
@@ -1471,7 +1680,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "PG"
+      "iso_alpha2_code": "PG",
+      "trading_bloc": null
     },
     {
       "id": "4f61b8be-5d95-e211-a939-e4115bead28a",
@@ -1481,7 +1691,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "PY"
+      "iso_alpha2_code": "PY",
+      "trading_bloc": null
     },
     {
       "id": "5061b8be-5d95-e211-a939-e4115bead28a",
@@ -1491,7 +1702,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "PE"
+      "iso_alpha2_code": "PE",
+      "trading_bloc": null
     },
     {
       "id": "5161b8be-5d95-e211-a939-e4115bead28a",
@@ -1501,7 +1713,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "PH"
+      "iso_alpha2_code": "PH",
+      "trading_bloc": null
     },
     {
       "id": "5361b8be-5d95-e211-a939-e4115bead28a",
@@ -1511,7 +1724,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "PL"
+      "iso_alpha2_code": "PL",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "5461b8be-5d95-e211-a939-e4115bead28a",
@@ -1521,7 +1738,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "PT"
+      "iso_alpha2_code": "PT",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "5561b8be-5d95-e211-a939-e4115bead28a",
@@ -1531,7 +1752,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "PR"
+      "iso_alpha2_code": "PR",
+      "trading_bloc": null
     },
     {
       "id": "5661b8be-5d95-e211-a939-e4115bead28a",
@@ -1541,7 +1763,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "QA"
+      "iso_alpha2_code": "QA",
+      "trading_bloc": null
     },
     {
       "id": "5761b8be-5d95-e211-a939-e4115bead28a",
@@ -1551,7 +1774,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "RE"
+      "iso_alpha2_code": "RE",
+      "trading_bloc": null
     },
     {
       "id": "5861b8be-5d95-e211-a939-e4115bead28a",
@@ -1561,7 +1785,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "RO"
+      "iso_alpha2_code": "RO",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "5961b8be-5d95-e211-a939-e4115bead28a",
@@ -1571,7 +1799,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "RU"
+      "iso_alpha2_code": "RU",
+      "trading_bloc": null
     },
     {
       "id": "5a61b8be-5d95-e211-a939-e4115bead28a",
@@ -1581,7 +1810,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "RW"
+      "iso_alpha2_code": "RW",
+      "trading_bloc": null
     },
     {
       "id": "5b61b8be-5d95-e211-a939-e4115bead28a",
@@ -1591,7 +1821,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "WS"
+      "iso_alpha2_code": "WS",
+      "trading_bloc": null
     },
     {
       "id": "5c61b8be-5d95-e211-a939-e4115bead28a",
@@ -1601,7 +1832,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "SM"
+      "iso_alpha2_code": "SM",
+      "trading_bloc": null
     },
     {
       "id": "5d61b8be-5d95-e211-a939-e4115bead28a",
@@ -1611,7 +1843,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "ST"
+      "iso_alpha2_code": "ST",
+      "trading_bloc": null
     },
     {
       "id": "1a0be5c4-5d95-e211-a939-e4115bead28a",
@@ -1621,7 +1854,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "SA"
+      "iso_alpha2_code": "SA",
+      "trading_bloc": null
     },
     {
       "id": "1b0be5c4-5d95-e211-a939-e4115bead28a",
@@ -1631,7 +1865,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "SN"
+      "iso_alpha2_code": "SN",
+      "trading_bloc": null
     },
     {
       "id": "1c0be5c4-5d95-e211-a939-e4115bead28a",
@@ -1641,7 +1876,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "RS"
+      "iso_alpha2_code": "RS",
+      "trading_bloc": null
     },
     {
       "id": "1d0be5c4-5d95-e211-a939-e4115bead28a",
@@ -1651,7 +1887,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "SC"
+      "iso_alpha2_code": "SC",
+      "trading_bloc": null
     },
     {
       "id": "1e0be5c4-5d95-e211-a939-e4115bead28a",
@@ -1661,7 +1898,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "SL"
+      "iso_alpha2_code": "SL",
+      "trading_bloc": null
     },
     {
       "id": "1f0be5c4-5d95-e211-a939-e4115bead28a",
@@ -1671,7 +1909,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "SG"
+      "iso_alpha2_code": "SG",
+      "trading_bloc": null
     },
     {
       "id": "200be5c4-5d95-e211-a939-e4115bead28a",
@@ -1681,7 +1920,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "SK"
+      "iso_alpha2_code": "SK",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "210be5c4-5d95-e211-a939-e4115bead28a",
@@ -1691,7 +1934,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "SI"
+      "iso_alpha2_code": "SI",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "220be5c4-5d95-e211-a939-e4115bead28a",
@@ -1701,7 +1948,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "SB"
+      "iso_alpha2_code": "SB",
+      "trading_bloc": null
     },
     {
       "id": "230be5c4-5d95-e211-a939-e4115bead28a",
@@ -1711,7 +1959,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "SO"
+      "iso_alpha2_code": "SO",
+      "trading_bloc": null
     },
     {
       "id": "240be5c4-5d95-e211-a939-e4115bead28a",
@@ -1721,7 +1970,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "ZA"
+      "iso_alpha2_code": "ZA",
+      "trading_bloc": null
     },
     {
       "id": "7c6a9ab2-5d95-e211-a939-e4115bead28a",
@@ -1731,7 +1981,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "KR"
+      "iso_alpha2_code": "KR",
+      "trading_bloc": null
     },
     {
       "id": "7e756b9a-5d95-e211-a939-e4115bead28a",
@@ -1741,7 +1992,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "SS"
+      "iso_alpha2_code": "SS",
+      "trading_bloc": null
     },
     {
       "id": "86756b9a-5d95-e211-a939-e4115bead28a",
@@ -1751,7 +2003,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "ES"
+      "iso_alpha2_code": "ES",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "260be5c4-5d95-e211-a939-e4115bead28a",
@@ -1761,7 +2017,8 @@
         "name": "South Asia",
         "id": "12ed13cf-4b2c-4a46-b2f9-068e397d8c84"
       },
-      "iso_alpha2_code": "LK"
+      "iso_alpha2_code": "LK",
+      "trading_bloc": null
     },
     {
       "id": "280be5c4-5d95-e211-a939-e4115bead28a",
@@ -1771,7 +2028,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "KN"
+      "iso_alpha2_code": "KN",
+      "trading_bloc": null
     },
     {
       "id": "290be5c4-5d95-e211-a939-e4115bead28a",
@@ -1781,7 +2039,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "LC"
+      "iso_alpha2_code": "LC",
+      "trading_bloc": null
     },
     {
       "id": "7c756b9a-5d95-e211-a939-e4115bead28a",
@@ -1791,7 +2050,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "MF"
+      "iso_alpha2_code": "MF",
+      "trading_bloc": null
     },
     {
       "id": "2b0be5c4-5d95-e211-a939-e4115bead28a",
@@ -1801,7 +2061,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "VC"
+      "iso_alpha2_code": "VC",
+      "trading_bloc": null
     },
     {
       "id": "2c0be5c4-5d95-e211-a939-e4115bead28a",
@@ -1811,7 +2072,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "SD"
+      "iso_alpha2_code": "SD",
+      "trading_bloc": null
     },
     {
       "id": "2d0be5c4-5d95-e211-a939-e4115bead28a",
@@ -1821,7 +2083,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "SR"
+      "iso_alpha2_code": "SR",
+      "trading_bloc": null
     },
     {
       "id": "300be5c4-5d95-e211-a939-e4115bead28a",
@@ -1831,7 +2094,11 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "SE"
+      "iso_alpha2_code": "SE",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "310be5c4-5d95-e211-a939-e4115bead28a",
@@ -1841,7 +2108,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "CH"
+      "iso_alpha2_code": "CH",
+      "trading_bloc": null
     },
     {
       "id": "a46ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1851,7 +2119,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "SY"
+      "iso_alpha2_code": "SY",
+      "trading_bloc": null
     },
     {
       "id": "a56ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1861,7 +2130,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "TW"
+      "iso_alpha2_code": "TW",
+      "trading_bloc": null
     },
     {
       "id": "a66ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1871,7 +2141,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "TJ"
+      "iso_alpha2_code": "TJ",
+      "trading_bloc": null
     },
     {
       "id": "a76ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1881,7 +2152,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "TZ"
+      "iso_alpha2_code": "TZ",
+      "trading_bloc": null
     },
     {
       "id": "a86ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1891,7 +2163,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "TH"
+      "iso_alpha2_code": "TH",
+      "trading_bloc": null
     },
     {
       "id": "a25f66a0-5d95-e211-a939-e4115bead28a",
@@ -1901,7 +2174,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "BS"
+      "iso_alpha2_code": "BS",
+      "trading_bloc": null
     },
     {
       "id": "dff682ac-5d95-e211-a939-e4115bead28a",
@@ -1911,7 +2185,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "GM"
+      "iso_alpha2_code": "GM",
+      "trading_bloc": null
     },
     {
       "id": "a96ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1921,7 +2196,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "TG"
+      "iso_alpha2_code": "TG",
+      "trading_bloc": null
     },
     {
       "id": "ab6ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1931,7 +2207,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "TO"
+      "iso_alpha2_code": "TO",
+      "trading_bloc": null
     },
     {
       "id": "ac6ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1941,7 +2218,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "TT"
+      "iso_alpha2_code": "TT",
+      "trading_bloc": null
     },
     {
       "id": "ad6ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1951,7 +2229,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "TN"
+      "iso_alpha2_code": "TN",
+      "trading_bloc": null
     },
     {
       "id": "ae6ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1961,7 +2240,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "TR"
+      "iso_alpha2_code": "TR",
+      "trading_bloc": null
     },
     {
       "id": "af6ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1971,14 +2251,16 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "TM"
+      "iso_alpha2_code": "TM",
+      "trading_bloc": null
     },
     {
       "id": "b06ee1ca-5d95-e211-a939-e4115bead28a",
       "name": "Turks and Caicos Islands",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "TC"
+      "iso_alpha2_code": "TC",
+      "trading_bloc": null
     },
     {
       "id": "b16ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1988,7 +2270,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "TV"
+      "iso_alpha2_code": "TV",
+      "trading_bloc": null
     },
     {
       "id": "b26ee1ca-5d95-e211-a939-e4115bead28a",
@@ -1998,7 +2281,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "UG"
+      "iso_alpha2_code": "UG",
+      "trading_bloc": null
     },
     {
       "id": "b36ee1ca-5d95-e211-a939-e4115bead28a",
@@ -2008,7 +2292,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "UA"
+      "iso_alpha2_code": "UA",
+      "trading_bloc": null
     },
     {
       "id": "b46ee1ca-5d95-e211-a939-e4115bead28a",
@@ -2018,14 +2303,19 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "AE"
+      "iso_alpha2_code": "AE",
+      "trading_bloc": null
     },
     {
       "id": "80756b9a-5d95-e211-a939-e4115bead28a",
       "name": "United Kingdom",
       "disabled_on": null,
       "overseas_region": null,
-      "iso_alpha2_code": "GB"
+      "iso_alpha2_code": "GB",
+      "trading_bloc": {
+        "code": "TB00016",
+        "name": "European Union"
+      }
     },
     {
       "id": "81756b9a-5d95-e211-a939-e4115bead28a",
@@ -2035,7 +2325,8 @@
         "name": "North America",
         "id": "fdfbbc8d-0e8a-479a-b10f-4979d582ff87"
       },
-      "iso_alpha2_code": "US"
+      "iso_alpha2_code": "US",
+      "trading_bloc": null
     },
     {
       "id": "bb6ee1ca-5d95-e211-a939-e4115bead28a",
@@ -2045,7 +2336,8 @@
         "name": "North America",
         "id": "fdfbbc8d-0e8a-479a-b10f-4979d582ff87"
       },
-      "iso_alpha2_code": "VI"
+      "iso_alpha2_code": "VI",
+      "trading_bloc": null
     },
     {
       "id": "b66ee1ca-5d95-e211-a939-e4115bead28a",
@@ -2055,7 +2347,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "UY"
+      "iso_alpha2_code": "UY",
+      "trading_bloc": null
     },
     {
       "id": "b76ee1ca-5d95-e211-a939-e4115bead28a",
@@ -2065,7 +2358,8 @@
         "name": "Eastern Europe and Central Asia",
         "id": "cb2864aa-d19f-44b6-946c-d850a3fd7e3a"
       },
-      "iso_alpha2_code": "UZ"
+      "iso_alpha2_code": "UZ",
+      "trading_bloc": null
     },
     {
       "id": "b86ee1ca-5d95-e211-a939-e4115bead28a",
@@ -2075,7 +2369,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "VU"
+      "iso_alpha2_code": "VU",
+      "trading_bloc": null
     },
     {
       "id": "eef682ac-5d95-e211-a939-e4115bead28a",
@@ -2085,7 +2380,8 @@
         "name": "Europe",
         "id": "3e6809d6-89f6-4590-8458-1d0dab73ad1a"
       },
-      "iso_alpha2_code": "VA"
+      "iso_alpha2_code": "VA",
+      "trading_bloc": null
     },
     {
       "id": "b96ee1ca-5d95-e211-a939-e4115bead28a",
@@ -2095,7 +2391,8 @@
         "name": "Latin America",
         "id": "5616ccf5-ab4a-4c2c-9624-13c69be3c46b"
       },
-      "iso_alpha2_code": "VE"
+      "iso_alpha2_code": "VE",
+      "trading_bloc": null
     },
     {
       "id": "ba6ee1ca-5d95-e211-a939-e4115bead28a",
@@ -2105,7 +2402,8 @@
         "name": "Asia-Pacific",
         "id": "04a7cff0-03dd-4677-aa3c-12dd8426f0d7"
       },
-      "iso_alpha2_code": "VN"
+      "iso_alpha2_code": "VN",
+      "trading_bloc": null
     },
     {
       "id": "36afd8d0-5d95-e211-a939-e4115bead28a",
@@ -2115,7 +2413,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": ""
+      "iso_alpha2_code": "",
+      "trading_bloc": null
     },
     {
       "id": "37afd8d0-5d95-e211-a939-e4115bead28a",
@@ -2125,7 +2424,8 @@
         "name": "Middle East",
         "id": "c4679b44-079e-4394-8bf7-bb0881a5031d"
       },
-      "iso_alpha2_code": "YE"
+      "iso_alpha2_code": "YE",
+      "trading_bloc": null
     },
     {
       "id": "38afd8d0-5d95-e211-a939-e4115bead28a",
@@ -2135,7 +2435,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "ZM"
+      "iso_alpha2_code": "ZM",
+      "trading_bloc": null
     },
     {
       "id": "39afd8d0-5d95-e211-a939-e4115bead28a",
@@ -2145,7 +2446,8 @@
         "name": "Africa",
         "id": "8d4c4f31-06ce-4320-8e2f-1c13559e125f"
       },
-      "iso_alpha2_code": "ZW"
+      "iso_alpha2_code": "ZW",
+      "trading_bloc": null
     }
   ],
   "country_admin_areas": [
