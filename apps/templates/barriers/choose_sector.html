@@ -7,7 +7,9 @@
 {% block page_content %}
     {% content_header title %}
 
-    <a href="{% url "barriers:list" %}{% sector_filter "all" %}" class="govuk-link">Select all sectors</a>
+    <p class="govuk-body">
+        <a href="{% url "barriers:list" %}{% sector_filter "all" %}" class="govuk-link">Select all sectors</a>
+    </p>
 
     <h2>Sector</h2>
     <div class="filter-options__container">
@@ -15,7 +17,7 @@
             <div class="filter-options-group__container">
                 <h3>{{ initial_letter }}</h3>
                 {% for sector in sector_list %}
-                    <p>
+                    <p class="govuk-body">
                         <a href="{% url "barriers:list" %}{% sector_filter sector.slug %}"
                            class="govuk-link{% if not sector.records_count %} govuk-link--muted{% endif %}">
                             {{ sector.name }}{% if sector.records_count %} ({{ sector.records_count }}){% endif %}
