@@ -80,6 +80,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "apps.barriers",
     "apps.core",
+    "apps.feedback",
     "apps.healthcheck",
     "apps.metadata",
 ]

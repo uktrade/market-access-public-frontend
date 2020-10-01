@@ -59,9 +59,10 @@ const main_css = () => {
 
 // Prepare Main JS
 const main_js = () => {
-    return gulp.src([
-        `${assetsSrcPath}js/**`,
-    ])
+    return gulp.src(
+        [`node_modules/govuk-frontend/govuk/all.js`],
+        [`${assetsSrcPath}js/**`]
+    )
         .pipe(gulpif(!production, sourcemaps.init()))
         .pipe(babel({
             presets: [
