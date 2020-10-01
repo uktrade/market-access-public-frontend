@@ -6,8 +6,16 @@
 {% block page_content %}
     {% content_header title %}
     <div>
-        <p class="govuk-body"><a href="{% url 'barriers:find-resolved-barriers' %}" class="govuk-link">Resolved barriers</a></p>
+        <p class="govuk-body govuk-!-font-weight-bold">
+            <a href="{% url 'barriers:find-resolved-barriers' %}" class="govuk-link">
+                Resolved barriers
+            </a>
+        </p>
         <p class="govuk-body">or</p>
-        <p class="govuk-body"><a href="{% url 'barriers:find-active-barriers' %}" class="govuk-link">Active trade barriers</a></p>
+        <p class="govuk-body govuk-!-font-weight-bold">
+            <a href="{% url 'barriers:find-active-barriers' %}" class="govuk-link">
+                Active trade barriers
+            </a>
+        </p>
     </div>
 {% endblock %}
