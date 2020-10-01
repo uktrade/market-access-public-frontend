@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load govuk_forms %}
+{% load headers %}
+
+{% block page_title %}{{ title }} - {{ block.super }}{% endblock %}
+
+{% block page_content %}
+    {% content_header title %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% radio_input form.feeling_type %}
+        {% textarea form.suggestions %}
+        <input type="submit" value="Continue" class="govuk-button">
+    </form>
+{% endblock %}

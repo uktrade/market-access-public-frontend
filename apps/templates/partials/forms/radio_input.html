@@ -1,0 +1,46 @@
+{% load govuk_forms %}
+
+<div class="{% form_group_classes field.errors %} {{ classes }}">
+    <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend {{ legend_classes }}">
+            <h1 class="govuk-fieldset__heading">
+                {% if strong|default_if_none:True %}
+                    <strong>{{ field.label }}</strong>
+                {% else %}
+                    {{ field.label }}
+                {% endif %}
+            </h1>
+        </legend>
+
+        {% if field.help_text %}<span class="govuk-hint">{{ field.help_text }}</span>{% endif %}
+
+        {% form_field_error field %}
+
+        <div class="govuk-radios {{ field.name }} {{ radio_classes }}"
+             data-module="radios">
+            {% for value, data in field.field.choices %}
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
+                           id="{{ field.name }}-{{ value }}"
+                           name="{{ field.name }}"
+                           type="radio"
+                           value="{{ value }}"
+                           aria-describedby="{{ choice_id }}-item-hint"
+                            {% if field.value|lower == value|lower %} checked="checked"{% endif %}>
+                    <label class="govuk-label govuk-radios__label" for="{{ field.name }}-{{ value }}">
+                        {% if data.label %}
+                            {{ data.label }}
+                        {% else %}
+                            {{ data }}
+                        {% endif %}
+                    </label>
+                    {% if data.hint %}
+                        <div id="{{ field.name }}-{{ value }}-hint" class="govuk-hint govuk-radios__hint">
+                            {{ data.hint }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </fieldset>
+</div>

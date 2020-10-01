@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load govuk_forms %}
+{% load headers %}
+
+{% block page_title %}{{ title }} - {{ block.super }}{% endblock %}
+
+{% block page_content %}
+    {% content_header title %}
+
+    <p class="govuk-body">Any feedback on problems you have found will help us improve this service.</p>
+    <p class="govuk-body">Please include as much information as you can, this can include:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>web address (URL)</li>
+        <li>what you were doing - the steps you took</li>
+        <li>what you expected to happen and what actually happened</li>
+        <li>any error messages you got</li>
+    </ul>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% textarea form.expectations %}
+        {% textarea form.outcome %}
+        <input type="submit" value="Continue" class="govuk-button">
+    </form>
+{% endblock %}

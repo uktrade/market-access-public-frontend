@@ -68,7 +68,7 @@
             </div>
         </div>
         {% if barriers.count %}
-        <table class="govuk-table">
+        <table class="govuk-table filter-results-table">
             <thead class="govuk-table__head">
             <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Title</th>
@@ -103,5 +103,9 @@
         {% else %}
         <h2 class="filter-results-comment">There are no reported trade barriers.</h2>
         {% endif %}
+    </section>
+
+    <section>
+        <p class="govuk-body">Have you faced a new barrier to your business? Contact us on <a class="govuk-link" href="https://www.great.gov.uk/report-trade-barrier/">report a trade barrier</a>.</p>
     </section>
 {% endblock %}

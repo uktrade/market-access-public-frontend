@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load headers %}
+
+{% block page_title %}{{ title }} - {{ block.super }}{% endblock %}
+
+{% block page_content %}
+    {% content_header title caption %}
+    <p class="govuk-body">
+        Return to <a href="{% url 'barriers:find-barriers-splash' %}" class="govuk-link">check international trade barriers</a>.
+    </p>
+{% endblock %}
