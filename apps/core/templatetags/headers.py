@@ -4,7 +4,9 @@ register = template.Library()
 
 
 @register.inclusion_tag("partials/content_header.html")
-def content_header(title):
+def content_header(title, caption=None, size="xl"):
     return {
-        "title": title
+        "caption": caption,
+        "title": title,
+        "size": size
     }

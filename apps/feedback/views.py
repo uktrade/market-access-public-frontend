@@ -2,10 +2,12 @@ from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
 from .forms import FeedbackSplashForm, FeedbackTypes, FeedbackUsabilityForm, FeedbackIssueForm
+from ..core.mixins import BreadcrumbsMixin
 
 
-class FeedbackSplashView(FormView):
+class FeedbackSplashView(BreadcrumbsMixin, FormView):
     template_name = "feedback/splash.html"
+    breadcrumbs = (("Feedback  or issues", None),)
     form_class = FeedbackSplashForm
     extra_context = {"title": "Help us improve our service"}
     success_url = reverse_lazy("feedback:splash")
@@ -21,15 +23,23 @@ class FeedbackSplashView(FormView):
         return super().form_valid(form)
 
 
-class FeedbackBarrierView(TemplateView):
+class FeedbackBarrierView(BreadcrumbsMixin, TemplateView):
     template_name = "feedback/barrier.html"
+    breadcrumbs = (
+        ("Feedback or issues", reverse_lazy("feedback:splash")),
+        ("Report a trade barrier", None)
+    )
     extra_context = {
         "title": "Report a trade barrier or an issue with an existing trade barrier"
     }
 
 
-class FeedbackIssueView(FormView):
+class FeedbackIssueView(BreadcrumbsMixin, FormView):
     template_name = "feedback/issue.html"
+    breadcrumbs = (
+        ("Feedback or issues", reverse_lazy("feedback:splash")),
+        ("Report an issue", None)
+    )
     form_class = FeedbackIssueForm
     extra_context = {"title": "A technical issue with this service"}
     success_url = reverse_lazy("feedback:thank-you")
@@ -39,8 +49,12 @@ class FeedbackIssueView(FormView):
         return super().form_valid(form)
 
 
-class FeedbackUsabilityView(FormView):
+class FeedbackUsabilityView(BreadcrumbsMixin, FormView):
     template_name = "feedback/usability.html"
+    breadcrumbs = (
+        ("Feedback or issues", reverse_lazy("feedback:splash")),
+        ("Provide feedback", None)
+    )
     form_class = FeedbackUsabilityForm
     extra_context = {"title": "Feedback on the use of this service"}
     success_url = reverse_lazy("feedback:thank-you")
@@ -52,4 +66,7 @@ class FeedbackUsabilityView(FormView):
 
 class FeedbackThankYouView(TemplateView):
     template_name = "feedback/thank-you.html"
-    extra_context = {"title": "Thank you for your feedback"}
+    extra_context = {
+        "caption": "Your enquiry has been received.",
+        "title": "Thank you for your response or feedback."
+    }

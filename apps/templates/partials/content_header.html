@@ -1,7 +1,6 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-        <h1 class="govuk-heading-xl">
-            {{ title }}
-        </h1>
+        {% if caption %}<span class="govuk-caption-{{ size }}">{{ caption }}</span>{% endif %}
+        <h1 class="govuk-heading-{{ size }}">{{ title }}</h1>
     </div>
 </div>
