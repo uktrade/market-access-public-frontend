@@ -57,9 +57,7 @@ class LocationFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
 
     def get_trading_blocs(self):
         barriers = self.get_barriers_list()
-        choices = trading_blocs.count_records(
-            "location", barriers["all"], op="include"
-        )
+        choices = trading_blocs.count_records("trading_bloc", barriers["all"])
         return choices
 
     def get_countries(self):
