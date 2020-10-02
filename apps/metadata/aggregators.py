@@ -70,6 +70,7 @@ class Country:
         self.overseas_region = kwargs["overseas_region"]
         self.iso_alpha2_code = kwargs["iso_alpha2_code"]
         self.admin_areas = kwargs.get("admin_areas")
+        self.trading_bloc = kwargs.get("trading_bloc")
         self.records_count = 0
 
         if not self.admin_areas:
@@ -167,7 +168,16 @@ class TradingBlocsAggregator(DataAggregator):
 
 
 class CountriesAggregator(DataAggregator):
-    pass
+    def count_records(self, by_field, dataset=(), op="exact", offset=0):
+        dataset = list(dataset)
+        for item in self.all:
+            item.records_count = len([
+                d for d in dataset
+                if item.name == d.country
+                or (item.trading_bloc and item.trading_bloc["name"] == d.trading_bloc)
+            ]) + offset
+
+        return self.grouped_alphabetically
 
 
 class SectorsAggregator(DataAggregator):

@@ -37,6 +37,12 @@ class Barrier(APIModel):
         return self.data["location"]
 
     @property
+    def simple_location(self):
+        if self.country:
+            return self.country
+        return self.trading_bloc
+
+    @property
     def sectors(self):
         return ", ".join(self.sectors_list)
 
@@ -44,6 +50,10 @@ class Barrier(APIModel):
     def sectors_list(self):
         sector_names = [s.get("name") for s in self.data.get("sectors", {})]
         return sector_names
+
+    @property
+    def trading_bloc(self):
+        return self.data["trading_bloc"].get("name")
 
     @property
     def categories_list(self):
