@@ -25,7 +25,7 @@ RUN dnf -y update \
  && dnf -y clean all \
  && rm -rf /var/cache/dnf
 
-ENV PYTHON_VERSION 3.7.6
+ENV PYTHON_VERSION 3.7.9
 RUN wget --no-verbose https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz \
     && tar -C /usr/local/bin -xzvf Python-$PYTHON_VERSION.tgz \
     && rm Python-$PYTHON_VERSION.tgz \
@@ -63,7 +63,7 @@ ENV LC_ALL en_GB.utf-8
 
 # Set PYTHONUNBUFFERED so output is displayed in the Docker log
 ENV PYTHONUNBUFFERED=1 \
-    POETRY_VERSION=1.0.5
+    POETRY_VERSION=1.0.10
 
 WORKDIR /usr/src/app
 
