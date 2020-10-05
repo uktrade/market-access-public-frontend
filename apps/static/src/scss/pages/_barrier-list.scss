@@ -2,8 +2,18 @@
 	width: 20%;
 }
 
+.search-filters {
+  border-top: 1px solid $govuk-mid-grey;
+}
+
 .filter-results-table {
   margin-bottom: govuk-em(48, 16);
+  th {
+    font-size: 16px;
+  }
+  td {
+    font-size: 14px;
+  }
 }
 
 .filter-results-header {
