@@ -1,15 +1,11 @@
-import collections
 import logging
 from urllib.parse import quote_plus
 
-import operator
 import requests
 from django.conf import settings
 from django.http import Http404
-from django.utils.text import slugify
 
 from apps.core.interfaces import Barrier
-from apps.core.utils import chain
 from apps.metadata.aggregators import trading_blocs, TradingBloc
 
 logger = logging.getLogger(__name__)
