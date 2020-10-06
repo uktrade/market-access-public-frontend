@@ -10,7 +10,7 @@ from django.utils.text import slugify
 
 from apps.core.interfaces import Barrier
 from apps.core.utils import chain
-from apps.metadata.aggregators import TradingBloc
+from apps.metadata.aggregators import trading_blocs, TradingBloc
 
 logger = logging.getLogger(__name__)
 
@@ -93,35 +93,40 @@ class DataGatewayResource(APIClient):
         data_path = f"{version}/data?format={format}"
         return self.uri(data_path)
 
-    def barriers_list(self, version="latest", filters=None):
+    def sort_by_location(self, barriers):
+        trading_bloc_names = [tb.name for tb in trading_blocs.all]
+        return sorted(
+            barriers,
+            key=lambda b: (
+                b.location in trading_bloc_names,
+                b.location,
+                b.sectors == "All sectors",
+                b.sectors,
+            )
+        )
+
+    def sort_by_sectors(self, barriers):
+        trading_bloc_names = [tb.name for tb in trading_blocs.all]
+        return sorted(
+            barriers,
+            key=lambda b: (
+                b.sectors == "All sectors",
+                b.sectors,
+                b.location in trading_bloc_names,
+                b.location,
+            )
+        )
+
+    def barriers_list(self, version="latest", filters=None, sort=None):
         uri = self.versioned_data_uri(version)
         barriers = self.get(uri, filters) or ()
         count = len(barriers)
         barriers = [Barrier(d) for d in barriers]
 
-        # Apply ordering
-        #   - sectors alphabetically trailed by barriers with "All sectors"
-        #   - within each sector order records by location
-        barriers_by_sector = {}
-
-        for barrier in barriers:
-            filtered_barriers = [b for b in barriers if b.sectors == barrier.sectors]
-            filtered_barriers.sort(key=operator.attrgetter('location'))
-            barriers_by_sector[slugify(barrier.sectors)] = filtered_barriers
-
-        barriers_affecting_all_sectors = []
-        try:
-            barriers_affecting_all_sectors = barriers_by_sector.pop("all-sectors")
-        except KeyError:
-            # No records that would affect "All sectors"
-            pass
-        barriers_by_sector = collections.OrderedDict(sorted(barriers_by_sector.items()))
-
-        barriers_affecting_specific_sectors = []
-        for k, v in barriers_by_sector.items():
-            barriers_affecting_specific_sectors += v
-
-        barriers = chain(barriers_affecting_specific_sectors, barriers_affecting_all_sectors)
+        if sort == "location":
+            barriers = self.sort_by_location(barriers)
+        elif sort == "sectors":
+            barriers = self.sort_by_sectors(barriers)
 
         data = {
             "all": barriers,
