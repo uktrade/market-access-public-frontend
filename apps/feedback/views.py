@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
+from django.conf import settings
 from .forms import FeedbackSplashForm, FeedbackTypes, FeedbackUsabilityForm, FeedbackIssueForm
 from ..core.mixins import BreadcrumbsMixin
 
@@ -45,7 +46,15 @@ class FeedbackIssueView(BreadcrumbsMixin, FormView):
     success_url = reverse_lazy("feedback:thank-you")
 
     def form_valid(self, form):
-        # TODO: call the Forms API
+        r = form.save(
+            # pass in meta for ZendeskAction
+            subject='Technical Issue',
+            full_name='Anonymous CITB User',
+            email_address='anonymous.citb.user@service.gov.uk',
+            service_name=settings.SERVICE_NAME,
+            form_url=self.request.build_absolute_uri(),
+        )
+        r.raise_for_status()
         return super().form_valid(form)
 
 
@@ -60,7 +69,15 @@ class FeedbackUsabilityView(BreadcrumbsMixin, FormView):
     success_url = reverse_lazy("feedback:thank-you")
 
     def form_valid(self, form):
-        # TODO: call the Forms API
+        r = form.save(
+            # pass in meta for ZendeskAction
+            subject='Feedback',
+            full_name='Anonymous CITB User',
+            email_address='anonymous.citb.user@service.gov.uk',
+            service_name=settings.SERVICE_NAME,
+            form_url=self.request.build_absolute_uri(),
+        )
+        r.raise_for_status()
         return super().form_valid(form)
 
 

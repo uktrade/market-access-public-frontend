@@ -1,6 +1,6 @@
 # ======
 # DO NOT EDIT - use pyproject.toml instead!
-# Generated: 2020-10-06_10-43
+# Generated: 2020-10-07_15-43
 # ======
 asgiref==3.2.10
 certifi==2020.6.20
@@ -35,7 +35,7 @@ requests==2.24.0
 sentry-sdk==0.18.0
 sigauth==4.3.0
 six==1.15.0
-sqlparse==0.3.1
+sqlparse==0.4.0
 urllib3==1.25.10
 w3lib==1.22.0
 whitenoise==5.2.0

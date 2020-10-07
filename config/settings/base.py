@@ -253,3 +253,11 @@ if SENTRY_DSN:
 # Public Data
 # ------------------------------------------------------------------------------
 PUBLIC_API_GATEWAY_BASE_URI = env("PUBLIC_API_GATEWAY_BASE_URI")
+
+
+# Forms API
+# ------------------------------------------------------------------------------
+DIRECTORY_FORMS_API_BASE_URL = env("DIRECTORY_FORMS_API_BASE_URL")
+DIRECTORY_FORMS_API_API_KEY = env("DIRECTORY_FORMS_API_API_KEY")
+DIRECTORY_FORMS_API_SENDER_ID = env("DIRECTORY_FORMS_API_SENDER_ID")
+DIRECTORY_FORMS_API_DEFAULT_TIMEOUT = env.int("DIRECTORY_FORMS_API_DEFAULT_TIMEOUT")

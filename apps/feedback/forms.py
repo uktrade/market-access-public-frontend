@@ -1,3 +1,4 @@
+from directory_forms_api_client.forms import ZendeskActionMixin
 from django import forms
 
 
@@ -60,7 +61,7 @@ class FeelingTypes:
         )
 
 
-class FeedbackUsabilityForm(forms.Form):
+class FeedbackUsabilityForm(ZendeskActionMixin, forms.Form):
     feeling_type = forms.ChoiceField(
         choices=FeelingTypes.choices,
         label="How would you rate the quality of the service?",
@@ -75,7 +76,7 @@ class FeedbackUsabilityForm(forms.Form):
     )
 
 
-class FeedbackIssueForm(forms.Form):
+class FeedbackIssueForm(ZendeskActionMixin, forms.Form):
     expectations = forms.CharField(
         widget=forms.Textarea,
         label="What did you expect to happen?",
