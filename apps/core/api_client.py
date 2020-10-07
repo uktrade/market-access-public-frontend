@@ -113,15 +113,15 @@ class DataGatewayResource(APIClient):
             )
         )
 
-    def barriers_list(self, version="latest", filters=None, sort=None):
+    def barriers_list(self, version="latest", filters=None, sort_by=None):
         uri = self.versioned_data_uri(version)
         barriers = self.get(uri, filters) or ()
         count = len(barriers)
         barriers = [Barrier(d) for d in barriers]
 
-        if sort == "location":
+        if sort_by == "location":
             barriers = self.sort_by_location(barriers)
-        elif sort == "sectors":
+        elif sort_by == "sectors":
             barriers = self.sort_by_sectors(barriers)
 
         data = {

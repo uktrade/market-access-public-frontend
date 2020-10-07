@@ -29,7 +29,7 @@ class BarriersListMixin:
             "sector": self.request.sector,
             "is_resolved": self.request.resolved,
         }
-        response = data_gateway.barriers_list(filters=filters, sort=self.get_sort_field())
+        response = data_gateway.barriers_list(filters=filters, sort_by=self.get_sort_field())
         return response
 
 
