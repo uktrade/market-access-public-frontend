@@ -3,10 +3,25 @@ from django.views.generic import TemplateView
 
 from apps.core.api_client import data_gateway
 from apps.core.mixins import BreadcrumbsMixin
-from apps.metadata.aggregators import countries, sectors, AllSectors, trading_blocs
+from apps.metadata.aggregators import countries, sectors, AllSectors, AllLocations, trading_blocs
 
 
 class BarriersListMixin:
+
+    def get_sort_field(self):
+        """
+        Get sort field based on filters currently applied:
+
+                       -------------Location-------------
+                       |___None___|__Value___|___All____|
+               | None  | location | sectors  | location |
+        Sector | Value | location | location | location |
+               | All   | location | sectors  | location |
+        """
+        if self.request.location is not None and not isinstance(self.request.location, AllLocations):
+            if self.request.sector is None or isinstance(self.request.sector, AllSectors):
+                return "sectors"
+        return "location"
 
     def get_barriers_list(self):
         filters = {
@@ -14,7 +29,7 @@ class BarriersListMixin:
             "sector": self.request.sector,
             "is_resolved": self.request.resolved,
         }
-        response = data_gateway.barriers_list(filters=filters)
+        response = data_gateway.barriers_list(filters=filters, sort_by=self.get_sort_field())
         return response
 
 
