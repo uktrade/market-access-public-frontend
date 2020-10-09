@@ -60,5 +60,9 @@ class Barrier(APIModel):
         return [s.get("name") for s in self.data.get("categories", {})]
 
     @property
+    def last_published_on(self):
+        return dateutil.parser.parse(self.data["last_published_on"])
+
+    @property
     def public_id(self):
         return f"PID-{self.id}"
