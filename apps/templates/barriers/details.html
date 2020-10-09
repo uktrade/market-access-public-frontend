@@ -21,10 +21,6 @@
         <p class="govuk-body field-value">{{ barrier.summary }}</p>
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-        <h2 class="govuk-heading-s field-heading">Public ID</h2>
-        <p class="govuk-body field-value">{{ barrier.public_id }}</p>
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
         <!-- Sectors -->
         <h2 class="govuk-heading-s field-heading">Sectors affected</h2>
         <ul class="govuk-list govuk-list--bullet field-value">
@@ -48,6 +44,14 @@
         <h2 class="govuk-heading-s field-heading">Resolved</h2>
         <p class="govuk-body field-value">{{ barrier.is_resolved_text }}</p>
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-s field-heading">Last updated</h2>
+        <p class="govuk-body field-value">{{ barrier.last_published_on|date:"j F Y" }}</p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-s field-heading">Public ID</h2>
+        <p class="govuk-body field-value">{{ barrier.public_id }}</p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
     </section>
 
     <section>
@@ -56,9 +60,6 @@
         </a>
     </section>
 
-
-    <section>
-        <p class="govuk-body">Do you have an issue with a trade barrier? Contact us on <a class="govuk-link" href="https://www.great.gov.uk/report-trade-barrier/" target="_blank">report a trade barrier</a>.</p>
-    </section>
+    {% include "partials/additional_links.html" %}
 
 {% endblock %}
