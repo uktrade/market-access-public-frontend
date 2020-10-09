@@ -104,8 +104,8 @@ class ZendeskFormMixin:
         r = form.save(
             # pass in meta for ZendeskAction
             subject=self.get_zendesk_subject(),
-            full_name="Anonymous CITB User",
-            email_address="anonymous.citb.user@service.gov.uk",
+            full_name=settings.DJANGO_ANONYMOUS_USER_FULL_NAME,
+            email_address=settings.DJANGO_ANONYMOUS_USER_EMAIL,
             service_name=settings.SERVICE_SHORTNAME.lower(),
             form_url=self.request.build_absolute_uri(),
             subdomain=settings.SERVICE_SUBDOMAIN.lower(),
