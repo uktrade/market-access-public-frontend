@@ -17,7 +17,9 @@ VCAP_SERVICES = env.json('VCAP_SERVICES', default={})
 
 # GENERAL
 # ------------------------------------------------------------------------------
-SERVICE_NAME = env("SERVICE_NAME", default="Local Trade Barriers")
+SERVICE_NAME = env("SERVICE_NAME", default="Check International Trade Barriers")
+SERVICE_SHORTNAME = env("SERVICE_SHORTNAME", default="CITB")
+SERVICE_SUBDOMAIN = env("SERVICE_SUBDOMAIN", default="DIT")
 # SECURITY WARNING: keep the secret key used in production secret!
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env("DJANGO_SECRET_KEY")
