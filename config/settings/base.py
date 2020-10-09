@@ -228,10 +228,13 @@ COOKIE_PREFERENCES_SET_COOKIE_NAME = "cookies_preferences_set"
 # ------------------------------------------------------------------------------
 # https://github.com/jakubroztocil/django-settings-export#usage
 SETTINGS_EXPORT = (
+    'COOKIE_PREFERENCES_SET_COOKIE_NAME',
+    'COOKIE_SETTINGS_COOKIE_NAME',
     'COOKIE_SETTINGS_CONFIRMATION_BANNER',
     'COOKIE_SETTINGS_EXPIRY',
     'DJANGO_ENV',
     'GOOGLE_ANALYTICS_COOKIE_NAME',
+    'GLOBAL_BAR_SEEN_COOKIE_NAME',
     'GTM_ID',
     'GTM_AUTH',
     'GTM_PREVIEW',
