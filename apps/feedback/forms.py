@@ -1,4 +1,6 @@
+from directory_forms_api_client.forms import ZendeskActionMixin
 from django import forms
+from django.conf import settings
 
 
 class FeedbackTypes:
@@ -60,7 +62,7 @@ class FeelingTypes:
         )
 
 
-class FeedbackUsabilityForm(forms.Form):
+class FeedbackUsabilityForm(ZendeskActionMixin, forms.Form):
     feeling_type = forms.ChoiceField(
         choices=FeelingTypes.choices,
         label="How would you rate the quality of the service?",
@@ -75,7 +77,7 @@ class FeedbackUsabilityForm(forms.Form):
     )
 
 
-class FeedbackIssueForm(forms.Form):
+class FeedbackIssueForm(ZendeskActionMixin, forms.Form):
     expectations = forms.CharField(
         widget=forms.Textarea,
         label="What did you expect to happen?",
@@ -90,3 +92,23 @@ class FeedbackIssueForm(forms.Form):
                   "like your National Insurance number or credit card details.",
         max_length=1200
     )
+
+
+class ZendeskFormMixin:
+    zendesk_subject = None
+
+    def get_zendesk_subject(self):
+        return self.zendesk_subject
+
+    def form_valid(self, form):
+        r = form.save(
+            # pass in meta for ZendeskAction
+            subject=self.get_zendesk_subject(),
+            full_name=settings.DJANGO_ANONYMOUS_USER_FULL_NAME,
+            email_address=settings.DJANGO_ANONYMOUS_USER_EMAIL,
+            service_name=settings.SERVICE_SHORTNAME.lower(),
+            form_url=self.request.build_absolute_uri(),
+            subdomain=settings.SERVICE_SUBDOMAIN.lower(),
+        )
+        r.raise_for_status()
+        return super().form_valid(form)

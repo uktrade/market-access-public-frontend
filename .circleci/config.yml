@@ -21,6 +21,10 @@ jobs:
       GTM_AUTH: ""
       GTM_PREVIEW: ""
       PUBLIC_API_GATEWAY_BASE_URI: ""
+      DIRECTORY_FORMS_API_BASE_URL: ""
+      DIRECTORY_FORMS_API_API_KEY: ""
+      DIRECTORY_FORMS_API_SENDER_ID: ""
+      DIRECTORY_FORMS_API_DEFAULT_TIMEOUT: 60
 
     working_directory: ~/market-access-public-frontend
 

@@ -25,3 +25,13 @@
 
   }
 }
+
+.cookie-preferences table {
+  margin-bottom: govuk-em(48, 16);
+  th {
+    font-size: 16px;
+  }
+  td {
+    font-size: 14px;
+  }
+}

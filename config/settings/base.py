@@ -17,7 +17,9 @@ VCAP_SERVICES = env.json('VCAP_SERVICES', default={})
 
 # GENERAL
 # ------------------------------------------------------------------------------
-SERVICE_NAME = env("SERVICE_NAME", default="Local Trade Barriers")
+SERVICE_NAME = env("SERVICE_NAME", default="Check International Trade Barriers")
+SERVICE_SHORTNAME = env("SERVICE_SHORTNAME", default="CITB")
+SERVICE_SUBDOMAIN = env("SERVICE_SUBDOMAIN", default="DIT")
 # SECURITY WARNING: keep the secret key used in production secret!
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env("DJANGO_SECRET_KEY")
@@ -226,10 +228,13 @@ COOKIE_PREFERENCES_SET_COOKIE_NAME = "cookies_preferences_set"
 # ------------------------------------------------------------------------------
 # https://github.com/jakubroztocil/django-settings-export#usage
 SETTINGS_EXPORT = (
+    'COOKIE_PREFERENCES_SET_COOKIE_NAME',
+    'COOKIE_SETTINGS_COOKIE_NAME',
     'COOKIE_SETTINGS_CONFIRMATION_BANNER',
     'COOKIE_SETTINGS_EXPIRY',
     'DJANGO_ENV',
     'GOOGLE_ANALYTICS_COOKIE_NAME',
+    'GLOBAL_BAR_SEEN_COOKIE_NAME',
     'GTM_ID',
     'GTM_AUTH',
     'GTM_PREVIEW',
@@ -253,3 +258,17 @@ if SENTRY_DSN:
 # Public Data
 # ------------------------------------------------------------------------------
 PUBLIC_API_GATEWAY_BASE_URI = env("PUBLIC_API_GATEWAY_BASE_URI")
+
+
+# Forms API
+# ------------------------------------------------------------------------------
+DIRECTORY_FORMS_API_BASE_URL = env("DIRECTORY_FORMS_API_BASE_URL")
+DIRECTORY_FORMS_API_API_KEY = env("DIRECTORY_FORMS_API_API_KEY")
+DIRECTORY_FORMS_API_SENDER_ID = env("DIRECTORY_FORMS_API_SENDER_ID")
+DIRECTORY_FORMS_API_DEFAULT_TIMEOUT = env.int("DIRECTORY_FORMS_API_DEFAULT_TIMEOUT")
+DJANGO_ANONYMOUS_USER_FULL_NAME = env(
+    "DJANGO_ANONYMOUS_USER_FULL_NAME", default="Anonymous CITB User"
+)
+DJANGO_ANONYMOUS_USER_EMAIL = env(
+    "DJANGO_ANONYMOUS_USER_EMAIL", default="anonymous.citb.user@service.gov.uk"
+)
