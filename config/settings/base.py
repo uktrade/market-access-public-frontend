@@ -282,4 +282,4 @@ DJANGO_ANONYMOUS_USER_EMAIL = env(
     "DJANGO_ANONYMOUS_USER_EMAIL", default="anonymous.citb.user@service.gov.uk"
 )
 
-X_ROBOT_TAGS = ("noindex", "nofollow", "nosnippet")
+X_ROBOTS_TAG = ("noindex", "nofollow", "nosnippet")

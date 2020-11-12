@@ -1,14 +1,17 @@
+from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.test import TestCase, override_settings
 
 
 class XRobotsMiddlewareTestCase(TestCase):
 
+    @override_settings()
     def test_middleware_missing_setting(self):
         """
         Validate that the middleware raises configuration error
         if the setting is missing.
         """
+        del settings.X_ROBOTS_TAG
         with self.assertRaisesMessage(
                 ImproperlyConfigured,
                 "X_ROBOTS_TAG is missing from django settings."
