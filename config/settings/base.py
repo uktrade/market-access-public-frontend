@@ -121,7 +121,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "apps.barriers.middleware.FiltersMiddleware",
-    "apps.core.middleware.CookiesMiddleware"
+    "apps.core.middleware.CookiesMiddleware",
+    "apps.core.middleware.XRobotsTagMiddleware"
 ]
 
 # STATIC
@@ -280,3 +281,5 @@ DJANGO_ANONYMOUS_USER_FULL_NAME = env(
 DJANGO_ANONYMOUS_USER_EMAIL = env(
     "DJANGO_ANONYMOUS_USER_EMAIL", default="anonymous.citb.user@service.gov.uk"
 )
+
+X_ROBOT_TAGS = ("noindex", "nofollow", "nosnippet")

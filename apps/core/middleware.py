@@ -1,6 +1,7 @@
 import json
 
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 from django.utils.deprecation import MiddlewareMixin
 
 from apps.core.utils import get_future_date
@@ -70,5 +71,22 @@ class CookiesMiddleware(MiddlewareMixin):
                     json.dumps(value),
                     expires=get_future_date(days=settings.COOKIE_SETTINGS_CONFIRMATION_BANNER)
                 )
+
+        return response
+
+
+class XRobotsTagMiddleware(MiddlewareMixin):
+
+    def process_request(self, request):
+        pass
+
+    def process_response(self, request, response):
+        try:
+            if settings.X_ROBOTS_TAG:
+                response["X-Robots-Tag"] = ",".join(settings.X_ROBOTS_TAG)
+        except AttributeError:
+            raise ImproperlyConfigured(
+                "X_ROBOTS_TAG is missing from django settings."
+            )
 
         return response
