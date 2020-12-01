@@ -1,9 +1,4 @@
 from apps.core.interfaces import Barrier
-from tests.barriers.fixtures import (
-    barrier_data_1,
-    barrier_data_5,
-    dummy_barrier_details,
-)
 
 
 def test_is_resolved_text__yes_with_date(barrier_data_1):

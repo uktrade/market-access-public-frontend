@@ -36,7 +36,7 @@ class MetadataTestCase(TestCase):
         assert {admin_area_id_1, admin_area_id_2} == set([aa["id"] for aa in admin_areas])
 
     def test_get_country_by_id(self):
-        country_id = "aa5f66a0-5d95-e211-a939-e4115bead28a"  #  Bermuda
+        country_id = "aa5f66a0-5d95-e211-a939-e4115bead28a"  # Bermuda
         expected_country_name = "Bermuda"
         expected_iso_alpha2_code = "BM"
 
@@ -46,7 +46,7 @@ class MetadataTestCase(TestCase):
         assert expected_iso_alpha2_code == country["iso_alpha2_code"]
 
     def test_get_sector_by_id(self):
-        sector_id = "9538cecc-5f95-e211-a939-e4115bead28a"  #  Aerospace
+        sector_id = "9538cecc-5f95-e211-a939-e4115bead28a"  # Aerospace
         expected_sector_name = "Aerospace"
 
         sector = metadata.get_sector(sector_id)
@@ -54,8 +54,8 @@ class MetadataTestCase(TestCase):
         assert expected_sector_name == sector["name"]
 
     def test_sectors_by_ids__using_list_as_param(self):
-        sector_id_1 = "9538cecc-5f95-e211-a939-e4115bead28a"  #  Aerospace
-        sector_id_2 = "aa38cecc-5f95-e211-a939-e4115bead28a"  #  Maritime
+        sector_id_1 = "9538cecc-5f95-e211-a939-e4115bead28a"  # Aerospace
+        sector_id_2 = "aa38cecc-5f95-e211-a939-e4115bead28a"  # Maritime
 
         sectors = list(metadata.get_sectors((sector_id_1, sector_id_2)))
 

@@ -1,10 +1,9 @@
-from http import HTTPStatus
 from urllib.parse import quote_plus
 
-from django.http import Http404, HttpResponse
+from django.http import Http404
 from django.test import TestCase
-from mock import patch, Mock
-from requests import Response, HTTPError
+from mock import patch
+from requests import HTTPError
 
 from apps.core.api_client import APIClient, data_gateway
 from apps.metadata.aggregators import countries, trading_blocs, sectors

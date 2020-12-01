@@ -8,6 +8,7 @@ from tests.metadata.fixtures import SectorFixtures, CountryFixtures, TradingBloc
 def barrier_data_1():
     return dummy_barrier_details(1)[0]
 
+
 @pytest.fixture
 def barrier_data_5():
     return dummy_barrier_details(5)[0]
@@ -15,9 +16,7 @@ def barrier_data_5():
 
 def dummy_barrier_details(barrier_id=None):
     """ Data gateway always returns a list when S3 Select is used """
-    return [
-        b for b in dummy_barrier_list_results_raw if b["id"] == barrier_id
-    ]
+    return [b for b in dummy_barrier_list_results_raw if b["id"] == barrier_id]
 
 
 dummy_barrier_list_results_raw = [
@@ -30,12 +29,9 @@ dummy_barrier_list_results_raw = [
         "country": CountryFixtures.afghanistan,
         "location": "Afghanistan",
         "sectors": [SectorFixtures.aerospace],
-        "categories": [
-            {"id": 1, "name": "Wibble"},
-            {"id": 2, "name": "Wobble"},
-        ],
+        "categories": [{"id": 1, "name": "Wibble"}, {"id": 2, "name": "Wobble"},],
         "trading_bloc": None,
-        "last_published_on": "2020-12-12"
+        "last_published_on": "2020-12-12",
     },
     {
         "id": 2,
