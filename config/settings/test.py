@@ -37,3 +37,5 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # ------------------------------------------------------------------------------
 # Overrides to be able to run individual tests from PyCharm
 TEMPLATES[-1]["DIRS"].append("/usr/src/app/templates")
+
+PUBLIC_API_GATEWAY_BASE_URI = "dummy.api"

@@ -33,8 +33,8 @@ class TradingBloc:
             try:
                 self.members.add(getattr(countries, attr))
             except AttributeError as e:
-                logger.error(f"Could not find country with iso code [{attr}]", e)
-                pass
+                logger.exception(f"Could not find a country with iso code [{attr}]")
+                raise e
 
     @property
     def slug(self):
@@ -44,7 +44,7 @@ class TradingBloc:
         return f"{self.name}"
 
     def __repr__(self):
-        return f"{self.__class__.__name__} - {self.name}>"
+        return f"<{self.__class__.__name__} - {self.name}>"
 
 
 class AdminArea:
@@ -58,7 +58,7 @@ class AdminArea:
         return f"{self.name}"
 
     def __repr__(self):
-        return f"{self.__class__.__name__} - {self.name}>"
+        return f"<{self.__class__.__name__} - {self.name}>"
 
 
 class Country:
@@ -91,7 +91,7 @@ class Country:
         return f"{self.name}"
 
     def __repr__(self):
-        return f"{self.__class__.__name__} - {self.name}>"
+        return f"<{self.__class__.__name__} - {self.name}>"
 
 
 class Sector:
@@ -112,7 +112,7 @@ class Sector:
         return f"{self.name}"
 
     def __repr__(self):
-        return f"{self.__class__.__name__} - {self.name}>"
+        return f"<{self.__class__.__name__} - {self.name}>"
 
 
 # AGGREGATORS

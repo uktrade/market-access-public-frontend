@@ -13,8 +13,8 @@ logger = logging.getLogger(__name__)
 
 class APIClient:
 
-    def __init__(self):
-        self.base_uri = settings.PUBLIC_API_GATEWAY_BASE_URI
+    def __init__(self, base_uri):
+        self.base_uri = base_uri
 
     def get_base_uri(self):
         return self.base_uri or ""
@@ -29,6 +29,7 @@ class APIClient:
             return response
         except requests.exceptions.HTTPError as e:
             logger.exception(e)
+            raise e
 
     def s3_filters_string(self, filters):
         ignored_locations = ("All locations",)
@@ -48,10 +49,10 @@ class APIClient:
                 else:
                     # Country
                     # Exact match
-                    location_query_str = f"'{location.name}' = b.location"
+                    location_query_str = f"b.location = '{location.name}'"
                     # Country with trading bloc
-                    location_query_str += f" OR b.location LIKE '%{location.name} (%'"
                     if location.trading_bloc:
+                        location_query_str += f" OR b.location LIKE '%{location.name} (%'"
                         location_query_str += f" OR b.location = '{location.trading_bloc['name']}'"
                 s3_filters.append(f"( {location_query_str} )")
 
@@ -75,6 +76,7 @@ class APIClient:
         return filters_string
 
     def get(self, uri, filters=None, **kwargs):
+        filters = filters or {}
         uri += self.s3_filters_string(filters)
         response = self.request("get", uri, **kwargs)
         data = response.json()
@@ -140,4 +142,4 @@ class DataGatewayResource(APIClient):
             raise Http404("Barrier does not exist")
 
 
-data_gateway = DataGatewayResource()
+data_gateway = DataGatewayResource(base_uri=settings.PUBLIC_API_GATEWAY_BASE_URI)

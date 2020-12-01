@@ -53,7 +53,8 @@ class Barrier(APIModel):
 
     @property
     def trading_bloc(self):
-        return self.data["trading_bloc"].get("name")
+        trading_bloc = self.data.get("trading_bloc", {})
+        return trading_bloc.get("name", "")
 
     @property
     def categories_list(self):
