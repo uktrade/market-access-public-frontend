@@ -13,5 +13,6 @@ def convert_to_snake_case(value):
 
 
 def chain(*iterables):
+    """ chain returns a generator with the all  iterables combined """
     for iterable in iterables:
         yield from iterable

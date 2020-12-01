@@ -1,1 +1,1 @@
-web: gunicorn -c config/gunicorn.py config.wsgi:application --worker-class=gevent --worker-connections=1000 --workers 9 --bind 0.0.0.0:$PORT --timeout=120
+web: gunicorn -c config/gunicorn.py config.wsgi:application --bind 0.0.0.0:$PORT --worker-class gevent --worker-connections 1000 --log-file -

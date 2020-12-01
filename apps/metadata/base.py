@@ -65,13 +65,6 @@ class Metadata:
         sectors = (self.get_sector(sector_id) for sector_id in sec_ids)
         return sectors
 
-    def get_sectors_by_ids(self, sector_ids):
-        return [
-            sector
-            for sector in self.data.get("sectors", [])
-            if sector["id"] in sector_ids and sector["disabled_on"] is None
-        ]
-
     def get_sector_list(self, level=None):
         return [
             sector
