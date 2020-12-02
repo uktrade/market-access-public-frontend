@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Manual E2E Tests
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -8,23 +8,44 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
+      browser:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: 'Browser of choice'
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: 'chrome'
         # Input has to be provided for the workflow to run
         required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  e2e-tests:
     # The type of runner that the job will run on
+    name: E2E Tests
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python 3.7.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.7.9"
+      - name: Install OpenVPN
+        run: |
+          # There seems to be a bug with the openvpn aptrepo sources
+          sudo apt-get update # for apt-get to recognise openvpn
+          sudo apt-get remove openvpn # remove ubuntu aptrepo source
+          sudo apt-get update
+          sudo apt-get install openvpn -y
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry==1.0.5
+          poetry install
+      - name: Run Tests
+        run: |
+          echo "Browser of choice is ${{ github.event.inputs.browser }}"
+          poetry run flake8 --count

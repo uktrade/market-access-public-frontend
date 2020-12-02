@@ -25,7 +25,7 @@
                     <p class="govuk-body">
                         {% if sector.records_count %}
                             <a href="{% url "barriers:list" %}{% sector_filter sector.slug %}"
-                               class="govuk-link">
+                               class="govuk-link sector__item">
                                 {{ sector.name }} ({{ sector.records_count }})
                             </a>
                         {% else %}

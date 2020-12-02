@@ -83,7 +83,8 @@
             {% for barrier in barriers.all %}
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">
-                        <a href="{% url "barriers:details" barrier.id %}{% remove_filter "nada" %}" class="govuk-link">
+                        <a href="{% url "barriers:details" barrier.id %}{% remove_filter "nada" %}"
+                           class="govuk-link barrier__item">
                             {{ barrier.title }}
                         </a>
                     </td>
