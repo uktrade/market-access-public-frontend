@@ -2,7 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
-version: 2
+version: 2.1
 jobs:
   tests:
     docker:
@@ -42,6 +42,7 @@ jobs:
           name: Install dependencies
           command: |
             poetry install
+            poetry add coveralls==2.2.0
 
       - save_cache:
           key: v1-dependencies-{{ .Branch }}-{{ checksum "poetry.lock" }}
@@ -51,7 +52,8 @@ jobs:
       - run:
           name: run tests
           command: |
-            poetry run pytest tests
+            poetry run pytest tests --cov=. --cov-report html
+            poetry run coveralls
 
       - store_artifacts:
           path: test-reports
