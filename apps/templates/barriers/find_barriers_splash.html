@@ -6,16 +6,45 @@
 {% block page_content %}
     {% content_header title %}
     <div>
-        <p class="govuk-body govuk-!-font-weight-bold">
-            <a href="{% url 'barriers:find-resolved-barriers' %}" class="govuk-link">
-                Resolved barriers
-            </a>
-        </p>
-        <p class="govuk-body">or</p>
-        <p class="govuk-body govuk-!-font-weight-bold">
-            <a href="{% url 'barriers:find-active-barriers' %}" class="govuk-link">
-                Active trade barriers
-            </a>
-        </p>
+        <div class="container govuk-!-margin-bottom-7">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="govuk-body govuk-!-font-weight-bold">
+                        <a href="{% url 'barriers:find-active-barriers' %}" class="govuk-link">
+                            Active trade barriers
+                        </a>
+                    </p>
+                    <p class="govuk-body">
+                        Current issues that may impact your business by adding extra costs or delays, they may even stop
+                        you
+                        trading or investing overseas.
+                    </p>
+                </div>
+            </div>
+
+            <p class="govuk-body">or</p>
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="govuk-body govuk-!-font-weight-bold">
+                        <a href="{% url 'barriers:find-resolved-barriers' %}" class="govuk-link">
+                            Resolved trade barriers
+                        </a>
+                    </p>
+                    <p class="govuk-body">
+                        Solved issues which may give insight in dealing with your chosen market.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <p class="govuk-body">
+                This is not a complete list of reported trade barriers, as not all are suitable for publication. Newly
+                reported trade barriers will not appear immediately as they need to be reviewed. If a trade barrier is
+                affecting your exports or investment from the UK, please let us know on
+                <a class="govuk-link" href="https://www.great.gov.uk/report-trade-barrier/" target="_blank">report a trade barrier</a>.
+            </p>
+        </div>
     </div>
 {% endblock %}
