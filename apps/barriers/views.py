@@ -3,11 +3,16 @@ from django.views.generic import TemplateView
 
 from apps.core.api_client import data_gateway
 from apps.core.mixins import BreadcrumbsMixin
-from apps.metadata.aggregators import countries, sectors, AllSectors, AllLocations, trading_blocs
+from apps.metadata.aggregators import (
+    countries,
+    sectors,
+    AllSectors,
+    AllLocations,
+    trading_blocs,
+)
 
 
 class BarriersListMixin:
-
     def get_sort_field(self):
         """
         Get sort field based on filters currently applied:
@@ -18,8 +23,12 @@ class BarriersListMixin:
         Sector | Value | location | location | location |
                | All   | location | sectors  | location |
         """
-        if self.request.location is not None and not isinstance(self.request.location, AllLocations):
-            if self.request.sector is None or isinstance(self.request.sector, AllSectors):
+        if self.request.location is not None and not isinstance(
+            self.request.location, AllLocations
+        ):
+            if self.request.sector is None or isinstance(
+                self.request.sector, AllSectors
+            ):
                 return "sectors"
         return "location"
 
@@ -29,14 +38,18 @@ class BarriersListMixin:
             "sector": self.request.sector,
             "is_resolved": self.request.resolved,
         }
-        response = data_gateway.barriers_list(filters=filters, sort_by=self.get_sort_field())
+        response = data_gateway.barriers_list(
+            filters=filters,
+            sort_by=self.get_sort_field(),
+            headers=self.request.zipkin_http_headers,
+        )
         return response
 
 
 class FindBarriersSplashView(TemplateView):
     template_name = "barriers/find_barriers_splash.html"
     extra_context = {
-        "title": "What are you looking for?"
+        "title": "What are you looking for?",
     }
 
 
@@ -44,7 +57,7 @@ class FindActiveBarriers(BreadcrumbsMixin, TemplateView):
     template_name = "barriers/find_active_barriers.html"
     breadcrumbs = (("Find active trade barriers", None),)
     extra_context = {
-        "title": "Find active trade barriers"
+        "title": "Find active trade barriers",
     }
 
 
@@ -52,7 +65,7 @@ class FindResolvedBarriers(BreadcrumbsMixin, TemplateView):
     template_name = "barriers/find_resolved_barriers.html"
     breadcrumbs = (("Find resolved trade barriers", None),)
     extra_context = {
-        "title": "Find resolved trade barriers"
+        "title": "Find resolved trade barriers",
     }
 
 
@@ -62,7 +75,10 @@ class LocationFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
     def get_breadcrumbs(self):
         if self.request.resolved:
             return (
-                ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
+                (
+                    "Find resolved trade barriers",
+                    reverse("barriers:find-resolved-barriers"),
+                ),
                 ("Choose a location", None),
             )
         return (
@@ -95,7 +111,10 @@ class SectorFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
     def get_breadcrumbs(self):
         if self.request.resolved:
             return (
-                ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
+                (
+                    "Find resolved trade barriers",
+                    reverse("barriers:find-resolved-barriers"),
+                ),
                 ("Choose a sector", None),
             )
         return (
@@ -134,7 +153,10 @@ class BarriersListView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
     def get_breadcrumbs(self):
         if self.request.resolved:
             return (
-                ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
+                (
+                    "Find resolved trade barriers",
+                    reverse("barriers:find-resolved-barriers"),
+                ),
                 ("Resolved trade barriers", None),
             )
         return (
@@ -154,19 +176,31 @@ class BarrierDetailsView(BreadcrumbsMixin, TemplateView):
     barrier = None
 
     def get(self, request, *args, **kwargs):
-        self.barrier = data_gateway.barrier_details(id=self.kwargs["barrier_id"])
+        self.barrier = data_gateway.barrier_details(
+            id=self.kwargs["barrier_id"],
+            headers=self.request.zipkin_http_headers,
+        )
         return super().get(request, *args, **kwargs)
 
     def get_breadcrumbs(self):
         if self.request.resolved:
             return (
-                ("Find resolved trade barriers", reverse("barriers:find-resolved-barriers")),
-                ("Resolved trade barriers", reverse("barriers:list") + f"?{self.request.query_string}"),
+                (
+                    "Find resolved trade barriers",
+                    reverse("barriers:find-resolved-barriers"),
+                ),
+                (
+                    "Resolved trade barriers",
+                    reverse("barriers:list") + f"?{self.request.query_string}",
+                ),
                 (self.barrier.title, None),
             )
         return (
             ("Find active trade barriers", reverse("barriers:find-active-barriers")),
-            ("Active trade barriers", reverse("barriers:list") + f"?{self.request.query_string}"),
+            (
+                "Active trade barriers",
+                reverse("barriers:list") + f"?{self.request.query_string}",
+            ),
             (self.barrier.title, None),
         )
 

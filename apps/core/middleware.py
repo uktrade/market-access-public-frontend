@@ -9,16 +9,17 @@ from apps.core.views import CookieToggle
 
 
 class CookiesMiddleware(MiddlewareMixin):
-
     def get_cookie_settings(self, request):
         """
         Parses user cookies in the request and adjust the settings accordingly.
         :return: DICT - cookie settings
         """
         cookie_settings = {
-            settings.GOOGLE_ANALYTICS_COOKIE_NAME: CookieToggle.OFF
+            settings.GOOGLE_ANALYTICS_COOKIE_NAME: CookieToggle.OFF,
         }
-        current_cookie_settings = request.COOKIES.get(settings.COOKIE_SETTINGS_COOKIE_NAME) or '{}'
+        current_cookie_settings = (
+            request.COOKIES.get(settings.COOKIE_SETTINGS_COOKIE_NAME) or "{}"
+        )
         current_cookie_settings = json.loads(current_cookie_settings)
 
         for option in cookie_settings.keys():
@@ -69,14 +70,15 @@ class CookiesMiddleware(MiddlewareMixin):
                 response.set_cookie(
                     settings.GLOBAL_BAR_SEEN_COOKIE_NAME,
                     json.dumps(value),
-                    expires=get_future_date(days=settings.COOKIE_SETTINGS_CONFIRMATION_BANNER)
+                    expires=get_future_date(
+                        days=settings.COOKIE_SETTINGS_CONFIRMATION_BANNER
+                    ),
                 )
 
         return response
 
 
 class XRobotsTagMiddleware(MiddlewareMixin):
-
     def process_request(self, request):
         pass
 
@@ -85,8 +87,43 @@ class XRobotsTagMiddleware(MiddlewareMixin):
             if settings.X_ROBOTS_TAG:
                 response["X-Robots-Tag"] = ",".join(settings.X_ROBOTS_TAG)
         except AttributeError:
-            raise ImproperlyConfigured(
-                "X_ROBOTS_TAG is missing from django settings."
-            )
+            raise ImproperlyConfigured("X_ROBOTS_TAG is missing from django settings.")
+
+        return response
+
+
+class ZipkinTracingMiddleware(MiddlewareMixin):
+    """
+    https://docs.cloudfoundry.org/concepts/http-routing.html#zipkin-headers
+    """
+
+    TRACE_ID = "X-B3-TraceId"
+    SPAN_ID = "X-B3-SpanId"
+
+    def get_zipkin_http_headers(self, request):
+        """
+        Helper to prepare zipkin HTTP headers that could be added to requests
+        easily.
+        """
+        headers = {}
+        trace_id = request.headers.get(self.TRACE_ID)
+        span_id = request.headers.get(self.SPAN_ID)
+
+        if trace_id and span_id:
+            headers[f"HTTP_{self.TRACE_ID}"] = trace_id
+            headers[f"HTTP_{self.SPAN_ID}"] = span_id
+
+        return headers
+
+    def process_request(self, request):
+        request.zipkin_http_headers = self.get_zipkin_http_headers(request)
+
+    def process_response(self, request, response):
+        trace_id = request.headers.get(self.TRACE_ID)
+        span_id = request.headers.get(self.SPAN_ID)
+
+        if trace_id and span_id:
+            response[self.TRACE_ID] = trace_id
+            response[self.SPAN_ID] = span_id
 
         return response

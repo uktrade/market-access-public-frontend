@@ -12,7 +12,6 @@ logger = logging.getLogger(__name__)
 
 
 class APIClient:
-
     def __init__(self, base_uri):
         self.base_uri = base_uri
 
@@ -37,11 +36,11 @@ class APIClient:
         filters_string = ""
         s3_filters = []
 
-        if filters.get('id'):
+        if filters.get("id"):
             s3_filters.append(f"b.id = {filters['id']}")
         else:
             # LOCATION filter
-            location = filters.get('location')
+            location = filters.get("location")
             if location and location.name not in ignored_locations:
                 if isinstance(location, TradingBloc):
                     # Trading Bloc
@@ -52,11 +51,18 @@ class APIClient:
                     location_query_str = f"b.location = '{location.name}'"
                     # Country with trading bloc
                     if location.trading_bloc:
-                        location_query_str += f" OR b.location LIKE '%{location.name} (%'"
-                        location_query_str += f" OR b.location = '{location.trading_bloc['name']}'"
+                        location_query_str += (
+                            f" OR b.location LIKE '%{location.name} (%'"
+                        )
+                        location_query_str += (
+                            f" OR b.location = '{location.trading_bloc['name']}'"
+                        )
                 s3_filters.append(f"( {location_query_str} )")
 
-            if filters.get('sector') and filters.get('sector').name not in ignored_sectors:
+            if (
+                filters.get("sector")
+                and filters.get("sector").name not in ignored_sectors
+            ):
                 sectors_query_str = f"'{filters['sector']}' IN b.sectors[*].name"
                 sectors_query_str += " OR 'All sectors' IN b.sectors[*].name"
                 s3_filters.append(f"( {sectors_query_str} )")
@@ -86,7 +92,6 @@ class APIClient:
 
 
 class DataGatewayResource(APIClient):
-
     def versioned_data_uri(self, version="latest", format="json"):
         data_path = f"{version}/data?format={format}"
         return self.uri(data_path)
@@ -100,7 +105,7 @@ class DataGatewayResource(APIClient):
                 b.location,
                 b.sectors == "All sectors",
                 b.sectors,
-            )
+            ),
         )
 
     def sort_by_sectors(self, barriers):
@@ -112,12 +117,13 @@ class DataGatewayResource(APIClient):
                 b.sectors,
                 b.location in trading_bloc_names,
                 b.location,
-            )
+            ),
         )
 
-    def barriers_list(self, version="latest", filters=None, sort_by=None):
+    def barriers_list(self, version="latest", filters=None, sort_by=None, headers=None):
+        headers = headers or {}
         uri = self.versioned_data_uri(version)
-        barriers = self.get(uri, filters) or ()
+        barriers = self.get(uri, filters, **headers) or ()
         count = len(barriers)
         barriers = [Barrier(d) for d in barriers]
 
@@ -128,14 +134,17 @@ class DataGatewayResource(APIClient):
 
         data = {
             "all": barriers,
-            "count": count
+            "count": count,
         }
         return data
 
-    def barrier_details(self, version="latest", id=None):
+    def barrier_details(self, version="latest", id=None, headers=None):
+        headers = headers or {}
         uri = self.versioned_data_uri(version)
-        filters = {"id": id}
-        barriers = self.get(uri, filters) or ()
+        filters = {
+            "id": id,
+        }
+        barriers = self.get(uri, filters, **headers) or ()
         try:
             return Barrier(barriers[0])
         except (IndexError, TypeError):
