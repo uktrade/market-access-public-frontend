@@ -110,8 +110,8 @@ class ZipkinTracingMiddleware(MiddlewareMixin):
         span_id = request.headers.get(self.SPAN_ID)
 
         if trace_id and span_id:
-            headers[f"HTTP_{self.TRACE_ID}"] = trace_id
-            headers[f"HTTP_{self.SPAN_ID}"] = span_id
+            headers[self.TRACE_ID] = trace_id
+            headers[self.SPAN_ID] = span_id
 
         return headers
 
