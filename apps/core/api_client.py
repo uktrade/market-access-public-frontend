@@ -123,7 +123,7 @@ class DataGatewayResource(APIClient):
     def barriers_list(self, version="latest", filters=None, sort_by=None, headers=None):
         headers = headers or {}
         uri = self.versioned_data_uri(version)
-        barriers = self.get(uri, filters, **headers) or ()
+        barriers = self.get(uri, filters, headers=headers) or ()
         count = len(barriers)
         barriers = [Barrier(d) for d in barriers]
 
@@ -144,7 +144,7 @@ class DataGatewayResource(APIClient):
         filters = {
             "id": id,
         }
-        barriers = self.get(uri, filters, **headers) or ()
+        barriers = self.get(uri, filters, headers=headers) or ()
         try:
             return Barrier(barriers[0])
         except (IndexError, TypeError):

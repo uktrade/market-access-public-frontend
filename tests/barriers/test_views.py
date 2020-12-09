@@ -4,7 +4,12 @@ from django.test import TestCase
 from django.urls import resolve, reverse
 from mock import patch
 
-from apps.barriers.views import LocationFiltersView, SectorFiltersView, BarriersListView, BarrierDetailsView
+from apps.barriers.views import (
+    LocationFiltersView,
+    SectorFiltersView,
+    BarriersListView,
+    BarrierDetailsView,
+)
 from tests.core.helpers import mocked_requests_get
 
 
@@ -32,7 +37,7 @@ class LocationFiltersViewTestCase(TestCase):
 
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 2 == len(breadcrumbs)
-        assert ("Find resolved trade barriers", '/resolved/') == breadcrumbs[0]
+        assert ("Find resolved trade barriers", "/resolved/") == breadcrumbs[0]
         assert ("Choose a location", None) == breadcrumbs[1]
 
     @patch("requests.get", side_effect=mocked_requests_get)
@@ -44,7 +49,7 @@ class LocationFiltersViewTestCase(TestCase):
 
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 2 == len(breadcrumbs)
-        assert ("Find active trade barriers", '/active/') == breadcrumbs[0]
+        assert ("Find active trade barriers", "/active/") == breadcrumbs[0]
         assert ("Choose a location", None) == breadcrumbs[1]
 
     @patch("requests.get", side_effect=mocked_requests_get)
@@ -56,8 +61,29 @@ class LocationFiltersViewTestCase(TestCase):
 
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 2 == len(breadcrumbs)
-        assert ("Find active trade barriers", '/active/') == breadcrumbs[0]
+        assert ("Find active trade barriers", "/active/") == breadcrumbs[0]
         assert ("Choose a location", None) == breadcrumbs[1]
+
+    @patch("requests.get", side_effect=mocked_requests_get)
+    def test_location_caption__with_sector_filter_applied(self, _mock_get):
+        url = f"{self.url}?sector=aerospace"
+        response = self.client.get(url)
+
+        assert HTTPStatus.OK == response.status_code
+
+        caption = response.context_data["caption"]
+        assert "in Aerospace" == caption
+
+    @patch("requests.get", side_effect=mocked_requests_get)
+    def test_location_caption__without_sector_filter_applied(self, _mock_get):
+        # url = f"{self.url}?sector=aerospace"
+        url = f"{self.url}"
+        response = self.client.get(url)
+
+        assert HTTPStatus.OK == response.status_code
+
+        caption = response.context_data["caption"]
+        assert not caption
 
 
 class SectorFiltersViewTestCase(TestCase):
@@ -84,7 +110,7 @@ class SectorFiltersViewTestCase(TestCase):
 
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 2 == len(breadcrumbs)
-        assert ("Find resolved trade barriers", '/resolved/') == breadcrumbs[0]
+        assert ("Find resolved trade barriers", "/resolved/") == breadcrumbs[0]
         assert ("Choose a sector", None) == breadcrumbs[1]
 
     @patch("requests.get", side_effect=mocked_requests_get)
@@ -96,7 +122,7 @@ class SectorFiltersViewTestCase(TestCase):
 
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 2 == len(breadcrumbs)
-        assert ("Find active trade barriers", '/active/') == breadcrumbs[0]
+        assert ("Find active trade barriers", "/active/") == breadcrumbs[0]
         assert ("Choose a sector", None) == breadcrumbs[1]
 
     @patch("requests.get", side_effect=mocked_requests_get)
@@ -108,8 +134,28 @@ class SectorFiltersViewTestCase(TestCase):
 
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 2 == len(breadcrumbs)
-        assert ("Find active trade barriers", '/active/') == breadcrumbs[0]
+        assert ("Find active trade barriers", "/active/") == breadcrumbs[0]
         assert ("Choose a sector", None) == breadcrumbs[1]
+
+    @patch("requests.get", side_effect=mocked_requests_get)
+    def test_sector_caption__with_location_filter_applied(self, _mock_get):
+        url = f"{self.url}?location=es"
+        response = self.client.get(url)
+
+        assert HTTPStatus.OK == response.status_code
+
+        caption = response.context_data["caption"]
+        assert "in Spain" == caption
+
+    @patch("requests.get", side_effect=mocked_requests_get)
+    def test_sector_caption__without_location_filter_applied(self, _mock_get):
+        url = f"{self.url}"
+        response = self.client.get(url)
+
+        assert HTTPStatus.OK == response.status_code
+
+        caption = response.context_data["caption"]
+        assert not caption
 
 
 class BarriersListViewTestCase(TestCase):
@@ -134,7 +180,7 @@ class BarriersListViewTestCase(TestCase):
         assert "Active trade barriers" == response.context_data["title"]
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 2 == len(breadcrumbs)
-        assert ("Find active trade barriers", '/active/') == breadcrumbs[0]
+        assert ("Find active trade barriers", "/active/") == breadcrumbs[0]
         assert ("Active trade barriers", None) == breadcrumbs[1]
 
     @patch("requests.get", side_effect=mocked_requests_get)
@@ -146,7 +192,7 @@ class BarriersListViewTestCase(TestCase):
         assert "Resolved trade barriers" == response.context_data["title"]
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 2 == len(breadcrumbs)
-        assert ("Find resolved trade barriers", '/resolved/') == breadcrumbs[0]
+        assert ("Find resolved trade barriers", "/resolved/") == breadcrumbs[0]
         assert ("Resolved trade barriers", None) == breadcrumbs[1]
 
     @patch("requests.get", side_effect=mocked_requests_get)
@@ -156,7 +202,7 @@ class BarriersListViewTestCase(TestCase):
         assert "Active trade barriers" == response.context_data["title"]
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 2 == len(breadcrumbs)
-        assert ("Find active trade barriers", '/active/') == breadcrumbs[0]
+        assert ("Find active trade barriers", "/active/") == breadcrumbs[0]
         assert ("Active trade barriers", None) == breadcrumbs[1]
 
     @patch("requests.get", side_effect=mocked_requests_get)
@@ -171,11 +217,12 @@ class BarriersListViewTestCase(TestCase):
         url = f"{self.url}?location=all"
         response = self.client.get(url)
         assert HTTPStatus.OK == response.status_code
-        assert "Active trade barriers in All locations" == response.context_data["title"]
+        assert (
+            "Active trade barriers in All locations" == response.context_data["title"]
+        )
 
 
 class BarrierDetailsViewTestCase(TestCase):
-
     def setUp(self):
         self.url = reverse("barriers:details", kwargs={"barrier_id": 1})
 
@@ -198,8 +245,8 @@ class BarrierDetailsViewTestCase(TestCase):
         assert "Barrier 1" == response.context_data["title"]
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 3 == len(breadcrumbs)
-        assert ("Find active trade barriers", '/active/') == breadcrumbs[0]
-        assert ("Active trade barriers", '/barriers/?resolved=0') == breadcrumbs[1]
+        assert ("Find active trade barriers", "/active/") == breadcrumbs[0]
+        assert ("Active trade barriers", "/barriers/?resolved=0") == breadcrumbs[1]
         assert ("Barrier 1", None) == breadcrumbs[2]
 
     @patch("requests.get", side_effect=mocked_requests_get)
@@ -211,8 +258,8 @@ class BarrierDetailsViewTestCase(TestCase):
         assert "Barrier 1" == response.context_data["title"]
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 3 == len(breadcrumbs)
-        assert ("Find resolved trade barriers", '/resolved/') == breadcrumbs[0]
-        assert ("Resolved trade barriers", '/barriers/?resolved=1') == breadcrumbs[1]
+        assert ("Find resolved trade barriers", "/resolved/") == breadcrumbs[0]
+        assert ("Resolved trade barriers", "/barriers/?resolved=1") == breadcrumbs[1]
         assert ("Barrier 1", None) == breadcrumbs[2]
 
     @patch("requests.get", side_effect=mocked_requests_get)
@@ -222,6 +269,6 @@ class BarrierDetailsViewTestCase(TestCase):
         assert "Barrier 1" == response.context_data["title"]
         breadcrumbs = response.context_data["breadcrumbs"]
         assert 3 == len(breadcrumbs)
-        assert ("Find active trade barriers", '/active/') == breadcrumbs[0]
-        assert ("Active trade barriers", '/barriers/?') == breadcrumbs[1]
+        assert ("Find active trade barriers", "/active/") == breadcrumbs[0]
+        assert ("Active trade barriers", "/barriers/?") == breadcrumbs[1]
         assert ("Barrier 1", None) == breadcrumbs[2]

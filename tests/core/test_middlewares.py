@@ -71,10 +71,14 @@ class ZipkinTracingMiddlewareTestCase(TestCase):
             "HTTP_X-B3-TraceId": "wibble",
             "HTTP_X-B3-SpanId": "wobble",
         }
+        expected_headers = {
+            "X-B3-TraceId": "wibble",
+            "X-B3-SpanId": "wobble",
+        }
         response = self.client.get("/", **headers)
 
         request = response.context_data["view"].request
-        assert headers == request.zipkin_http_headers
+        assert expected_headers == request.zipkin_http_headers
 
     def test_middleware_sets_zipkin_http_headers_on_request__empty(self):
         """

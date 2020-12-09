@@ -5,27 +5,42 @@
 {% block page_title %}{{ title }} - {{ block.super }}{% endblock %}
 
 {% block page_content %}
-    {% content_header title %}
+    {% content_header title caption below=True %}
 
     <p class="govuk-body">
-        <a href="{% url "barriers:list" %}{% sector_filter "all" %}" class="govuk-link">Select all sectors</a>
+        <a href="{% url "barriers:list" %}{% sector_filter "all" %}" class="govuk-link govuk-!-font-weight-bold">
+            Select all sectors
+        </a>
     </p>
 
-    <h2>Sector</h2>
+    {% if sectors_with_records %}
+    <h2 class="govuk-!-margin-bottom-0">Sector</h2>
+    <span class="govuk-caption-m govuk-!-margin-bottom-1">Sectors that do not have any results are hidden.</span>
     <div class="filter-options__container">
         {% for initial_letter, sector_list in sectors.items %}
+            {% if initial_letter in sectors_with_records %}
             <div class="filter-options-group__container">
                 <h3>{{ initial_letter }}</h3>
                 {% for sector in sector_list %}
                     <p class="govuk-body">
-                        <a href="{% url "barriers:list" %}{% sector_filter sector.slug %}"
-                           class="govuk-link{% if not sector.records_count %} govuk-link--muted{% endif %}">
-                            {{ sector.name }}{% if sector.records_count %} ({{ sector.records_count }}){% endif %}
-                        </a>
+                        {% if sector.records_count %}
+                            <a href="{% url "barriers:list" %}{% sector_filter sector.slug %}"
+                               class="govuk-link">
+                                {{ sector.name }} ({{ sector.records_count }})
+                            </a>
+                        {% else %}
+{#                            TODO: Hide until there's a toggle to show options without records#}
+{#                            <a href="{% url "barriers:list" %}{% sector_filter sector.slug %}"#}
+{#                               class="govuk-link govuk-link--muted">#}
+{#                                {{ sector.name }}#}
+{#                            </a>#}
+                        {% endif %}
                     </p>
                 {% endfor %}
             </div>
+            {% endif %}
         {% endfor %}
     </div>
+    {% endif %}
 
 {% endblock %}

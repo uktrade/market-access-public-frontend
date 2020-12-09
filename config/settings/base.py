@@ -258,9 +258,8 @@ SETTINGS_EXPORT = (
 # ------------------------------------------------------------------------------
 SENTRY_DSN = env("SENTRY_DSN", default=None)
 if SENTRY_DSN:
-    SENTRY_LOG_LEVEL = env.int("DJANGO_SENTRY_LOG_LEVEL", logging.INFO)
     sentry_sdk.init(
-        dsn=env("SENTRY_DSN"),
+        dsn=SENTRY_DSN,
         environment=env("SENTRY_ENVIRONMENT"),
         integrations=[
             DjangoIntegration(),
