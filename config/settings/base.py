@@ -13,7 +13,7 @@ APPS_DIR = ROOT_DIR / "apps"
 env = environ.Env()
 
 # Load PaaS Service env vars
-VCAP_SERVICES = env.json('VCAP_SERVICES', default={})
+VCAP_SERVICES = env.json("VCAP_SERVICES", default={})
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = env.bool("DJANGO_DEBUG", False)
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=[])
 # Local time zone. Choices are
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # though not all of them may be available with every OS.
@@ -61,18 +61,18 @@ WSGI_APPLICATION = "config.wsgi.application"
 # ------------------------------------------------------------------------------
 BASE_APPS = [
     # apps that need to load first
-    'whitenoise.runserver_nostatic',
+    "whitenoise.runserver_nostatic",
 ]
 
 DJANGO_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.humanize',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.forms',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.humanize",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.forms",
 ]
 
 THIRD_PARTY_APPS = [
@@ -102,7 +102,9 @@ PASSWORD_HASHERS = [
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -122,7 +124,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "apps.barriers.middleware.FiltersMiddleware",
     "apps.core.middleware.CookiesMiddleware",
-    "apps.core.middleware.XRobotsTagMiddleware"
+    "apps.core.middleware.XRobotsTagMiddleware",
+    "apps.core.middleware.ZipkinTracingMiddleware",
 ]
 
 # STATIC
@@ -135,7 +138,7 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     str(APPS_DIR / "static/dist"),
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -166,7 +169,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "django_settings_export.settings_export",
             ],
-            "builtins": []
+            "builtins": [],
         },
     }
 ]
@@ -214,13 +217,13 @@ if ELASTIC_APM_ENABLED:
         "ENVIRONMENT": env("ENVIRONMENT", default="dev"),
         "SERVER_TIMEOUT": env("ELASTIC_APM_SERVER_TIMEOUT", default="20s"),
     }
-    INSTALLED_APPS.append('elasticapm.contrib.django')
+    INSTALLED_APPS.append("elasticapm.contrib.django")
 
 # GOOGLE TAG MANAGER
 # ------------------------------------------------------------------------------
-GTM_ID = env('GTM_ID')
-GTM_AUTH = env('GTM_AUTH')
-GTM_PREVIEW = env('GTM_PREVIEW')
+GTM_ID = env("GTM_ID")
+GTM_AUTH = env("GTM_AUTH")
+GTM_PREVIEW = env("GTM_PREVIEW")
 
 # COOKIE SETTINGS
 # ------------------------------------------------------------------------------
@@ -238,17 +241,17 @@ COOKIE_PREFERENCES_SET_COOKIE_NAME = "cookies_preferences_set"
 # ------------------------------------------------------------------------------
 # https://github.com/jakubroztocil/django-settings-export#usage
 SETTINGS_EXPORT = (
-    'COOKIE_PREFERENCES_SET_COOKIE_NAME',
-    'COOKIE_SETTINGS_COOKIE_NAME',
-    'COOKIE_SETTINGS_CONFIRMATION_BANNER',
-    'COOKIE_SETTINGS_EXPIRY',
-    'DJANGO_ENV',
-    'GOOGLE_ANALYTICS_COOKIE_NAME',
-    'GLOBAL_BAR_SEEN_COOKIE_NAME',
-    'GTM_ID',
-    'GTM_AUTH',
-    'GTM_PREVIEW',
-    'SERVICE_NAME',
+    "COOKIE_PREFERENCES_SET_COOKIE_NAME",
+    "COOKIE_SETTINGS_COOKIE_NAME",
+    "COOKIE_SETTINGS_CONFIRMATION_BANNER",
+    "COOKIE_SETTINGS_EXPIRY",
+    "DJANGO_ENV",
+    "GOOGLE_ANALYTICS_COOKIE_NAME",
+    "GLOBAL_BAR_SEEN_COOKIE_NAME",
+    "GTM_ID",
+    "GTM_AUTH",
+    "GTM_PREVIEW",
+    "SERVICE_NAME",
 )
 
 # SENTRY
@@ -257,8 +260,8 @@ SENTRY_DSN = env("SENTRY_DSN", default=None)
 if SENTRY_DSN:
     SENTRY_LOG_LEVEL = env.int("DJANGO_SENTRY_LOG_LEVEL", logging.INFO)
     sentry_sdk.init(
-        dsn=env('SENTRY_DSN'),
-        environment=env('SENTRY_ENVIRONMENT'),
+        dsn=env("SENTRY_DSN"),
+        environment=env("SENTRY_ENVIRONMENT"),
         integrations=[
             DjangoIntegration(),
         ],
