@@ -59,8 +59,8 @@ def remove_filter(context, filter_name):
 @register.simple_tag(takes_context=True)
 def replace_filter(context, filter_name, filter_value):
     params = parse_qs(context.get("query_string"))
-    params.pop(filter_name, None)
-    params[filter_name] = filter_value
+    if params.pop(filter_name, None):
+        params[filter_name] = filter_value
     query_string = f"?{urlencode(params, doseq=True)}"
     return query_string
 
