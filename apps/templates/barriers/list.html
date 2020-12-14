@@ -101,17 +101,9 @@
             </tbody>
         </table>
         {% else %}
-            {% if request.resolved is True %}
-                <h2 class="filter-results-comment">
-                    There are no resolved trade barriers with your choices, view the
-                    <a class="govuk-link" href="{% url 'barriers:list' %}{% replace_filter "resolved" 0 %}">active list</a>.
-                </h2>
-            {% elif request.resolved is False %}
-                <h2 class="filter-results-comment">
-                    There are no trade barriers with your choices, view the
-                    <a class="govuk-link" href="{% url 'barriers:list' %}{% replace_filter "resolved" 1 %}">resolved list</a>.
-                </h2>
-            {% endif %}
+        <h2 class="filter-results-comment">
+            There are no results for your search.
+        </h2>
         {% endif %}
     </section>
 
