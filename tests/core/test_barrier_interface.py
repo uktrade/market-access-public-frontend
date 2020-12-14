@@ -54,6 +54,11 @@ def test_last_published_on(barrier_data_1):
     assert "2020-12-12 00:00:00" == str(barrier.last_published_on)
 
 
+def test_reported_on(barrier_data_1):
+    barrier = Barrier(barrier_data_1)
+    assert "2020-12-01 00:00:00" == str(barrier.reported_on)
+
+
 def test_categories_list(barrier_data_1):
     barrier = Barrier(barrier_data_1)
     assert ["Wibble", "Wobble"] == barrier.categories_list
