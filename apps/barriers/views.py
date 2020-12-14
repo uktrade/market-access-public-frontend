@@ -70,9 +70,9 @@ class FindBarriersSplashView(TemplateView):
 
 class FindActiveBarriers(BreadcrumbsMixin, TemplateView):
     template_name = "barriers/find_active_barriers.html"
-    breadcrumbs = (("Find active trade barriers", None),)
+    breadcrumbs = (("Find trade barriers", None),)
     extra_context = {
-        "title": "Find active trade barriers",
+        "title": "Find trade barriers",
     }
 
 
@@ -97,7 +97,7 @@ class LocationFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
                 ("Choose a location", None),
             )
         return (
-            ("Find active trade barriers", reverse("barriers:find-active-barriers")),
+            ("Find trade barriers", reverse("barriers:find-active-barriers")),
             ("Choose a location", None),
         )
 
@@ -146,7 +146,7 @@ class SectorFiltersView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
                 ("Choose a sector", None),
             )
         return (
-            ("Find active trade barriers", reverse("barriers:find-active-barriers")),
+            ("Find trade barriers", reverse("barriers:find-active-barriers")),
             ("Choose a sector", None),
         )
 
@@ -181,7 +181,7 @@ class BarriersListView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
         if self.request.resolved:
             title = "Resolved trade barriers"
         else:
-            title = "Active trade barriers"
+            title = "Trade barriers"
         if location and location != "all":
             title += f" in {location}"
         return title
@@ -196,8 +196,8 @@ class BarriersListView(BreadcrumbsMixin, BarriersListMixin, TemplateView):
                 ("Resolved trade barriers", None),
             )
         return (
-            ("Find active trade barriers", reverse("barriers:find-active-barriers")),
-            ("Active trade barriers", None),
+            ("Find trade barriers", reverse("barriers:find-active-barriers")),
+            ("Trade barriers", None),
         )
 
     def get_context_data(self, **kwargs):
@@ -232,9 +232,9 @@ class BarrierDetailsView(BreadcrumbsMixin, TemplateView):
                 (self.barrier.title, None),
             )
         return (
-            ("Find active trade barriers", reverse("barriers:find-active-barriers")),
+            ("Find trade barriers", reverse("barriers:find-active-barriers")),
             (
-                "Active trade barriers",
+                "Trade barriers",
                 reverse("barriers:list") + f"?{self.request.query_string}",
             ),
             (self.barrier.title, None),
