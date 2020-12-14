@@ -14,7 +14,6 @@ class APIModel:
 
 
 class Barrier(APIModel):
-
     @property
     def is_resolved_text(self):
         if self.is_resolved:
@@ -63,6 +62,10 @@ class Barrier(APIModel):
     @property
     def last_published_on(self):
         return dateutil.parser.parse(self.data["last_published_on"])
+
+    @property
+    def reported_on(self):
+        return dateutil.parser.parse(self.data["reported_on"])
 
     @property
     def public_id(self):

@@ -29,9 +29,13 @@ dummy_barrier_list_results_raw = [
         "country": CountryFixtures.afghanistan,
         "location": "Afghanistan",
         "sectors": [SectorFixtures.aerospace],
-        "categories": [{"id": 1, "name": "Wibble"}, {"id": 2, "name": "Wobble"},],
+        "categories": [
+            {"id": 1, "name": "Wibble"},
+            {"id": 2, "name": "Wobble"},
+        ],
         "trading_bloc": None,
         "last_published_on": "2020-12-12",
+        "reported_on": "2020-12-01",
     },
     {
         "id": 2,
