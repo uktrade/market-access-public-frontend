@@ -116,15 +116,16 @@
     </section>
 
     <section>
-        <p class="govuk-body">This is not a complete list of reported trade barriers, as not all are suitable for publication. Newly reported trade barriers will not appear immediately as they need to be reviewed. If a trade barrier is affecting your exports or investment from the UK, please let us know on <a class="govuk-link" href="https://www.great.gov.uk/report-trade-barrier/" target="_blank">report a trade barrier</a>.</p>
-
-        {% if request.resolved is True %}
-            <p class="govuk-body"><a class="govuk-link" href="{% url 'barriers:find-barriers-splash' %}">Active trade barriers</a> are listed separately.</p>
-        {% elif request.resolved is False %}
-            <p class="govuk-body"><a class="govuk-link" href="{% url 'barriers:find-barriers-splash' %}">Resolved trade barriers</a> are listed separately.</p>
-        {% endif %}
-
         {% include "partials/additional_links.html" %}
+        {% if request.resolved is True %}
+            <p class="govuk-body">
+                <a class="govuk-link" href="{% url 'barriers:find-barriers-splash' %}">Active trade barriers</a> are
+                listed separately.
+            </p>
+        {% elif request.resolved is False %}
+            <p class="govuk-body"><a class="govuk-link" href="{% url 'barriers:find-barriers-splash' %}">Resolved trade
+                barriers</a> are listed separately.</p>
+        {% endif %}
     </section>
 
 {% endblock %}

@@ -15,7 +15,7 @@
 
     {% if sectors_with_records %}
     <h2 class="govuk-!-margin-bottom-0">Sector</h2>
-    <span class="govuk-caption-m govuk-!-margin-bottom-1">Sectors that do not have any results are hidden.</span>
+    <span class="govuk-caption-m govuk-!-margin-bottom-1">Sectors with no results are hidden, brackets show the number of issues.</span>
     <div class="filter-options__container">
         {% for initial_letter, sector_list in sectors.items %}
             {% if initial_letter in sectors_with_records %}
