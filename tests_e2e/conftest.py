@@ -9,6 +9,7 @@ def browser():
     driver_name = settings.WEB_DRIVER_NAME
     attrs = {
         "driver_name": driver_name,
+        "headless": settings.HEADLESS_MODE,
     }
 
     if settings.WEB_DRIVER_URL:
@@ -17,8 +18,6 @@ def browser():
             "browser": driver_name,
             "command_executor": settings.WEB_DRIVER_URL,
         }
-
-    attrs["headless"] = settings.HEADLESS_MODE
 
     browser = Browser(**attrs)
     yield browser
