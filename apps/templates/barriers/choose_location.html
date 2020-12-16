@@ -14,8 +14,10 @@
     </p>
 
     {% if countries_with_records %}
-    <h2 class="govuk-!-margin-bottom-0">Country</h2>
-    <span class="govuk-caption-m govuk-!-margin-bottom-1">Countries with no results are hidden, brackets show the number of issues.</span>
+    <h2 class="govuk-!-margin-bottom-0">Countries and territories</h2>
+    <span class="govuk-caption-m govuk-!-margin-bottom-1">
+        Countries and territories with no results are hidden, brackets show the number of issues.
+    </span>
     <div class="filter-options__container">
         {% for initial_letter, country_list in countries.items %}
             {% if initial_letter in countries_with_records %}
@@ -44,7 +46,7 @@
     {% endif %}
 
     {% if trading_blocs_with_records %}
-    <h2 class="govuk-!-margin-bottom-0">Trading Bloc</h2>
+    <h2 class="govuk-!-margin-bottom-0">Trading bloc</h2>
     <span class="govuk-caption-m govuk-!-margin-bottom-4">Trading blocs with no results are hidden, brackets show the number of issues.</span>
     <div class="filter-options__container">
         {% for initial_letter, trading_blocs_list in trading_blocs.items %}
