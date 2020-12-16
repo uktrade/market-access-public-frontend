@@ -65,7 +65,8 @@ class Barrier(APIModel):
 
     @property
     def reported_on(self):
-        return dateutil.parser.parse(self.data["reported_on"])
+        if self.data.get("reported_on"):
+            return dateutil.parser.parse(self.data["reported_on"])
 
     @property
     def public_id(self):
