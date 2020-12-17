@@ -33,13 +33,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.7.9"
-      - name: Install OpenVPN
-        run: |
-          # There seems to be a bug with the openvpn aptrepo sources
-          sudo apt-get update # for apt-get to recognise openvpn
-          sudo apt-get remove openvpn # remove ubuntu aptrepo source
-          sudo apt-get update
-          sudo apt-get install openvpn -y
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
