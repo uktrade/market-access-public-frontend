@@ -1,6 +1,6 @@
 # ======
 # DO NOT EDIT - use pyproject.toml instead!
-# Generated: 2020-12-16_11-46
+# Generated: 2020-12-17_16-59
 # ======
 asgiref==3.3.1
 certifi==2020.12.5

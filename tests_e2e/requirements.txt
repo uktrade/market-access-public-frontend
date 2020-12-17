@@ -1,2 +1,3 @@
 pytest==6.2.1
+selenium-wire==2.1.2
 splinter==0.14.0

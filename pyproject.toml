@@ -34,6 +34,8 @@ pytest-cov = "~=2.10.1"
 pytest-django = "~=3.10.0"
 pytest-xdist = "~=2.1.0"
 werkzeug = "~=1.0.0"
+splinter = "^0.14.0"
+selenium-wire = "^2.1.2"
 
 [build-system]
 requires = ["poetry>=1.0.10"]
