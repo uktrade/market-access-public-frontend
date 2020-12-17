@@ -1,6 +1,3 @@
-from .. import settings
-
-
 def test_check_details_of_a_trade_barrier(browser):
     """
     Case 1 - Full journey for trade barriers
@@ -17,7 +14,7 @@ def test_check_details_of_a_trade_barrier(browser):
     """
 
     # Step 1 - select trade barriers path
-    browser.visit(settings.BASE_URL)
+    browser.navigate("/")
     browser.links.find_by_partial_text("Trade barriers").click()
     # Check that the user lands on the right page
     main_heading = browser.find_by_css(".govuk-heading-xl").first
@@ -71,7 +68,7 @@ def test_check_details_of_a_resolved_trade_barrier(browser):
     """
 
     # Step 1 - select resolved trade barriers path
-    browser.visit(settings.BASE_URL)
+    browser.navigate("/")
     browser.links.find_by_partial_text("Resolved trade barriers").click()
     # Check that the user lands on the right page
     main_heading = browser.find_by_css(".govuk-heading-xl").first

@@ -2,7 +2,7 @@ from .. import settings
 
 
 def test_footer_links__feedback(browser):
-    browser.visit(settings.BASE_URL)
+    browser.navigate("/")
     path = "feedback/"
     link_text = "Feedback and issues"
 
@@ -14,7 +14,7 @@ def test_footer_links__feedback(browser):
 
 
 def test_footer_links__disclaimer(browser):
-    browser.visit(settings.BASE_URL)
+    browser.navigate("/")
     path = "disclaimer/"
     link_text = "Disclaimer"
 
@@ -26,7 +26,7 @@ def test_footer_links__disclaimer(browser):
 
 
 def test_footer_links__accessibility(browser):
-    browser.visit(settings.BASE_URL)
+    browser.navigate("/")
     path = "accessibility/"
     link_text = "Accessibility"
 
@@ -38,7 +38,7 @@ def test_footer_links__accessibility(browser):
 
 
 def test_footer_links__cookies(browser):
-    browser.visit(settings.BASE_URL)
+    browser.navigate("/")
     path = "cookies/"
     link_text = "Cookies"
 
@@ -50,7 +50,7 @@ def test_footer_links__cookies(browser):
 
 
 def test_common_links_on_results_page(browser):
-    browser.visit(f"{settings.BASE_URL}barriers/?resolved=0")
+    browser.navigate("/barriers/?resolved=0")
 
     # Report a trade barrier
     rtb_text = "report a trade barrier"
@@ -68,7 +68,7 @@ def test_common_links_on_results_page(browser):
 
 
 def test_common_links_on_details_page(browser):
-    browser.visit(f"{settings.BASE_URL}barriers/?resolved=0")
+    browser.navigate("/barriers/?resolved=0")
     barrier = browser.find_by_css(".barrier__item").first
     barrier_title = barrier.text
     barrier.click()
