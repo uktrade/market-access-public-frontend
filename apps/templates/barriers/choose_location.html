@@ -27,7 +27,7 @@
                     <p class="govuk-body">
                         {% if country.records_count %}
                             <a href="{% url "barriers:list" %}{% location_filter country.slug %}"
-                               class="govuk-link">
+                               class="govuk-link country__item">
                                 {{ country.name }} ({{ country.records_count }})
                             </a>
                         {% else %}
@@ -56,7 +56,7 @@
                     <p class="govuk-body">
                     {% if trading_bloc.records_count %}
                         <a href="{% url "barriers:list" %}{% location_filter trading_bloc.slug %}"
-                           class="govuk-link">
+                           class="govuk-link trading-bloc__item">
                             {{ trading_bloc.name }} ({{ trading_bloc.records_count }})
                         </a>
                     {% else %}

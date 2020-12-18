@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Manual E2E Tests
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -8,23 +8,39 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
+      browser:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: 'Browser of choice'
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: 'chrome'
         # Input has to be provided for the workflow to run
         required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  e2e-tests:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    name: E2E Tests
+    runs-on: ubuntu-20.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python 3.7.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.7.9"
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r ./tests_e2e/requirements.txt
+      - name: Run Tests
+        env:
+          ACTIONS_VPN_STAGING_SECRET: ${{ secrets.ACTIONS_VPN_STAGING_SECRET }}
+          E2E_TESTS_BASE_URL: ${{ secrets.E2E_TESTS_BASE_URL }}
+        run: |
+          echo "Browser of choice is ${{ github.event.inputs.browser }}"
+          cd tests_e2e && pytest
