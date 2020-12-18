@@ -14,6 +14,7 @@ class NavigationMixin:
             self.driver.header_overrides = {
                 "Authorization": f"Basic {encoded_creds}",
             }
+            print(">>> Auth headers has been set <<<")
         url = f"{settings.BASE_URL.rstrip('/')}/{path.lstrip('/')}"
         print(f">>> Visiting {url} <<<")
         self.driver.get(url)
