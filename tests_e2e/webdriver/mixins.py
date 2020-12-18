@@ -15,4 +15,5 @@ class NavigationMixin:
                 "Authorization": f"Basic {encoded_creds}",
             }
         url = f"{settings.BASE_URL.rstrip('/')}/{path.lstrip('/')}"
+        print(f">>> Visiting {url} <<<")
         self.driver.get(url)
