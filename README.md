@@ -1,7 +1,7 @@
 # Market Access Public Frontend 
 [![CircleCI](https://circleci.com/gh/uktrade/market-access-public-frontend.svg?style=svg)](https://circleci.com/gh/uktrade/market-access-public-frontend)
 [![Coverage Status](https://coveralls.io/repos/github/uktrade/market-access-public-frontend/badge.svg?branch=master)](https://coveralls.io/github/uktrade/market-access-public-frontend?branch=master)
-[![E2E Tests](https://github.com/uktrade/market-access-public-frontend/workflows/E2E%20Tests/badge.svg)(https://github.com/uktrade/market-access-public-frontend/actions)
+[![E2E Tests](https://github.com/uktrade/market-access-public-frontend/workflows/E2E%20Tests/badge.svg)](https://github.com/uktrade/market-access-public-frontend/actions)
 
 This repository provides a frontend client to consume public barrier data through the Data Gateway.
 It's built with python django. 
