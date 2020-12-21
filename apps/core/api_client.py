@@ -37,7 +37,8 @@ class APIClient:
         s3_filters = []
 
         if filters.get("id"):
-            s3_filters.append(f"b.id = {filters['id']}")
+            pid = filters["id"]
+            s3_filters.append(f"b.id = '{pid}'")
         else:
             # LOCATION filter
             location = filters.get("location")
