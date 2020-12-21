@@ -38,15 +38,19 @@ class APIClientTestCase(TestCase):
         assert expected_uri == self.resource.uri(path)
 
     def test_s3_filters_string__id(self):
-        filters = {"id": 123}
-        expected_sql = "SELECT * FROM S3Object[*].barriers[*] AS b WHERE b.id = 123"
+        filters = {"id": "W1BBLE"}
+        expected_sql = (
+            "SELECT * FROM S3Object[*].barriers[*] AS b WHERE b.id = 'W1BBLE'"
+        )
         expected_query_string = f"&query-s3-select={quote_plus(expected_sql)}"
 
         assert expected_query_string == self.resource.s3_filters_string(filters)
 
     def test_s3_filters_string__id_takes_precedence(self):
-        filters = {"id": 123, "location": countries.es}
-        expected_sql = "SELECT * FROM S3Object[*].barriers[*] AS b WHERE b.id = 123"
+        filters = {"id": "W1BBLE", "location": countries.es}
+        expected_sql = (
+            "SELECT * FROM S3Object[*].barriers[*] AS b WHERE b.id = 'W1BBLE'"
+        )
         expected_query_string = f"&query-s3-select={quote_plus(expected_sql)}"
 
         assert expected_query_string == self.resource.s3_filters_string(filters)
