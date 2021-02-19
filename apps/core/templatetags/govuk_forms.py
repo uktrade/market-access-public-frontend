@@ -33,7 +33,7 @@ def radio_input(field, classes=None, legend_classes=None, radio_classes=None):
         "field": field,
         "classes": classes,
         "legend_classes": legend_classes or "govuk-fieldset__legend--m",
-        "radio_classes": radio_classes
+        "radio_classes": radio_classes,
     }
 
 
@@ -43,5 +43,5 @@ def textarea(field, character_count=False, classes=None, label_classes=None):
         "field": field,
         "character_count": character_count,
         "classes": classes,
-        "label_classes": label_classes
+        "label_classes": label_classes,
     }

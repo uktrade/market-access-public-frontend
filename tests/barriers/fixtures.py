@@ -1,8 +1,7 @@
 import pytest
 
 from apps.core.interfaces import Barrier
-from tests.metadata.fixtures import (CountryFixtures, SectorFixtures,
-                                     TradingBlocFixtures)
+from tests.metadata.fixtures import CountryFixtures, SectorFixtures, TradingBlocFixtures
 
 
 @pytest.fixture

@@ -24,7 +24,9 @@ class CookieToggle:
 
 class CookieSettingsForm(forms.Form):
     # see - GOOGLE_ANALYTICS_COOKIE_NAME
-    usage = forms.ChoiceField(choices=CookieToggle.choices,)
+    usage = forms.ChoiceField(
+        choices=CookieToggle.choices,
+    )
 
 
 class CookiePolicyView(BreadcrumbsMixin, TemplateView):
