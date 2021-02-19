@@ -6,7 +6,7 @@ from django.conf import settings
 from django.http import Http404
 
 from apps.core.interfaces import Barrier
-from apps.metadata.aggregators import trading_blocs, TradingBloc
+from apps.metadata.aggregators import TradingBloc, trading_blocs
 
 logger = logging.getLogger(__name__)
 

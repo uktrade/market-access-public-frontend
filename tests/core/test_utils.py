@@ -1,8 +1,7 @@
 import datetime
-
 from unittest import TestCase
 
-from apps.core.utils import convert_to_snake_case, chain, get_future_date
+from apps.core.utils import chain, convert_to_snake_case, get_future_date
 
 
 class UtilsTestCase(TestCase):

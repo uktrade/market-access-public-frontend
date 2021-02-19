@@ -1,12 +1,7 @@
 from django.urls import path
 
-from .views import (
-    FeedbackSplashView,
-    FeedbackIssueView,
-    FeedbackUsabilityView,
-    FeedbackBarrierView,
-    FeedbackThankYouView,
-)
+from .views import (FeedbackBarrierView, FeedbackIssueView, FeedbackSplashView,
+                    FeedbackThankYouView, FeedbackUsabilityView)
 
 app_name = "feedback"
 

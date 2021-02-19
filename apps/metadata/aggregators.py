@@ -5,8 +5,8 @@ import operator
 from django.utils.text import slugify
 
 from apps.core.utils import convert_to_snake_case
-from .base import metadata
 
+from .base import metadata
 
 logger = logging.getLogger(__name__)
 

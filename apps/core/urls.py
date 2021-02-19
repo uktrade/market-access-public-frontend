@@ -1,7 +1,7 @@
 from django.urls import path
 from django.views.generic import TemplateView
 
-from .views import CookiesView, CookiePolicyView
+from .views import CookiePolicyView, CookiesView
 
 app_name = "core"
 

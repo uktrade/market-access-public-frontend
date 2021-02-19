@@ -1,11 +1,9 @@
 import json
-
 from distutils import util
 
 from django import forms
 from django.conf import settings
 from django.urls import reverse_lazy
-
 from django.views.generic import FormView, TemplateView
 
 from apps.core.mixins import BreadcrumbsMixin

@@ -1,7 +1,7 @@
 from selenium.webdriver.chrome.options import Options
+from seleniumwire import webdriver
 from splinter.driver.webdriver import BaseWebDriver, WebDriverElement
 from splinter.driver.webdriver.cookie_manager import CookieManager
-from seleniumwire import webdriver
 
 from .mixins import NavigationMixin
 

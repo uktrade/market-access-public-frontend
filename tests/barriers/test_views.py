@@ -4,12 +4,8 @@ from django.test import TestCase
 from django.urls import resolve, reverse
 from mock import patch
 
-from apps.barriers.views import (
-    LocationFiltersView,
-    SectorFiltersView,
-    BarriersListView,
-    BarrierDetailsView,
-)
+from apps.barriers.views import (BarrierDetailsView, BarriersListView,
+                                 LocationFiltersView, SectorFiltersView)
 from tests.core.helpers import mocked_requests_get
 
 

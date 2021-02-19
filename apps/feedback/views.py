@@ -1,15 +1,9 @@
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
-from .forms import (
-    FeedbackSplashForm,
-    FeedbackTypes,
-    FeedbackUsabilityForm,
-    FeedbackIssueForm,
-    ZendeskFormMixin,
-)
 from ..core.mixins import BreadcrumbsMixin
-
+from .forms import (FeedbackIssueForm, FeedbackSplashForm, FeedbackTypes,
+                    FeedbackUsabilityForm, ZendeskFormMixin)
 
 FEEDBACK_SPLASH_BREADCRUMB_LABEL = "Feedback or issues"
 

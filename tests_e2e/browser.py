@@ -4,7 +4,6 @@ from splinter.exceptions import DriverNotFoundError
 from . import settings
 from .webdriver.chrome import ChromeWebDriver
 
-
 _DRIVERS = {
     "chrome": ChromeWebDriver,
 }
