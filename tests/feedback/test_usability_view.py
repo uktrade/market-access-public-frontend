@@ -4,8 +4,8 @@ from django.test import TestCase
 from django.urls import resolve, reverse
 from mock import patch
 
-from apps.feedback.views import FeedbackUsabilityView
 from apps.feedback.forms import FeedbackUsabilityForm, FeelingTypes
+from apps.feedback.views import FeedbackUsabilityView
 from tests.feedback.constants import ErrorHTML
 
 

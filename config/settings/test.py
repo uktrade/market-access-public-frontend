@@ -6,9 +6,9 @@ from .base import *  # noqa
 
 # GENERAL
 # ------------------------------------------------------------------------------
-DJANGO_ENV = 'test'
+DJANGO_ENV = "test"
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = 'nothing-secret-about-this-one'
+SECRET_KEY = "nothing-secret-about-this-one"
 # https://docs.djangoproject.com/en/dev/ref/settings/#test-runner
 TEST_RUNNER = "config.testrunner.PytestTestRunner"
 
@@ -31,7 +31,7 @@ PASSWORD_HASHERS = ["django.contrib.auth.hashers.MD5PasswordHasher"]
 # ------------------------------------------------------------------------------
 # http://whitenoise.evans.io/en/stable/django.html#WHITENOISE_AUTOREFRESH
 WHITENOISE_AUTOREFRESH = True
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 # TEMPLATES
 # ------------------------------------------------------------------------------

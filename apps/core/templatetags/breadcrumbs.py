@@ -3,9 +3,7 @@ from django.urls import reverse_lazy
 
 register = template.Library()
 
-DEFAULT_BREADCRUMBS = (
-    ("Home", reverse_lazy("barriers:find-barriers-splash")),
-)
+DEFAULT_BREADCRUMBS = (("Home", reverse_lazy("barriers:find-barriers-splash")),)
 ACTIVE_BREADCRUMB_CSS_CLASS = " govuk-breadcrumbs__list-item--active"
 
 
@@ -21,14 +19,9 @@ def show_breadcrumbs(context, items=()):
     current_path = context["request"].path + f'?{context["request"].query_string}'
     for i in (*DEFAULT_BREADCRUMBS, *items):
         text, href = i
-        d = {
-            "text": text,
-            "href": href
-        }
+        d = {"text": text, "href": href}
         if current_path == href:
             d["css_classes"] = ACTIVE_BREADCRUMB_CSS_CLASS
         breadcrumbs.append(d)
 
-    return {
-        "breadcrumbs": breadcrumbs
-    }
+    return {"breadcrumbs": breadcrumbs}

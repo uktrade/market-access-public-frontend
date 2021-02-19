@@ -1,5 +1,5 @@
-from django.test import SimpleTestCase, RequestFactory
-from django.template import Context, Template, RequestContext
+from django.template import Context, RequestContext, Template
+from django.test import RequestFactory, SimpleTestCase
 
 from apps.barriers.middleware import FiltersMiddleware
 

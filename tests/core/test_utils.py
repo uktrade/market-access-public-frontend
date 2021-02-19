@@ -1,16 +1,17 @@
 import datetime
-
 from unittest import TestCase
 
-from apps.core.utils import convert_to_snake_case, chain, get_future_date
+from apps.core.utils import chain, convert_to_snake_case, get_future_date
 
 
 class UtilsTestCase(TestCase):
-
     def test_get_future_date(self):
         now = datetime.datetime.now()
         future_date_str = get_future_date(60)
-        extra_days = datetime.datetime.strptime(future_date_str, "%a, %d-%b-%Y %H:%M:%S GMT") - now
+        extra_days = (
+            datetime.datetime.strptime(future_date_str, "%a, %d-%b-%Y %H:%M:%S GMT")
+            - now
+        )
         # +- 1 day is acceptable here
         assert extra_days.days in range(59, 60)
 

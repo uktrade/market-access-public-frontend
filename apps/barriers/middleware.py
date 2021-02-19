@@ -3,7 +3,13 @@ from urllib.parse import parse_qs, urlencode
 from django.utils.deprecation import MiddlewareMixin
 
 from apps.core.utils import convert_to_snake_case
-from apps.metadata.aggregators import countries, sectors, AllLocations, AllSectors, trading_blocs
+from apps.metadata.aggregators import (
+    AllLocations,
+    AllSectors,
+    countries,
+    sectors,
+    trading_blocs,
+)
 
 
 class FiltersMiddleware(MiddlewareMixin):

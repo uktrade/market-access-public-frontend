@@ -6,11 +6,11 @@ from mock import patch
 from requests import HTTPError
 
 from apps.core.api_client import APIClient, data_gateway
-from apps.metadata.aggregators import countries, trading_blocs, sectors
+from apps.metadata.aggregators import countries, sectors, trading_blocs
 from tests.barriers.fixtures import (
+    dummy_barrier_details,
     dummy_barrier_list_results,
     dummy_barrier_list_results_raw,
-    dummy_barrier_details,
 )
 from tests.core.helpers import mocked_requests_get
 

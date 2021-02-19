@@ -1,13 +1,13 @@
 from django.urls import path
 
 from .views import (
-    FindBarriersSplashView,
+    BarrierDetailsView,
+    BarriersListView,
     FindActiveBarriers,
+    FindBarriersSplashView,
     FindResolvedBarriers,
     LocationFiltersView,
     SectorFiltersView,
-    BarriersListView,
-    BarrierDetailsView,
 )
 
 app_name = "barriers"

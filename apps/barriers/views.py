@@ -4,10 +4,10 @@ from django.views.generic import TemplateView
 from apps.core.api_client import data_gateway
 from apps.core.mixins import BreadcrumbsMixin
 from apps.metadata.aggregators import (
+    AllLocations,
+    AllSectors,
     countries,
     sectors,
-    AllSectors,
-    AllLocations,
     trading_blocs,
 )
 

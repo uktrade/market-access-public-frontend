@@ -1,11 +1,11 @@
 """
 Base settings to build other settings files upon.
 """
-import environ
 import logging
-import sentry_sdk
-
 from pathlib import Path
+
+import environ
+import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 ROOT_DIR = Path(__file__).parents[2]

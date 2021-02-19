@@ -5,8 +5,8 @@ import operator
 from django.utils.text import slugify
 
 from apps.core.utils import convert_to_snake_case
-from .base import metadata
 
+from .base import metadata
 
 logger = logging.getLogger(__name__)
 
@@ -14,8 +14,8 @@ logger = logging.getLogger(__name__)
 # INTERFACES
 # ========================================================
 
-class TradingBloc:
 
+class TradingBloc:
     def __init__(self, **kwargs):
         self.code = kwargs["code"]
         self.name = kwargs["name"]
@@ -48,7 +48,6 @@ class TradingBloc:
 
 
 class AdminArea:
-
     def __init__(self, **kwargs):
         self.id = kwargs["id"]
         self.name = kwargs["name"]
@@ -62,7 +61,6 @@ class AdminArea:
 
 
 class Country:
-
     def __init__(self, **kwargs):
         self.id = kwargs["id"]
         self.name = kwargs["name"]
@@ -95,7 +93,6 @@ class Country:
 
 
 class Sector:
-
     def __init__(self, **kwargs):
         self.id = kwargs["id"]
         self.name = kwargs["name"]
@@ -118,8 +115,8 @@ class Sector:
 # AGGREGATORS
 # ========================================================
 
-class DataAggregator:
 
+class DataAggregator:
     def __init__(self, _class, data, attr_from="name"):
         self.all = set()
 
@@ -144,7 +141,7 @@ class DataAggregator:
 
         new_groups = {}
         for k, v in groups.items():
-            new_groups[k] = sorted(groups[k], key=operator.attrgetter('name'))
+            new_groups[k] = sorted(groups[k], key=operator.attrgetter("name"))
 
         return collections.OrderedDict(sorted(new_groups.items()))
 
@@ -152,13 +149,15 @@ class DataAggregator:
         dataset = list(dataset)
         for item in self.all:
             if op == "exact":
-                item.records_count = len(
-                    [d for d in dataset if item.name == getattr(d, by_field)]
-                ) + offset
+                item.records_count = (
+                    len([d for d in dataset if item.name == getattr(d, by_field)])
+                    + offset
+                )
             if op == "include":
-                item.records_count = len(
-                    [d for d in dataset if item.name in getattr(d, by_field)]
-                ) + offset
+                item.records_count = (
+                    len([d for d in dataset if item.name in getattr(d, by_field)])
+                    + offset
+                )
 
         return self.grouped_alphabetically
 
@@ -171,11 +170,20 @@ class CountriesAggregator(DataAggregator):
     def count_records(self, by_field, dataset=(), op="exact", offset=0):
         dataset = list(dataset)
         for item in self.all:
-            item.records_count = len([
-                d for d in dataset
-                if item.name == d.country
-                or (item.trading_bloc and item.trading_bloc["name"] == d.trading_bloc)
-            ]) + offset
+            item.records_count = (
+                len(
+                    [
+                        d
+                        for d in dataset
+                        if item.name == d.country
+                        or (
+                            item.trading_bloc
+                            and item.trading_bloc["name"] == d.trading_bloc
+                        )
+                    ]
+                )
+                + offset
+            )
 
         return self.grouped_alphabetically
 
@@ -185,15 +193,20 @@ class SectorsAggregator(DataAggregator):
 
 
 class AdminAreas(DataAggregator):
-
     def __init__(self, country):
         self.country = country
-        super().__init__(AdminArea, metadata.get_admin_areas_by_country(self.country.id))
+        super().__init__(
+            AdminArea, metadata.get_admin_areas_by_country(self.country.id)
+        )
 
 
-countries = CountriesAggregator(Country, metadata.get_country_list(), attr_from="iso_alpha2_code")
+countries = CountriesAggregator(
+    Country, metadata.get_country_list(), attr_from="iso_alpha2_code"
+)
 # Trading Blocs Aggregator has to be defined after countries as it depends on it
-trading_blocs = TradingBlocsAggregator(TradingBloc, metadata.get_trading_bloc_list(), attr_from="iso_alpha2_code")
+trading_blocs = TradingBlocsAggregator(
+    TradingBloc, metadata.get_trading_bloc_list(), attr_from="iso_alpha2_code"
+)
 sectors = SectorsAggregator(Sector, metadata.get_sector_list(level=0))
 
 

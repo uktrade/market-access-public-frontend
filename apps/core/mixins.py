@@ -7,6 +7,7 @@ class BreadcrumbsMixin:
             ("Cookies", reverse_lazy("core:cookies")),
         )
     """
+
     breadcrumbs = ()
 
     def get_breadcrumbs(self):

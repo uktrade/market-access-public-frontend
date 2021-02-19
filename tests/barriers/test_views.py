@@ -5,10 +5,10 @@ from django.urls import resolve, reverse
 from mock import patch
 
 from apps.barriers.views import (
+    BarrierDetailsView,
+    BarriersListView,
     LocationFiltersView,
     SectorFiltersView,
-    BarriersListView,
-    BarrierDetailsView,
 )
 from tests.core.helpers import mocked_requests_get
 

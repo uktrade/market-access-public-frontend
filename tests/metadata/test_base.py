@@ -4,9 +4,8 @@ from apps.metadata.base import metadata
 
 
 class MetadataTestCase(TestCase):
-
     def test_get_admin_area_by_id(self):
-        admin_area_id = "b5d03d97-fef5-4da6-9117-98a4d633b581"   # Acre (Brazil)
+        admin_area_id = "b5d03d97-fef5-4da6-9117-98a4d633b581"  # Acre (Brazil)
         expected_name = "Acre"
         expected_country_name = "Brazil"
 
@@ -23,7 +22,9 @@ class MetadataTestCase(TestCase):
         admin_areas = metadata.get_admin_areas((admin_area_id_1, admin_area_id_2))
 
         assert 2 == len(admin_areas)
-        assert {admin_area_id_1, admin_area_id_2} == set([aa["id"] for aa in admin_areas])
+        assert {admin_area_id_1, admin_area_id_2} == set(
+            [aa["id"] for aa in admin_areas]
+        )
 
     def test_get_admin_areas_by_ids__using_str_as_param(self):
         admin_area_id_1 = "b5d03d97-fef5-4da6-9117-98a4d633b581"  # Acre (Brazil)
@@ -33,7 +34,9 @@ class MetadataTestCase(TestCase):
         admin_areas = metadata.get_admin_areas((admin_area_ids))
 
         assert 2 == len(admin_areas)
-        assert {admin_area_id_1, admin_area_id_2} == set([aa["id"] for aa in admin_areas])
+        assert {admin_area_id_1, admin_area_id_2} == set(
+            [aa["id"] for aa in admin_areas]
+        )
 
     def test_get_country_by_id(self):
         country_id = "aa5f66a0-5d95-e211-a939-e4115bead28a"  # Bermuda

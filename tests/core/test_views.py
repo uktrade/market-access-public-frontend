@@ -3,7 +3,7 @@ from http import HTTPStatus
 from django.test import TestCase
 from django.urls import resolve, reverse
 
-from apps.core.views import CookieToggle, CookiesView
+from apps.core.views import CookiesView, CookieToggle
 
 
 class CookieToggleTestCase(TestCase):
