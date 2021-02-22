@@ -1,17 +1,9 @@
 from django.test import TestCase
 
-from apps.metadata.aggregators import (
-    AdminArea,
-    AllLocations,
-    AllSectors,
-    Country,
-    Sector,
-    TradingBloc,
-    TradingBlocsAggregator,
-    countries,
-    sectors,
-    trading_blocs,
-)
+from apps.metadata.aggregators import (AdminArea, AllLocations, AllSectors,
+                                       Country, Sector, TradingBloc,
+                                       TradingBlocsAggregator, countries,
+                                       sectors, trading_blocs)
 from apps.metadata.base import metadata
 from tests.barriers.fixtures import dummy_barrier_list_results
 
