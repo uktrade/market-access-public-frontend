@@ -77,9 +77,11 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "django_extensions",
+    "django_audit_log_middleware",
 ]
 
 LOCAL_APPS = [
+    "django_audit_log_middleware.AuditLogMiddleware",
     "apps.barriers",
     "apps.core",
     "apps.feedback",
