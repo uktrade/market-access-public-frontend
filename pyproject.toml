@@ -7,7 +7,7 @@ authors = ["Ferenc Csepregi <feri@31.digital>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 directory-forms-api-client = "==5.4.0"
-django = "==3.1.12"
+django = "==3.1.8"
 django-environ = "==0.4.5"
 django-extensions = "==3.0.9"
 django-log-formatter-ecs = "==0.0.5"
@@ -20,10 +20,9 @@ psycopg2-binary = "==2.8.6"
 python-json-logger = "==2.0.0"
 python-dateutil = "==2.8.1"
 python-magic = "==0.4.18"
-requests = ">=2.24.0"
+requests = "==2.24.0"
 sentry-sdk = "==0.18.0"
 whitenoise = "==5.2.0"
-urllib3 = ">=1.16.1"
 
 [tool.poetry.dev-dependencies]
 black = "~=20.8b1"
@@ -39,5 +38,5 @@ splinter = "^0.14.0"
 selenium-wire = "^2.1.2"
 
 [build-system]
-requires = ["poetry>=1.1.6"]
+requires = ["poetry>=1.0.10"]
 build-backend = "poetry.masonry.api"
