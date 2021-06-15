@@ -1,11 +1,11 @@
 # ======
 # DO NOT EDIT - use pyproject.toml instead!
-# Generated: 2021-06-11_11-42
+# Generated: 2021-06-14_16-21
 # ======
 asgiref==3.3.4
 certifi==2021.5.30
 cffi==1.14.5
-chardet==4.0.0
+chardet==3.0.4
 directory-client-core==6.3.0
 directory-forms-api-client==5.4.0
 django==3.1.12
@@ -31,13 +31,13 @@ python-dateutil==2.8.1
 python-json-logger==2.0.0
 python-magic==0.4.18
 pytz==2021.1
-requests==2.25.1
+requests==2.24.0
 sentry-sdk==0.18.0
 sigauth==4.3.0
 six==1.16.0
 sqlparse==0.4.1
 typing-extensions==3.10.0.0
-urllib3==1.26.5
+urllib3==1.25.11
 w3lib==1.22.0
 whitenoise==5.2.0
 zope.event==4.5.0
