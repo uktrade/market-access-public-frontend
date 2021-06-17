@@ -29,7 +29,8 @@
     "gulp-if": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
-    "gulp-sass": "github:mxmason/gulp-sass#feature/update-node-sass"
+    "gulp-sass": "github:mxmason/gulp-sass#feature/update-node-sass",
+    "sass": "1.35.1"
   },
   "devDependencies": {
     "browser-sync": "^2.26.14",
