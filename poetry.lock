@@ -1094,7 +1094,6 @@ docs = ["sphinx", "repoze.sphinx.autointerface"]
 test = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 
-[metadata]
 content-hash = "ac37ee90c55b02ad337f6245e34be2451b66d1207ec6aeb2ae2046676871be71"
 lock-version = "1.0"
 python-versions = "^3.7"
