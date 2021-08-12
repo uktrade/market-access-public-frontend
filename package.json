@@ -1,5 +1,9 @@
 {
   "version": "1.1.0",
+  "resolutions": {
+    "path-parse": ">=1.0.7",
+    "tar": ">=3.2.3"
+  },
   "name": "market-access-pyfe-static-builder",
   "description": "Static file builder for the project.",
   "repository": {
@@ -9,6 +13,7 @@
   "author": "Ferenc Csepregi",
   "license": "ISC",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "dev": "gulp",
     "build": "gulp build",
     "heroku-prebuild": "",
@@ -22,19 +27,19 @@
     "@babel/runtime": "^7.10.5",
     "babel-loader": "^8.1.0",
     "govuk-frontend": "^3.10.2",
-    "gulp": "^4.0.2",
+    "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
-    "gulp-cli": "^2.2.0",
+    "gulp-cli": "^1.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-if": "^3.0.0",
+    "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "gulp-sass": "github:mxmason/gulp-sass#feature/update-node-sass",
-    "sass": "1.35.1"
+    "gulp-uglify": "^3.0.2"
   },
   "devDependencies": {
     "browser-sync": "^2.26.14",
-    "object-path": ">=0.11.5"
+    "object-path": ">=0.11.5",
+    "path-parse": ">=1.0.7"
   },
   "engines": {
     "node": "12.x"
