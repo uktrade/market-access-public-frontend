@@ -13,5 +13,4 @@ echo -e "║  - To list all available make commands               ║"
 echo -e "║    run 'make help'.                                  ║"
 echo -e "╚══════════════════════════════════════════════════════╝"
 
-# Tail a file to keep the container alive
-tail -f /dev/null
+exec "$@"

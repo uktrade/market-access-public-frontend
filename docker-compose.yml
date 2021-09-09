@@ -20,6 +20,7 @@ services:
       context: .
       dockerfile: docker/local/django/Dockerfile
     entrypoint: docker/local/django/entrypoint.sh
+    command: tail -f /dev/null
     ports:
       - "9980:9000"
       - "9982:22"

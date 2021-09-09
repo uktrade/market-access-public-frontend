@@ -3,6 +3,7 @@ Base settings to build other settings files upon.
 """
 import logging
 from pathlib import Path
+import os
 
 import environ
 import sentry_sdk
@@ -77,6 +78,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "django_extensions",
+    "webpack_loader",
 ]
 
 LOCAL_APPS = [
@@ -286,3 +288,12 @@ DJANGO_ANONYMOUS_USER_EMAIL = env(
 )
 
 X_ROBOTS_TAG = ("noindex", "nofollow", "nosnippet")
+
+WEBPACK_LOADER = {
+    "DEFAULT": {
+        "CACHE": not DEBUG,
+        "STATS_FILE": os.path.join(ROOT_DIR, "webpack-stats.json"),
+        "POLL_INTERVAL": 0.1,
+        "TIMEOUT": None,
+    }
+}

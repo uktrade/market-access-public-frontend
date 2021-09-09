@@ -12,7 +12,7 @@ jobs:
           POSTGRES_DB=market_access_public
 
     environment:
-      DJANGO_SECRET_KEY: "secretkey123"
+      DJANGO_SECRET_KEY: "secretkey123" # pragma: allowlist secret
       DJANGO_DEBUG: True
       DJANGO_ALLOWED_HOSTS: "localhost"
       DJANGO_SETTINGS_MODULE: "config.settings.test"
@@ -34,6 +34,14 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ .Branch }}-{{ checksum "poetry.lock" }}
+
+      - run:
+          name: Installing system dependencies
+          command: sudo apt-get install -y nodejs npm
+
+      - run:
+          name: Compile webpack config
+          command: npm install && npm run build
 
       - run:
           command: sudo pip install poetry==1.0.5
