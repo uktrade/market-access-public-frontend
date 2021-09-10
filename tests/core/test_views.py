@@ -29,7 +29,7 @@ class CookiesViewTestCase(TestCase):
         self.assertTemplateUsed(response, "pages/cookies.html")
 
     def test_cookies_set_usage_to_on(self):
-        """ usage refers to google analytics """
+        """usage refers to google analytics"""
         data = {"usage": True}
 
         response = self.client.post(self.url, data)
@@ -39,7 +39,7 @@ class CookiesViewTestCase(TestCase):
         assert "true" == response.cookies["cookies_preferences_set"].value
 
     def test_cookies_set_usage_to_off(self):
-        """ usage refers to google analytics """
+        """usage refers to google analytics"""
         data = {"usage": False}
 
         response = self.client.post(self.url, data)
@@ -58,7 +58,7 @@ class CookiesViewTestCase(TestCase):
         assert "cookies_preferences_set" not in response.cookies.keys()
 
     def test_cookies_set_usage_to_on__default_redirect_url(self):
-        """ Default redirect url is the index page / """
+        """Default redirect url is the index page /"""
         data = {"usage": True}
 
         response = self.client.post(self.url, data)
@@ -67,7 +67,7 @@ class CookiesViewTestCase(TestCase):
         assert "/" == response.url
 
     def test_cookies_set_usage_to_on__with_next_in_query_params(self):
-        """ Take redirect url from next= query param if present """
+        """Take redirect url from next= query param if present"""
         data = {"usage": True}
 
         url = f"{self.url}?next=/wobble/"

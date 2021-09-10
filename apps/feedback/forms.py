@@ -29,10 +29,10 @@ class FeedbackTypes:
                 cls.BARRIER,
                 {
                     "label": "Report a trade barrier "
-                             "or an issue with an existing trade barrier",
+                    "or an issue with an existing trade barrier",
                     "hint": "For example, do you have an issue with "
-                            "a published trade barrier or want to report "
-                            "a trade barrier that is not in the service.",
+                    "a published trade barrier or want to report "
+                    "a trade barrier that is not in the service.",
                 },
             ),
         )
@@ -71,9 +71,9 @@ class FeedbackUsabilityForm(ZendeskActionMixin, forms.Form):
         widget=forms.Textarea,
         label="How can we improve this service?",
         help_text="Do not include personal or financial information, "
-                  "like your National Insurance number or credit card details.",
+        "like your National Insurance number or credit card details.",
         max_length=1200,
-        required=False
+        required=False,
     )
 
 
@@ -82,15 +82,15 @@ class FeedbackIssueForm(ZendeskActionMixin, forms.Form):
         widget=forms.Textarea,
         label="What did you expect to happen?",
         help_text="Do not include personal or financial information, "
-                  "like your National Insurance number or credit card details.",
-        max_length=1200
+        "like your National Insurance number or credit card details.",
+        max_length=1200,
     )
     outcome = forms.CharField(
         widget=forms.Textarea,
         label="What went wrong?",
         help_text="Do not include personal or financial information, "
-                  "like your National Insurance number or credit card details.",
-        max_length=1200
+        "like your National Insurance number or credit card details.",
+        max_length=1200,
     )
 
 

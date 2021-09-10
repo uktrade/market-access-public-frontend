@@ -15,7 +15,7 @@ def barrier_data_5():
 
 
 def dummy_barrier_details(barrier_id=None):
-    """ Data gateway always returns a list when S3 Select is used """
+    """Data gateway always returns a list when S3 Select is used"""
     return [b for b in dummy_barrier_list_results_raw if b["id"] == barrier_id]
 
 

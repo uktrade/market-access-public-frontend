@@ -53,10 +53,12 @@ class TestFeedbackSplashViewTestCase(TestCase):
 
     def test_submitting_empty_form_raises_an_error(self):
         response = self.client.post(self.url, {})
-        html = response.content.decode('utf8')
-        form = response.context['form']
+        html = response.content.decode("utf8")
+        form = response.context["form"]
 
         assert HTTPStatus.OK == response.status_code
         assert form.is_valid() is False
-        self.assertFormError(response, 'form', 'feedback_type', "This field is required.")
+        self.assertFormError(
+            response, "form", "feedback_type", "This field is required."
+        )
         assert ErrorHTML.FIELD_ERROR in html

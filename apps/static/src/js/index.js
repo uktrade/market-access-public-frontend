@@ -1,2 +1,2 @@
-import {initAll} from "govuk-frontend/govuk/all"
-initAll()
+import { initAll } from "govuk-frontend/govuk/all";
+initAll();
