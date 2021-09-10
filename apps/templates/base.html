@@ -81,7 +81,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% endblock %}
 
 {% block body_end %}
-    <!-- <script src="{% webpack_static 'js/main.js' %}"></script> -->
     {% render_bundle 'main' 'js' %}
     {% block body_script %}{% endblock %}
     {% if settings.DJANGO_ENV and settings.DJANGO_ENV != "local" and settings.DJANGO_ENV != "prod" %}
