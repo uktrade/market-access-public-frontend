@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "rootDir": "apps/static/src/js",
+        "checkJs": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
