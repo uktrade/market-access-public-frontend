@@ -8,7 +8,7 @@ from .base import *  # noqa
 # ------------------------------------------------------------------------------
 DJANGO_ENV = "test"
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = "nothing-secret-about-this-one"
+SECRET_KEY = "nothing-secret-about-this-one"  # pragma: allowlist secret
 # https://docs.djangoproject.com/en/dev/ref/settings/#test-runner
 TEST_RUNNER = "config.testrunner.PytestTestRunner"
 

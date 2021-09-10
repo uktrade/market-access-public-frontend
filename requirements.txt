@@ -1,6 +1,6 @@
 # ======
 # DO NOT EDIT - use pyproject.toml instead!
-# Generated: 2021-09-09_17-42
+# Generated: 2021-09-10_12-41
 # ======
 asgiref==3.4.1
 certifi==2021.5.30
@@ -8,7 +8,7 @@ cffi==1.14.6
 chardet==4.0.0
 directory-client-core==6.3.0
 directory-forms-api-client==5.4.0
-django==3.1.12
+django==3.1.13
 django-environ==0.4.5
 django-extensions==3.0.9
 django-ipware==3.0.7
@@ -36,9 +36,9 @@ requests==2.25.1
 sentry-sdk==0.18.0
 sigauth==4.3.0
 six==1.16.0
-sqlparse==0.4.1
+sqlparse==0.4.2
 typing-extensions==3.10.0.2
-urllib3==1.25.11
+urllib3==1.26.5
 w3lib==1.22.0
 whitenoise==5.2.0
 zope.event==4.5.0

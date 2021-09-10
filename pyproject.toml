@@ -7,7 +7,7 @@ authors = ["Ferenc Csepregi <feri@31.digital>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 directory-forms-api-client = "==5.4.0"
-django = "==3.1.12"
+django = "==3.1.13"
 django-environ = "==0.4.5"
 django-extensions = "==3.0.9"
 django-log-formatter-ecs = "==0.0.5"
@@ -23,7 +23,7 @@ python-magic = "==0.4.18"
 requests = "==2.25.1"
 sentry-sdk = "==0.18.0"
 whitenoise = "==5.2.0"
-urllib3 = "==1.25.11"
+urllib3 = "==1.26.5"
 django-webpack-loader = "~=1.3.0"
 
 [tool.poetry.dev-dependencies]

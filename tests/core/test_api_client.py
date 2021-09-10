@@ -135,21 +135,21 @@ class APIClientTestCase(TestCase):
 
     @patch("requests.get", side_effect=mocked_requests_get)
     def test_get__s3select_rows(self, _mock_get):
-        """ Should return "rows" from the response if it's an s3 select response """
+        """Should return "rows" from the response if it's an s3 select response"""
         uri = self.resource.uri("heyho-data")
         r = self.resource.get(uri, {"id": 1})
         assert r
 
     @patch("requests.get", side_effect=mocked_requests_get)
     def test_get__barriers_without_filters(self, _mock_get):
-        """ Should return "barriers" from the response if s3 select was not involved """
+        """Should return "barriers" from the response if s3 select was not involved"""
         uri = self.resource.uri("heyho-data")
         r = self.resource.get(uri)
         assert r
 
     @patch("requests.get", side_effect=mocked_requests_get)
     def test_get_raises_HTTPError(self, _mock_get):
-        """ Should return "barriers" from the response if s3 select was n ot involved """
+        """Should return "barriers" from the response if s3 select was n ot involved"""
         with self.assertRaises(HTTPError):
             self.resource.get("ahoy")
 

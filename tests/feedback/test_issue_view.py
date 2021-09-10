@@ -22,26 +22,25 @@ class TestFeedbackIssueViewTestCase(TestCase):
         assert HTTPStatus.OK == response.status_code
         self.assertTemplateUsed(response, "feedback/issue.html")
 
-    @patch.object(FeedbackIssueForm, 'save')
+    @patch.object(FeedbackIssueForm, "save")
     def test_submitting_invalid_form(self, mock_save):
         response = self.client.post(self.url, {})
-        html = response.content.decode('utf8')
-        form = response.context['form']
+        html = response.content.decode("utf8")
+        form = response.context["form"]
 
         assert HTTPStatus.OK == response.status_code
         assert form.is_valid() is False
-        self.assertFormError(response, 'form', 'expectations', "This field is required.")
-        self.assertFormError(response, 'form', 'outcome', "This field is required.")
+        self.assertFormError(
+            response, "form", "expectations", "This field is required."
+        )
+        self.assertFormError(response, "form", "outcome", "This field is required.")
         assert ErrorHTML.FIELD_ERROR in html
         assert mock_save.called is False
 
-    @patch.object(FeedbackIssueForm, 'save')
+    @patch.object(FeedbackIssueForm, "save")
     def test_submitting_valid_form_calls_to_forms_api(self, mock_form_save):
         redirect_url = reverse("feedback:thank-you")
-        data = {
-            "expectations": "wibble",
-            "outcome": "wobble"
-        }
+        data = {"expectations": "wibble", "outcome": "wobble"}
         response = self.client.post(self.url, data)
 
         assert mock_form_save.called

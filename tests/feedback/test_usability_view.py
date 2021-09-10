@@ -22,19 +22,21 @@ class TestFeedbackUsabilityViewTestCase(TestCase):
         assert HTTPStatus.OK == response.status_code
         self.assertTemplateUsed(response, "feedback/usability.html")
 
-    @patch.object(FeedbackUsabilityForm, 'save')
+    @patch.object(FeedbackUsabilityForm, "save")
     def test_submitting_invalid_form(self, mock_save):
         response = self.client.post(self.url, {})
-        html = response.content.decode('utf8')
-        form = response.context['form']
+        html = response.content.decode("utf8")
+        form = response.context["form"]
 
         assert HTTPStatus.OK == response.status_code
         assert form.is_valid() is False
-        self.assertFormError(response, 'form', 'feeling_type', "This field is required.")
+        self.assertFormError(
+            response, "form", "feeling_type", "This field is required."
+        )
         assert ErrorHTML.FIELD_ERROR in html
         assert mock_save.called is False
 
-    @patch.object(FeedbackUsabilityForm, 'save')
+    @patch.object(FeedbackUsabilityForm, "save")
     def test_submitting_valid_form_calls_to_forms_api(self, mock_form_save):
         redirect_url = reverse("feedback:thank-you")
         data = {"feeling_type": FeelingTypes.VERY_SATISFIED}

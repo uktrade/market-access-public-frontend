@@ -1,16 +1,16 @@
-# Market Access Public Frontend 
+# Market Access Public Frontend
 [![CircleCI](https://circleci.com/gh/uktrade/market-access-public-frontend.svg?style=svg)](https://circleci.com/gh/uktrade/market-access-public-frontend)
 [![Coverage Status](https://coveralls.io/repos/github/uktrade/market-access-public-frontend/badge.svg?branch=master)](https://coveralls.io/github/uktrade/market-access-public-frontend?branch=master)
 [![E2E Tests](https://github.com/uktrade/market-access-public-frontend/workflows/E2E%20Tests/badge.svg)](https://github.com/uktrade/market-access-public-frontend/actions)
 
 This repository provides a frontend client to consume public barrier data through the Data Gateway.
-It's built with python django. 
+It's built with python django.
 
 ## Installation with Docker
 
 The project is using docker compose to setup and run all the necessary components. \
 The docker-compose.yml file provided is meant to be used for running tests and development environments.
-It has a gulp task runner to process and prepare assets like CSS and JS files. 
+It has a gulp task runner to process and prepare assets like CSS and JS files.
 
 #### Prerequisites
 1. Install `docker` & `docker compose` - https://docs.docker.com/install/
@@ -22,7 +22,7 @@ It has a gulp task runner to process and prepare assets like CSS and JS files.
     ```
 
 #### Install
-1. Copy the env file - `cp dmas-pubfe.local-template.env dmas-pubfe.local.env`  
+1. Copy the env file - `cp dmas-pubfe.local-template.env dmas-pubfe.local.env`
 2. Build the images and spin up the containers by running - `docker-compose up --build`
 3. (recommended) Set up git hooks by running - `make git-hooks`
 4. (optional) Enter bash within the django container using `docker-compose exec web bash`
@@ -43,7 +43,7 @@ If desired this can be reduced to 0 via the following commands:
 3. The frontend client is now accessible via http://market-access.local:9880
 
 Now even if you closed your terminal, the server would be still running.
-You only need to run the gulp tasks via `make dev` if you're planning to work with SCSS or JS files. 
+You only need to run the gulp tasks via `make dev` if you're planning to work with SCSS or JS files.
 
 #### Make commands
 There's a set of make commands that you can utilize straight away. \
@@ -59,9 +59,9 @@ Resources for GOV.UK Frontend:
 Fonts are copied while css is imported from node modules.
 To prepare staticfiles for local run `make dev`
 
-Staticfiles are compressed offline for most environments, so it makes sense that you could run the same way locally to test things out. 
-To do that, just: 
-1. stop the django development server (if it's running) 
+Staticfiles are compressed offline for most environments, so it makes sense that you could run the same way locally to test things out.
+To do that, just:
+1. stop the django development server (if it's running)
 2. set `DEBUG` to `False` in `config/settings/local.py`
 3. run `npm run build` for a one off run (or `make dev` if you want to recompile css and js real time when changes are saved)
 3. run `make django-static`
@@ -70,7 +70,7 @@ To do that, just:
 **Note:** this is a good way to mimic how files are generated and served in an environment, \
 but please note, lazy loading of static files is also disabled in offline mode, so your changes to templates, js, scss \
 might not take effect unless you run step 3 from above and restart your dev server.
-To keep watching and recompiling css and js file use `make dev` from step 3. 
+To keep watching and recompiling css and js file use `make dev` from step 3.
 
 ## Builds
 Builds can be initiated from Jenkins or from the command line using `cf` CLI tool (using `cf push <app_name>`).
@@ -80,8 +80,8 @@ The preferred way to deploy apps remains Jenkins as of now because Jenkins will 
 
 #### Init Tasks
 Tasks that should be run at app initialisation can be defined in `.profile` file.
-If you would like to check the output of that you can do so via `cf logs <app_name> --recent`, but 
-please note that these logs get trimmed so it's best to check straight after deployment. 
+If you would like to check the output of that you can do so via `cf logs <app_name> --recent`, but
+please note that these logs get trimmed so it's best to check straight after deployment.
 
 ## Tests
 Front end tests are grouped under `./test` directory. When writing tests please use the corresponding app name to keep the same folder structure as the main app so it's easy to tell which test belongs to which app.
@@ -94,4 +94,3 @@ Example usage.:
 	- `make django-test path=barriers` - run a subset of tests just for the barriers app
 	- `make django-test path=assessments/test_assessment_detail.py::EmptyAssessmentDetailTestCase::test_view` - run a specific test case
 2. To run tests with coverage use `make django-test-coverage` - this will output the report to the console.
-
