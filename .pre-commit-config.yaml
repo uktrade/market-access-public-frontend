@@ -44,13 +44,7 @@ repos:
     rev: v1.1.0
     hooks:
       - id: detect-secrets
-        args:
-          [
-            "--exclude-files",
-            "README.md",
-            "--exclude-files",
-            "dmas-pubfe.local-template.env",
-          ]
+        args: ["--exclude-files", "README.md"]
   - repo: https://github.com/syntaqx/git-hooks
     rev: v0.0.16
     hooks:
