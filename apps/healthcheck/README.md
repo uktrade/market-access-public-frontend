@@ -4,7 +4,7 @@
     INSTALLED_APPS = (
         ...
         "apps.healthcheck",
-    ) 
+    )
     ```
 2. Include the healthcheck URLconf in your project `urls.py`:
     ```

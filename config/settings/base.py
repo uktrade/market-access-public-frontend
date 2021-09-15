@@ -2,8 +2,8 @@
 Base settings to build other settings files upon.
 """
 import logging
-from pathlib import Path
 import os
+from pathlib import Path
 
 import environ
 import sentry_sdk
