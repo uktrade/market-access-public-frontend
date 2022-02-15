@@ -6,7 +6,7 @@ version: 2
 jobs:
   tests:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.7.11-node
       - image: postgres:9.6.16
         environment: POSTGRES_DB=market_access_public
 
@@ -33,10 +33,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ .Branch }}-{{ checksum "poetry.lock" }}
-
-      - run:
-          name: Installing system dependencies
-          command: sudo apt-get install -y nodejs npm
 
       - run:
           name: Compile webpack config
@@ -69,15 +65,10 @@ jobs:
 
   format_and_secrets_checks:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.7.11-node
     working_directory: ~/market-access-public-frontend
     steps:
       - checkout
-
-      - run:
-          name: Installing system dependencies
-          command: sudo apt-get install -y nodejs npm
-
       - run:
           name: Install dependencies
           command: npm install --dev
@@ -97,7 +88,7 @@ jobs:
 
   pep8:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.7.11-node
 
     working_directory: ~/market-access-public-frontend
 
