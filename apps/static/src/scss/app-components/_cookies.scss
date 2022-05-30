@@ -26,6 +26,45 @@
   }
 }
 
+
+.app-cookie-banner {
+  display: none;
+
+  .cookie-banner__confirmation {
+    display: none;
+  }
+}
+
+.app-cookie-banner--show {
+  display: block;
+}
+
+.app-cookie-banner--show__accepted-all {
+  .cookie-banner__confirmation {
+    display: block;
+  }
+
+  .cookie-banner__buttons {
+    display: none;
+  }
+}
+
+.cookie-settings__no-js {
+  display: none;
+}
+
+.cookie-settings__form-wrapper {
+  display: block; // if no js then the form wont work anyway
+}
+
+.app-cookie-banner__button-fixed-desktop {
+  @include govuk-media-query($from: tablet) {
+    margin-right: 30px;
+    width: 280px;
+  }
+
+}
+
 .cookie-preferences table {
   margin-bottom: govuk-em(48, 16);
   th {
