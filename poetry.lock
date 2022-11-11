@@ -720,15 +720,14 @@ plugins = ["importlib-metadata"]
 
 [[package]]
 name = "pyopenssl"
-version = "19.1.0"
+version = "22.0.0"
 description = "Python wrapper module around the OpenSSL library"
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [package.dependencies]
-cryptography = ">=2.8"
-six = ">=1.5.2"
+cryptography = ">=35.0"
 
 [package.extras]
 docs = ["sphinx", "sphinx-rtd-theme"]
@@ -1193,7 +1192,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "52558fce273f62ba0f19e4f7a9b2d8820e5afddbdd47207e5c7ae4f3b324cd5b"
+content-hash = "317b322d22effa9f525f12a82a81df6366eb7a7b0024da650b98afed9870ea00"
 
 [metadata.files]
 appdirs = [
