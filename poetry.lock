@@ -192,7 +192,7 @@ test = ["codecov (==2.1.9)", "django (>=2.2.10,<4.0.0)", "flake8 (==3.8.3)", "py
 
 [[package]]
 name = "django"
-version = "3.2.15"
+version = "3.2.16"
 description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
 category = "main"
 optional = false
@@ -287,7 +287,7 @@ pytz = "*"
 
 [[package]]
 name = "elastic-apm"
-version = "6.13.1"
+version = "6.3.0"
 description = "The official Python module for Elastic APM"
 category = "main"
 optional = false
@@ -296,14 +296,11 @@ python-versions = "<4,>=3.6"
 [package.dependencies]
 certifi = "*"
 urllib3 = "*"
-wrapt = ">=1.14.1"
 
 [package.extras]
 aiohttp = ["aiohttp"]
 flask = ["blinker"]
-opentelemetry = ["opentelemetry-api", "opentelemetry-sdk"]
 opentracing = ["opentracing (>=2.0.0)"]
-sanic = ["sanic"]
 starlette = ["starlette"]
 tornado = ["tornado"]
 
@@ -1133,14 +1130,6 @@ python-versions = ">=3.5, <4"
 brotli = ["brotli"]
 
 [[package]]
-name = "wrapt"
-version = "1.14.1"
-description = "Module for decorators, wrappers and monkey patching."
-category = "main"
-optional = false
-python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
-
-[[package]]
 name = "wsproto"
 version = "1.2.0"
 description = "WebSockets state-machine based protocol implementation"
@@ -1191,7 +1180,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "774858b4964302b704abf217b3a9da8bc11631fe94c588fb6c5a3bbf787501b3"
+content-hash = "fd773b6c8db20d67c8f1521ef54ffbaebfd8f81bb8852c4d2785183cb34040cb"
 
 [metadata.files]
 appnope = [
@@ -1416,7 +1405,6 @@ whitenoise = [
     {file = "whitenoise-5.2.0-py2.py3-none-any.whl", hash = "sha256:05d00198c777028d72d8b0bbd234db605ef6d60e9410125124002518a48e515d"},
     {file = "whitenoise-5.2.0.tar.gz", hash = "sha256:05ce0be39ad85740a78750c86a93485c40f08ad8c62a6006de0233765996e5c7"},
 ]
-wrapt = []
 wsproto = []
 zipp = []
 "zope.event" = [
