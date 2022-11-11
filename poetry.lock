@@ -408,7 +408,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "importlib-metadata"
-version = "4.13.0"
+version = "5.0.0"
 description = "Read metadata from Python packages"
 category = "dev"
 optional = false
@@ -1181,7 +1181,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "c4b29d72d60f55762ca6808e439626401b6084d734658a0f83ae5e40953e11a2"
+content-hash = "64cf3546847b7d13adfe43f54d27fd44b51f2681a624c07604b1fec668f86721"
 
 [metadata.files]
 appnope = [
