@@ -17,7 +17,7 @@ repos:
       - id: isort
         exclude: migrations
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.2
+    rev: 5.0.4
     hooks:
       - id: flake8
         args: ["--config=.flake8"]
@@ -50,7 +50,7 @@ repos:
     hooks:
       - id: circleci-config-validate
   - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-    rev: v1.2.4
+    rev: v1.3.0
     hooks:
       - id: python-safety-dependencies-check
         files: requirements

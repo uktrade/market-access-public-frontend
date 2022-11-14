@@ -22,10 +22,10 @@ class XRobotsMiddlewareTestCase(TestCase):
         Validate that the middleware sets X-Robots-Tag as per django settings
         """
         response = self.client.get("/")
-        self.assertIn("x-robots-tag", response._headers)
+        self.assertIn("x-robots-tag", response.headers)
         self.assertEqual(
-            response._headers.get("x-robots-tag"),
-            ("X-Robots-Tag", "wibble,wobble"),
+            response.headers.get("x-robots-tag"),
+            "wibble,wobble",
         )
 
     @override_settings(X_ROBOTS_TAG=None)
@@ -34,7 +34,7 @@ class XRobotsMiddlewareTestCase(TestCase):
         Validate that the middleware sets X-Robots-Tag as per django settings
         """
         response = self.client.get("/")
-        self.assertNotIn("x-robots-tag", response._headers)
+        self.assertNotIn("x-robots-tag", response.headers)
 
 
 class ZipkinTracingMiddlewareTestCase(TestCase):
@@ -45,8 +45,8 @@ class ZipkinTracingMiddlewareTestCase(TestCase):
 
     def test_middleware_response_without_headers(self):
         response = self.client.get("/")
-        self.assertNotIn("x-b3-traceid", response._headers)
-        self.assertNotIn("x-b3-spanid", response._headers)
+        self.assertNotIn("x-b3-traceid", response.headers)
+        self.assertNotIn("x-b3-spanid", response.headers)
 
     def test_middleware_response_with_headers(self):
         headers = {
@@ -55,15 +55,15 @@ class ZipkinTracingMiddlewareTestCase(TestCase):
         }
         response = self.client.get("/", **headers)
 
-        self.assertIn("x-b3-traceid", response._headers)
+        self.assertIn("x-b3-traceid", response.headers)
         self.assertEqual(
-            response._headers.get("x-b3-traceid"),
-            ("X-B3-TraceId", "wibble"),
+            response.headers.get("x-b3-traceid"),
+            "wibble",
         )
-        self.assertIn("x-b3-spanid", response._headers)
+        self.assertIn("x-b3-spanid", response.headers)
         self.assertEqual(
-            response._headers.get("x-b3-spanid"),
-            ("X-B3-SpanId", "wobble"),
+            response.headers.get("x-b3-spanid"),
+            "wobble",
         )
 
     def test_middleware_sets_zipkin_http_headers_on_request(self):
