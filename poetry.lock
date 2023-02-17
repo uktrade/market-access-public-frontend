@@ -135,7 +135,7 @@ toml = ["tomli"]
 name = "cryptography"
 version = "39.0.1"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -729,17 +729,17 @@ plugins = ["importlib-metadata"]
 
 [[package]]
 name = "pyopenssl"
-version = "22.0.0"
+version = "23.0.0"
 description = "Python wrapper module around the OpenSSL library"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-cryptography = ">=35.0"
+cryptography = ">=38.0.0,<40"
 
 [package.extras]
-docs = ["sphinx", "sphinx-rtd-theme"]
+docs = ["sphinx (!=5.2.0,!=5.2.0.post0)", "sphinx-rtd-theme"]
 test = ["flaky", "pretend", "pytest (>=3.0.1)"]
 
 [[package]]
@@ -1193,7 +1193,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "380860a820ab76ef7d6584ef4faee2b29c9ba7ea2f4a968222b984c0add4615b"
+content-hash = "a109e188780a6a0b5db7c49a8aa0604752cf8eb0837d84f8afbda0248ab4f650"
 
 [metadata.files]
 appnope = [
