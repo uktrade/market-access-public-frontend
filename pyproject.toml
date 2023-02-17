@@ -38,7 +38,7 @@ pytest = "==7.2.0"
 pytest-cov = "~=2.10.1"
 pytest-django = "~=3.10.0"
 pytest-xdist = "~=2.1.0"
-werkzeug = "~=1.0.0"
+werkzeug = "~=2.2.3"
 splinter = "^0.14.0"
 selenium-wire = "^2.1.2"
 
