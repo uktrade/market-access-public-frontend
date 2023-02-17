@@ -3,7 +3,7 @@
 This repository provides a set of end to end tests to ensure the core user journeys of the service are functional.
 
 #### Prerequisites
-1. create a new virtual environment with (Python 3.7+)
+1. create a new virtual environment with (Python 3.8+)
 2. activate the virtual environment then from project root run `pip install -r ./tests_e2e/requirements.txt`
 3. (optional) install Chromedriver if you don't already have it
 4. copy `chromedriver` to the virtual environment's bin folder that you just created
