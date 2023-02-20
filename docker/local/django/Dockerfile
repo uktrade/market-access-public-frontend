@@ -33,8 +33,8 @@ RUN wget --no-verbose https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$
     && ./configure --enable-optimizations \
     && make altinstall
 
-RUN ln -s /usr/local/bin/python3.7 /usr/bin/python \
- && ln -s /usr/local/bin/pip3.7 /usr/bin/pip
+RUN ln -s /usr/local/bin/python3.8 /usr/bin/python \
+ && ln -s /usr/local/bin/pip3.8 /usr/bin/pip
 
 # SSH
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
