@@ -72,7 +72,7 @@ jobs:
 
       - run:
           command: pip install pre-commit
-      #    command: sudo pip install pre-commit poetry==1.1.8
+
       - restore_cache:
           keys:
             - pre-commit-cache-{{ arch }}-{{ .Branch }}
