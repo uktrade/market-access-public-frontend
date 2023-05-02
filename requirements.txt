@@ -35,7 +35,7 @@ requests==2.25.1; (python_version >= "2.7" and python_full_version < "3.0.0") or
 sentry-sdk==1.14.0
 sigauth==4.3.0
 six==1.16.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.3.0"
-sqlparse==0.4.3; python_version >= "3.6"
+sqlparse==0.4.4; python_version >= "3.6"
 urllib3==1.26.11; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.6.0" and python_version < "4")
 w3lib==2.1.1; python_version >= "3.7"
 whitenoise==5.2.0; python_version >= "3.5" and python_version < "4"
