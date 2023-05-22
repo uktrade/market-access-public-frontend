@@ -35,6 +35,11 @@ jobs:
             - v1-dependencies-{{ .Branch }}-{{ checksum "poetry.lock" }}
 
       - run:
+          command: |
+            pip install --upgrade pip
+            pip install poetry==1.2.0
+
+      - run:
           name: Compile webpack config
           command: npm install && npm run build
 
