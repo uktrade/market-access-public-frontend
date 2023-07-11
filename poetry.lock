@@ -167,35 +167,35 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "directory-client-core"
-version = "6.3.0"
+version = "7.1.1"
 description = "Python common code for Directory API clients."
 category = "main"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-django = ">=1.11.22,<4.0.0"
+django = ">=3.2.18,<4.0.0"
 monotonic = ">=1.2,<3.0"
 requests = ">=2.21.0,<3.0.0"
-sigauth = ">=4.0.1,<5.0.0"
-w3lib = ">=1.19.0"
+sigauth = ">=4.0.1,<5.2.0"
+w3lib = ">=1.19.0,<2.0.0"
 
 [package.extras]
-test = ["codecov (==2.1.9)", "flake8 (==3.8.3)", "freezegun (==1.0.0)", "pytest-capturelog (==0.7)", "pytest-cov (==2.10.1)", "pytest-django (==3.10.0)", "pytest-sugar (==0.9.4)", "pytest (==6.1.0)", "requests-mock (==1.8.0)", "setuptools (>=38.6.0,<39.0.0)", "twine (>=1.11.0,<2.0.0)", "wheel (>=0.31.0,<1.0.0)"]
+test = ["codecov (==2.1.9)", "flake8 (==5.0.4)", "freezegun (==1.0.0)", "pytest-cov (==2.10.1)", "pytest-django (==4.1.0)", "pytest-sugar (==0.9.5)", "pytest (==5.4.0)", "requests-mock (==1.8.0)", "setuptools (>=38.6.0,<39.0.0)", "twine (>=1.11.0,<2.0.0)", "wheel (>=0.31.0,<1.0.0)"]
 
 [[package]]
 name = "directory-forms-api-client"
-version = "5.4.0"
+version = "7.2.0"
 description = "Python API client for Directory forms ."
 category = "main"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-directory-client-core = ">=6.1.0,<7.0.0"
+directory-client-core = ">=6.1.0,<8.0.0"
 
 [package.extras]
-test = ["codecov (==2.1.9)", "django (>=2.2.10,<4.0.0)", "flake8 (==3.8.3)", "pytest-cov (==2.10.1)", "pytest-django (==3.10.0)", "pytest (==6.1.0)", "requests (>=2.22.0,<3.0.0)", "requests-mock (==1.8.0)", "setuptools (>=45.2.0,<50.0.0)", "twine (>=3.1.1,<4.0.0)", "wheel (>=0.34.2,<1.0.0)"]
+test = ["django (>=2.2.10,<=4.2)", "flake8 (==3.8.3)", "pytest-codecov", "pytest-cov", "gitpython", "pytest-django (==3.10.0)", "pytest (==6.1.0)", "requests (>=2.22.0,<3.0.0)", "requests-mock (==1.8.0)", "setuptools (>=45.2.0,<50.0.0)", "twine", "wheel (>=0.34.2,<1.0.0)"]
 
 [[package]]
 name = "django"
@@ -984,7 +984,7 @@ tornado = ["tornado (>=5)"]
 
 [[package]]
 name = "sigauth"
-version = "4.3.0"
+version = "5.1.1"
 description = "Signature authentication library for Export Directory."
 category = "main"
 optional = false
@@ -1144,11 +1144,14 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "w3lib"
-version = "2.1.1"
+version = "1.22.0"
 description = "Library of web-related functions"
 category = "main"
 optional = false
-python-versions = ">=3.7"
+python-versions = "*"
+
+[package.dependencies]
+six = ">=1.4.1"
 
 [[package]]
 name = "wcwidth"
@@ -1242,7 +1245,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "==3.8.5"
-content-hash = "6cd35ff8539f2d91143646ae5c729915739cea81a2f665acc48adcc01cf0d3d6"
+content-hash = "3248afb358d795325d26b210b03397af6d3dc327397c85fc564d62501c340256"
 
 [metadata.files]
 appnope = []
