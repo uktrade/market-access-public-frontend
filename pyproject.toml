@@ -50,7 +50,6 @@ requires = ["poetry>=1.1.6"]
 build-backend = "poetry.masonry.api"
 
 [tool.pytest.ini_options]
-addopts = "--cov --cov-report term-missing"
 DJANGO_SETTINGS_MODULE = "config.settings.test"
 testpaths = "tests"
 python_files = ["tests.py", "test_*.py", "*_tests.py"]
