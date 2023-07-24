@@ -62,3 +62,35 @@ addopts = """
     --cov-config=.coveragerc
     --cov-branch
 """
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.run]
+source = "."
+omit = [
+    "./venv/*",
+    "*tests*",
+    "*config*",
+    "*manage.py",
+    "*__init__.py",
+    "*migrations*",
+    "*asgi*",
+    "*wsgi*",
+    "*admin.py",
+    "*urls.py",
+]
+
+[tool.coverage.report]
+omit = [
+    "./venv/*",
+    "*tests*",
+    "*config*",
+    "*manage.py",
+    "*__init__.py",
+    "*migrations*",
+    "*asgi*",
+    "*wsgi*",
+    "*admin.py",
+    "*urls.py",
+]
