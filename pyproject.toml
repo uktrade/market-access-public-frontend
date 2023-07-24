@@ -67,7 +67,7 @@ addopts = """
 profile = "black"
 
 [tool.coverage.run]
-source = "."
+source = ["."]
 omit = [
     "./venv/*",
     "*tests*",
