@@ -43,7 +43,54 @@ pytest-xdist = "~=2.1.0"
 werkzeug = "~=2.2.3"
 splinter = "^0.14.0"
 selenium-wire = "^2.1.2"
+coverage = "^7.2.7"
 
 [build-system]
 requires = ["poetry>=1.1.6"]
 build-backend = "poetry.masonry.api"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.test"
+testpaths = "tests"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+
+addopts = """
+    --reuse-db
+    --ds=config.settings.test
+    --cov=.
+    --no-cov-on-fail
+    --cov-config=.coveragerc
+    --cov-branch
+"""
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "./venv/*",
+    "*tests*",
+    "*config*",
+    "*manage.py",
+    "*__init__.py",
+    "*migrations*",
+    "*asgi*",
+    "*wsgi*",
+    "*admin.py",
+    "*urls.py",
+]
+
+[tool.coverage.report]
+omit = [
+    "./venv/*",
+    "*tests*",
+    "*config*",
+    "*manage.py",
+    "*__init__.py",
+    "*migrations*",
+    "*asgi*",
+    "*wsgi*",
+    "*admin.py",
+    "*urls.py",
+]

@@ -58,7 +58,7 @@ django-ui-test-with-server: ## Run local server and run django ui tests against 
 
 .PHONY: django-tests-coverage
 django-tests-coverage: ## Run django tests and generate coverage report.
-	docker-compose exec web bash -c "pytest tests --cov=. --cov-report html"
+	docker-compose exec web bash -c "pytest tests --cov-report term"
 
 .PHONY: git-hooks
 git-hooks: ## Set up hooks for git.

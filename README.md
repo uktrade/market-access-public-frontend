@@ -94,3 +94,14 @@ Example usage.:
 	- `make django-test path=barriers` - run a subset of tests just for the barriers app
 	- `make django-test path=assessments/test_assessment_detail.py::EmptyAssessmentDetailTestCase::test_view` - run a specific test case
 2. To run tests with coverage use `make django-test-coverage` - this will output the report to the console.
+
+## Test Coverage
+
+Testing code coverage is automatically ran as part of the CircleCI build and sent to [codecov.io](https://codecov.io/gh/uktrade/market-access-public-frontend).
+You can run the tests locally and generate a coverage report by running:
+
+With docker:
+```docker compose run --rm web pytest tests --cov-report term```
+
+Or for local builds:
+```poetry run pytest tests --cov-report term```
