@@ -138,7 +138,7 @@ toml = ["tomli"]
 
 [[package]]
 name = "cryptography"
-version = "41.0.2"
+version = "41.0.3"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
 category = "main"
 optional = false
@@ -924,7 +924,7 @@ use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "selenium"
-version = "4.10.0"
+version = "4.11.2"
 description = ""
 category = "dev"
 optional = false
@@ -1245,7 +1245,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "==3.8.5"
-content-hash = "b8955112486e042fdcdf9f20082168c28f4bbbd9d4faf63ad283e73529ffc38a"
+content-hash = "daf0b26f44b75647be1d46e0179af8c7039b97320af76dfdb408aada33960ed6"
 
 [metadata.files]
 appnope = []
