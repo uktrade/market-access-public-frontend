@@ -1,10 +1,10 @@
 #FROM rockylinux:8
-FROM python:3.11.6
+FROM python:3.11.5
 
 # Install system stuff
 RUN apt-get update
 
-ENV PYTHON_VERSION 3.11.6
+ENV PYTHON_VERSION 3.11.5
 RUN wget --no-verbose https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz \
     && tar -C /usr/local/bin -xzvf Python-$PYTHON_VERSION.tgz \
     && rm Python-$PYTHON_VERSION.tgz \
