@@ -30,6 +30,7 @@ certifi = "2023.07.22"
 pyOpenSSL = "^23.0.0"
 sqlparse = "0.4.4"
 cryptography = "~=41.0.4"
+greenlet = "==3.0.1"
 
 [tool.poetry.dev-dependencies]
 black = "~=22.3.0"
@@ -47,7 +48,7 @@ selenium-wire = "^2.1.2"
 coverage = "^7.2.7"
 
 [build-system]
-requires = ["poetry>=1.1.6"]
+requires = ["poetry==1.6.1"]
 build-backend = "poetry.masonry.api"
 
 [tool.pytest.ini_options]
