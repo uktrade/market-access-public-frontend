@@ -63,7 +63,7 @@ ENV LC_ALL en_GB.utf-8
 
 # Set PYTHONUNBUFFERED so output is displayed in the Docker log
 ENV PYTHONUNBUFFERED=1 \
-    POETRY_VERSION=1.2.0
+    POETRY_VERSION=1.6.1
 
 WORKDIR /usr/src/app
 
