@@ -53,4 +53,4 @@ repos:
     rev: v1.3.0
     hooks:
       - id: python-safety-dependencies-check
-        files: requirements
+        files: pyproject.toml
