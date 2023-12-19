@@ -54,7 +54,7 @@ class QueryParamsTestCase(SimpleTestCase):
     def test_rendered_current_path(self):
         rf = RequestFactory()
         get_request = rf.get("/hello/")
-        middleware = FiltersMiddleware()
+        middleware = FiltersMiddleware(get_request)
         middleware.process_request(get_request)
         context = RequestContext(get_request)
         expected_link = '<a href="/hello/">wobble</a>'
@@ -68,7 +68,7 @@ class QueryParamsTestCase(SimpleTestCase):
     def test_rendered_current_path_carriers_query_params(self):
         rf = RequestFactory()
         get_request = rf.get("/hello/?resolved=0&location=dk")
-        middleware = FiltersMiddleware()
+        middleware = FiltersMiddleware(get_request)
         middleware.process_request(get_request)
         context = RequestContext(get_request)
         expected_link = '<a href="/hello/?resolved=0&location=dk">wobble</a>'
