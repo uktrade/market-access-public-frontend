@@ -12,7 +12,9 @@ jobs:
     docker:
       - image: cimg/python:3.8.5-node
       - image: postgres:13
-        environment: POSTGRES_DB=market_access_public
+        environment: 
+          POSTGRES_DB: "market_access_public"
+          POSTGRES_HOST_AUTH_METHOD: "trust"
 
     environment:
       DJANGO_SECRET_KEY: "secretkey123" # pragma: allowlist secret
