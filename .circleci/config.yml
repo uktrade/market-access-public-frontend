@@ -12,7 +12,7 @@ jobs:
     docker:
       - image: cimg/python:3.8.5-node
       - image: postgres:13
-        environment: 
+        environment:
           POSTGRES_DB: "market_access_public"
           POSTGRES_HOST_AUTH_METHOD: "trust"
 
