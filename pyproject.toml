@@ -30,7 +30,7 @@ certifi = "2023.07.22"
 pyOpenSSL = "^24.0.0"
 sqlparse = "0.4.4"
 cryptography = "^42.0.4"
-greenlet = "==3.0.1"
+greenlet = "==3.0.3"
 importlib-metadata = "4.2.0"
 
 [tool.poetry.dev-dependencies]
