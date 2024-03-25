@@ -10,7 +10,7 @@ orbs:
 jobs:
   tests:
     docker:
-      - image: cimg/python:3.8.5-node
+      - image: cimg/python:3.9.0-node
       - image: postgres:13
         environment:
           POSTGRES_DB: "market_access_public"
@@ -73,7 +73,7 @@ jobs:
 
   format_and_secrets_checks:
     docker:
-      - image: cimg/python:3.8.5-node
+      - image: cimg/python:3.9.0-node
     working_directory: ~/market-access-public-frontend
     steps:
       - checkout
@@ -101,7 +101,7 @@ jobs:
 
   pep8:
     docker:
-      - image: cimg/python:3.8.5-node
+      - image: cimg/python:3.9.0-node
 
     working_directory: ~/market-access-public-frontend
 
