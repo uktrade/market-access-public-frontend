@@ -5,7 +5,7 @@ description = "Hello"
 authors = ["Ferenc Csepregi <feri@31.digital>"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.9"
+python = "^3.9"
 directory-client-core = "^7.2.12"
 directory-forms-api-client = "==7.3.1"
 django = "4.2.10"
