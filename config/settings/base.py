@@ -3,15 +3,16 @@ Base settings to build other settings files upon.
 """
 import logging
 import os
+import sys
 from pathlib import Path
 
+import dj_database_url
 import environ
 import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
 from dbt_copilot_python.database import database_url_from_env
 from dbt_copilot_python.utility import is_copilot
 from django_log_formatter_asim import ASIMFormatter
-
+from sentry_sdk.integrations.django import DjangoIntegration
 
 ROOT_DIR = Path(__file__).parents[2]
 APPS_DIR = ROOT_DIR / "apps"
@@ -98,7 +99,7 @@ LOCAL_APPS = [
     "apps.feedback",
     "apps.healthcheck",
     "apps.metadata",
-    "apps.pingdom"
+    "apps.pingdom",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

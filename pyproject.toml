@@ -39,6 +39,7 @@ opentelemetry-propagator-aws-xray = "^1.0.1"
 opentelemetry-sdk-extension-aws = "^2.0.1"
 django-log-formatter-asim = "^0.0.4"
 dbt-copilot-python = "^0.2.0"
+dj-database-url = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
 black = "~=22.3.0"

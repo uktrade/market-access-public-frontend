@@ -1,6 +1,5 @@
-from django.shortcuts import reverse
-
 from core.tests import MarketAccessTestCase
+from django.shortcuts import reverse
 
 
 class PingdomTest(MarketAccessTestCase):
