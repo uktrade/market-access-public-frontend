@@ -8,6 +8,10 @@ from pathlib import Path
 import environ
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
+from dbt_copilot_python.database import database_url_from_env
+from dbt_copilot_python.utility import is_copilot
+from django_log_formatter_asim import ASIMFormatter
+
 
 ROOT_DIR = Path(__file__).parents[2]
 APPS_DIR = ROOT_DIR / "apps"
@@ -46,7 +50,14 @@ USE_TZ = True
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {"default": env.db("DATABASE_URL")}
+if is_copilot():
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=database_url_from_env("DATABASE_ENV_VAR_KEY")
+        )
+    }
+else:
+    DATABASES = {"default": env.db("DATABASE_URL")}
 
 # URLS
 # ------------------------------------------------------------------------------
@@ -87,6 +98,7 @@ LOCAL_APPS = [
     "apps.feedback",
     "apps.healthcheck",
     "apps.metadata",
+    "apps.pingdom"
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -210,6 +222,60 @@ SECURE_HSTS_PRELOAD = True
 # See https://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 DJANGO_LOG_LEVEL = env("DJANGO_LOG_LEVEL", default="info").upper()
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "asim_formatter": {
+            "()": ASIMFormatter,
+        },
+        "simple": {
+            "format": "{asctime} {levelname} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "asim": {
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,  # noqa F405
+            "formatter": "asim_formatter",
+        },
+        "stdout": {
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,  # noqa F405
+            "formatter": "simple",
+        },
+    },
+    "root": {
+        "handlers": ["asim"],
+        "level": os.getenv("ROOT_LOG_LEVEL", "INFO"),  # noqa F405
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["asim"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),  # noqa F405
+            "propagate": False,
+        },
+        "django.server": {
+            "handlers": ["asim"],
+            "level": os.getenv("DJANGO_SERVER_LOG_LEVEL", "ERROR"),  # noqa F405
+            "propagate": False,
+        },
+        "django.db.backends": {
+            "handlers": ["asim"],
+            "level": os.getenv("DJANGO_DB_LOG_LEVEL", "ERROR"),  # noqa F405
+            "propagate": False,
+        },
+    },
+}
+
+# Django Log Formatter ASIM settings
+if is_copilot():
+    DLFA_TRACE_HEADERS = ("X-B3-TraceId", "X-B3-SpanId")
+
+
 ELASTIC_APM_ENABLED = env("ELASTIC_APM_ENABLED", default=not DEBUG)
 if ELASTIC_APM_ENABLED:
     ELASTIC_APM = {
