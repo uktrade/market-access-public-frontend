@@ -1,8 +1,8 @@
-from core.tests import MarketAccessTestCase
+from django.test import TestCase
 from django.shortcuts import reverse
 
 
-class PingdomTest(MarketAccessTestCase):
+class PingdomTest(TestCase):
     def test_ping_response(self):
         url = reverse("pingdom")
 
