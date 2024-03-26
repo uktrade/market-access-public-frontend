@@ -4,6 +4,8 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views import defaults as default_views
 
+from apps.pingdom.urls import urlpatterns as pingdom_urlpatterns
+
 urlpatterns = []
 
 if settings.DEBUG:
@@ -47,4 +49,4 @@ urlpatterns += [
     path("", include("apps.core.urls", namespace="core")),
     path("", include("apps.feedback.urls", namespace="feedback")),
     path("", include("apps.healthcheck.urls", namespace="healthcheck")),
-]
+] + pingdom_urlpatterns
