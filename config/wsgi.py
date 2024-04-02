@@ -18,6 +18,7 @@ import sys
 from pathlib import Path
 
 from django.core.wsgi import get_wsgi_application
+from opentelemetry.instrumentation.wsgi import OpenTelemetryMiddleware
 
 # This allows easy placement of apps within the interior
 # apps directory.
@@ -33,7 +34,4 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.prod")
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.
 application = get_wsgi_application()
-# Apply WSGI middleware here.
-# Example:
-# from helloworld.wsgi import HelloWorldApplication
-# application = HelloWorldApplication(application)
+application = OpenTelemetryMiddleware(application)
