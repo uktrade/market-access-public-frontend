@@ -1,0 +1,4 @@
+repository: dmas/citb-web
+builder:
+  name: paketobuildpacks/builder-jammy-full
+  version: 0.3.294
