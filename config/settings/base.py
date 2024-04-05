@@ -54,7 +54,7 @@ USE_TZ = True
 if is_copilot():
     DATABASES = {
         "default": dj_database_url.config(
-            default=database_url_from_env("DATABASE_ENV_VAR_KEY")
+            default=database_url_from_env("CITB_DB_APPLICATION_USER")
         )
     }
 else:
