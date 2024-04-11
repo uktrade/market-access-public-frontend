@@ -35,7 +35,7 @@ importlib-metadata = "4.2.0"
 
 [tool.poetry.dev-dependencies]
 black = "~=24.3.0"
-flake8 = "~=5.0.4"
+flake8 = "~=7.0.0"
 importlib-metadata = "==4.2.0"
 ipython = "~=8.10.0"
 mock = "~=4.0.1"
