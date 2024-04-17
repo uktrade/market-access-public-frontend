@@ -32,6 +32,7 @@ sqlparse = "0.4.4"
 cryptography = "^42.0.5"
 greenlet = "==3.0.1"
 importlib-metadata = "4.2.0"
+tzdata = "^2024.1"
 
 [tool.poetry.dev-dependencies]
 black = "~=24.3.0"
@@ -47,6 +48,7 @@ werkzeug = "~=3.0.1"
 splinter = "^0.14.0"
 selenium-wire = "^2.1.2"
 coverage = "^7.2.7"
+playwright = "^1.39.0"
 
 [build-system]
 requires = ["poetry==1.6.1"]

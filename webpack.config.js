@@ -20,7 +20,7 @@ const mainConfig = {
     iife: false,
   },
   plugins: [
-    new BundleTracker({ filename: "./webpack-stats.json" }),
+    new BundleTracker({ path: assetsBuildPath, filename: "./webpack-stats.json" }),
     new MiniCssExtractPlugin({
       filename: "[name]-[fullhash].css",
       chunkFilename: "[id]-[fullhash].css",
