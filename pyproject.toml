@@ -33,6 +33,7 @@ cryptography = "^42.0.5"
 greenlet = "==3.0.3"
 importlib-metadata = "4.2.0"
 playwright = "1.43.0"
+tzdata = "2024.1"
 
 [tool.poetry.dev-dependencies]
 black = "~=24.3.0"

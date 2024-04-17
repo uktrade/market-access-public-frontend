@@ -1,12 +1,7 @@
 # #Using non standard build to enable Playwright tests
-FROM mcr.microsoft.com/playwright/python:v1.39.0-jammy
+FROM mcr.microsoft.com/playwright:v1.43.0-jammy
 
-# Install system stuff
-# RUN apt-get update
-# RUN apt-get install -y build-essential python3-dev python3.9 python3-pip libffi-dev libmagic-dev locales locales-all
-
-
-# Install Python 3.9 and other system dependencies
+# Install Python 3.9.17 and other system dependencies
 RUN apt-get update && apt-get install -y \
     python3.9 \
     python3-pip \
@@ -14,44 +9,10 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     libmagic-dev \
     locales \
+    openssh-server \
+    nodejs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-# RUN dnf -y update \
-#  && dnf -y install \
-#     gcc \
-# 	wget \
-#     postgresql \
-#     # packages so python can be compiled
-# 	nano \
-# 	make \
-# 	which \
-#     openssl-devel \
-#     bzip2-devel \
-# 	zlib-devel \
-#     libffi \
-# 	libffi-devel \
-#     # packages for pytest
-#     sqlite-devel \
-#     # packages for localdef
-#     glibc-locale-source \
-#     glibc-langpack-en \
-#     # packages for ssh server
-#     openssh-server \
-#     openssh-clients \
-#  && dnf -y clean all \
-#  && rm -rf /var/cache/dnf
-
-# ENV PYTHON_VERSION 3.9.17
-# RUN wget --no-verbose https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz \
-#     && tar -C /usr/local/bin -xzvf Python-$PYTHON_VERSION.tgz \
-#     && rm Python-$PYTHON_VERSION.tgz \
-#     && cd /usr/local/bin/Python-$PYTHON_VERSION \
-#     && ./configure --enable-optimizations \
-#     && make altinstall
-
-# RUN ln -s /usr/local/bin/python3.9 /usr/bin/python \
-#  && ln -s /usr/local/bin/pip3.9 /usr/bin/pip
 
 # SSH
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
@@ -87,11 +48,8 @@ ENV PYTHONUNBUFFERED=1 \
     POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_CREATE=false
 
-# Create a symlink for python if it doesn't already exist
-RUN if [ ! -f /usr/bin/python ]; then \
-        ln -s /usr/bin/python3.9 /usr/bin/python; \
-    fi
-
+# Ensure that 'python' points to 'python3'
+RUN ln -sf /usr/bin/python3 /usr/bin/python
 
 WORKDIR /usr/src/app
 
@@ -102,6 +60,12 @@ RUN pip install --upgrade pip \
  && poetry export --without-hashes -f requirements.txt -o requirements.txt \
  && poetry export --dev --without-hashes -f requirements.txt -o requirements-dev.txt \
  && pip install -r requirements-dev.txt
+
+ COPY package.json package-lock.json ./
+ COPY webpack.config.js ./
+
+ RUN npm install -g npm \
+     && npm ci
 
  # Set up Playwright
 RUN playwright install
