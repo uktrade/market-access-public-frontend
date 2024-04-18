@@ -41,13 +41,6 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /usr/src/app
 
-
-RUN pip install playwright==1.39.0
-
-# Set up Playwright
-RUN playwright install
-RUN playwright install-deps
-
 # Poetry commands reference https://python-poetry.org/docs/cli/#run
 COPY pyproject.toml poetry.lock ./
 RUN pip install --upgrade pip \
@@ -60,3 +53,6 @@ COPY package.json package-lock.json ./
 RUN npm install -g npm \
     && npm ci
 
+# Set up Playwright
+RUN playwright install
+RUN playwright install-deps

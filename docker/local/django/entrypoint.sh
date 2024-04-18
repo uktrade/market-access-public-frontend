@@ -3,7 +3,6 @@
 # Wait for the DB server to be running
 dockerize -wait tcp://db:5432 -timeout 60s
 # Apply django migrations
-npm run build
 python manage.py makemigrations
 python manage.py migrate
 
