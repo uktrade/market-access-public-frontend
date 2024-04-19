@@ -1,6 +1,3 @@
-from playwright.sync_api import expect
-
-
 def test_find_by_location_resolved_barrier(page, base_url):
     page.goto(base_url)
     page.get_by_role("heading", name="What are you looking for?").click()
