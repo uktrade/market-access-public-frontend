@@ -332,6 +332,7 @@ if SENTRY_DSN:
     sentry_sdk.init(
         dsn=SENTRY_DSN,
         environment=env("SENTRY_ENVIRONMENT"),
+        traces_sample_rate=1.0,
         integrations=[
             DjangoIntegration(),
         ],
