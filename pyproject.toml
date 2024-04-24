@@ -34,7 +34,7 @@ greenlet = "==3.0.3"
 importlib-metadata = "4.2.0"
 
 [tool.poetry.dev-dependencies]
-black = "~=24.3.0"
+black = "~=24.4.1"
 flake8 = "~=7.0.0"
 importlib-metadata = "==4.2.0"
 ipython = "~=8.18.1"
