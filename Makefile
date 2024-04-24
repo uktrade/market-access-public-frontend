@@ -46,6 +46,11 @@ django-test: ## Run django tests. (Use path=appname/filename::class::test) to na
 django-run-test-server: ## Run django ui test server
 	docker-compose -f docker-compose.test.yml -p market-access-test exec web-test bash -c "./manage.py runserver 0:9000"
 
+.PHONY: test-end-to-end
+is-headless ?= false
+test-end-to-end:
+	./run_e2e_tests.sh target_url=$(target_url) target=$(target) $(if $(filter true,$(is-headless)),--is-headless)
+
 .PHONY: django-ui-test
 django-ui-test: ## Run django ui tests.
 	docker-compose -f docker-compose.test.yml -p market-access-test exec web-test bash -c "pytest ui_tests"
