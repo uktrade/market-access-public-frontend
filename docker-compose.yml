@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 services:
 
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: docker/local/django/Dockerfile
     entrypoint: docker/local/django/entrypoint.sh
-    command: tail -f /dev/null
+    command: ./manage.py runserver 0:9000
     ports:
       - "9980:9000"
       - "9982:22"
