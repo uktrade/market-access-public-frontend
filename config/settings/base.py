@@ -279,7 +279,7 @@ if is_copilot():
     DLFA_TRACE_HEADERS = ("X-B3-TraceId", "X-B3-SpanId")
 
 
-ELASTIC_APM_ENABLED = env("ELASTIC_APM_ENABLED", default=not DEBUG)
+ELASTIC_APM_ENABLED = env.bool("ELASTIC_APM_ENABLED", default=not DEBUG)
 if ELASTIC_APM_ENABLED:
     ELASTIC_APM = {
         "SERVICE_NAME": "market-access-public-fe",
