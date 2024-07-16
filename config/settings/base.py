@@ -328,11 +328,13 @@ SETTINGS_EXPORT = (
 # SENTRY
 # ------------------------------------------------------------------------------
 SENTRY_DSN = env("SENTRY_DSN", default=None)
+SENTRY_TRACES_SAMPLE_RATE = env.float("SENTRY_TRACES_SAMPLE_RATE", 0.0)
+
 if SENTRY_DSN:
     sentry_sdk.init(
         dsn=SENTRY_DSN,
         environment=env("SENTRY_ENVIRONMENT"),
-        traces_sample_rate=0.1,
+        traces_sample_rate=SENTRY_TRACES_SAMPLE_RATE,
         integrations=[
             DjangoIntegration(),
         ],
