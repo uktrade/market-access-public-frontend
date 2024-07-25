@@ -53,7 +53,7 @@ pytest-django = "~=3.10.0"
 pytest-xdist = "~=2.1.0"
 werkzeug = "~=3.0.3"
 splinter = "^0.21.0"
-selenium-wire = "^2.1.2"
+selenium-wire = "^5.1.0"
 coverage = "^7.2.7"
 playwright = "^1.39.0"
 
