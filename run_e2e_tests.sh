@@ -4,6 +4,8 @@
 target=""
 target_url=""
 is_headless=false # Default is false (not headless)
+requirements_file="test_frontend/requirements.txt"
+pytest_config_file="test_frontend/pytest.ini"
 
 # Function to parse arguments for flexibility
 parse_args() {
