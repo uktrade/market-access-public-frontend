@@ -3,7 +3,9 @@ import os
 import pytest
 from playwright.sync_api import sync_playwright
 
-BASE_URL = os.getenv("BASE_FRONTEND_TESTING_URL", "http://market-access.local:9980/")
+BASE_URL = os.getenv(
+    "TEST_BASE_FRONTEND_TESTING_URL", "http://market-access.local:9980/"
+)
 HEADLESS = os.getenv("TEST_HEADLESS", "true").lower() == "true"
 
 
