@@ -3,7 +3,9 @@ from playwright.sync_api import expect
 
 def test_homepage(page, base_url):
     page.goto(base_url)
-    expect(page.get_by_role("banner")).to_contain_text("Check International Trade Barriers")
+    expect(page.get_by_role("banner")).to_contain_text(
+        "Check International Trade Barriers"
+    )
     expect(page.locator("h1")).to_contain_text("What are you looking for?")
 
 
