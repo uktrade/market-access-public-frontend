@@ -43,7 +43,7 @@ dj-database-url = "^2.1.0"
 tzdata = "^2024.1"
 
 [tool.poetry.dev-dependencies]
-black = "~=24.4.1"
+black = "~=24.8.0"
 flake8 = "~=7.0.0"
 ipython = "~=8.18.1"
 mock = "~=5.1.0"
