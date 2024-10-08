@@ -8,7 +8,7 @@ authors = ["Ferenc Csepregi <feri@31.digital>"]
 python = "^3.9"
 directory-client-core = "^7.2.12"
 directory-forms-api-client = "==7.4.2"
-django = "4.2.15"
+django = "4.2.16"
 django-environ = "==0.11.2"
 django-extensions = "==3.2.3"
 django-log-formatter-ecs = "==0.0.5"
