@@ -777,13 +777,13 @@ files = [
 
 [[package]]
 name = "django-log-formatter-asim"
-version = "0.0.5"
+version = "0.0.6"
 description = "Formats Django logs in ASIM format."
 optional = false
 python-versions = "<4,>=3.9"
 files = [
-    {file = "django_log_formatter_asim-0.0.5-py3-none-any.whl", hash = "sha256:cfa38573db9c973d672b3d517a27994e8b1d794bbdebb8b5ddabe63be02c8af5"},
-    {file = "django_log_formatter_asim-0.0.5.tar.gz", hash = "sha256:77501044786d8f5f249ed90f8eca0b7c79e57003519373dc2c69006e546daf3b"},
+    {file = "django_log_formatter_asim-0.0.6-py3-none-any.whl", hash = "sha256:00923cb95b599082d94895af1333d1bb8fce05a3d742dd571d32b7e0e480ead3"},
+    {file = "django_log_formatter_asim-0.0.6.tar.gz", hash = "sha256:ba35df7a8c5f5bad2e006b55dea8e339ef82f7476a93e6cae4d2bbea12938c2b"},
 ]
 
 [package.dependencies]
@@ -2408,13 +2408,13 @@ test = ["codecov", "flake8", "pytest (==7.*)", "pytest-cov (==4.*)", "pytest-dja
 
 [[package]]
 name = "six"
-version = "1.16.0"
+version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 files = [
-    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
-    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+    {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},
+    {file = "six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"},
 ]
 
 [[package]]
@@ -2821,4 +2821,4 @@ testing = ["coverage[toml]", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "90a0d6be0f7ceb4cc0d6324f9fa90adcb185a5fe4b56cb317d0a7161ff6f32cb"
+content-hash = "0bafa70afe7e5245b7bd418e4c1e508c2654747ee1f62d4a9fc2030d974f3f10"
