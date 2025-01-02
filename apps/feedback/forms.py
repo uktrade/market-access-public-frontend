@@ -108,7 +108,6 @@ class ZendeskFormMixin:
             email_address=settings.DJANGO_ANONYMOUS_USER_EMAIL,
             service_name=settings.SERVICE_SHORTNAME.lower(),
             form_url=self.request.build_absolute_uri(),
-            subdomain=settings.SERVICE_SUBDOMAIN.lower(),
         )
         r.raise_for_status()
         return super().form_valid(form)
