@@ -26,7 +26,6 @@ VCAP_SERVICES = env.json("VCAP_SERVICES", default={})
 # ------------------------------------------------------------------------------
 SERVICE_NAME = env("SERVICE_NAME", default="Check International Trade Barriers")
 SERVICE_SHORTNAME = env("SERVICE_SHORTNAME", default="CITB")
-SERVICE_SUBDOMAIN = env("SERVICE_SUBDOMAIN", default="UKTRADE")
 # SECURITY WARNING: keep the secret key used in production secret!
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env("DJANGO_SECRET_KEY")
@@ -369,3 +368,6 @@ WEBPACK_LOADER = {
         "TIMEOUT": None,
     }
 }
+
+# Zendesk
+ZENDESK_SUBDOMAIN = env("ZENDESK_SUBDOMAIN")
