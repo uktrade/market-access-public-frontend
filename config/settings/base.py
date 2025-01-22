@@ -26,7 +26,6 @@ VCAP_SERVICES = env.json("VCAP_SERVICES", default={})
 # ------------------------------------------------------------------------------
 SERVICE_NAME = env("SERVICE_NAME", default="Check International Trade Barriers")
 SERVICE_SHORTNAME = env("SERVICE_SHORTNAME", default="CITB")
-SERVICE_SUBDOMAIN = env("SERVICE_SUBDOMAIN", default="UKTRADE")
 # SECURITY WARNING: keep the secret key used in production secret!
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env("DJANGO_SECRET_KEY")
@@ -352,6 +351,9 @@ DIRECTORY_FORMS_API_BASE_URL = env("DIRECTORY_FORMS_API_BASE_URL")
 DIRECTORY_FORMS_API_API_KEY = env("DIRECTORY_FORMS_API_API_KEY")
 DIRECTORY_FORMS_API_SENDER_ID = env("DIRECTORY_FORMS_API_SENDER_ID")
 DIRECTORY_FORMS_API_DEFAULT_TIMEOUT = env.int("DIRECTORY_FORMS_API_DEFAULT_TIMEOUT")
+# Zendesk
+ZENDESK_SUBDOMAIN = env("ZENDESK_SUBDOMAIN")
+
 DJANGO_ANONYMOUS_USER_FULL_NAME = env(
     "DJANGO_ANONYMOUS_USER_FULL_NAME", default="Anonymous CITB User"
 )
