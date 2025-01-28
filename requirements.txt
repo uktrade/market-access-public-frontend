@@ -57,7 +57,7 @@ opentelemetry-instrumentation==0.43b0 ; python_version >= "3.9" and python_versi
 opentelemetry-propagator-aws-xray==1.0.2 ; python_version >= "3.9" and python_version < "4.0"
 opentelemetry-proto==1.22.0 ; python_version >= "3.9" and python_version < "4.0"
 opentelemetry-sdk-extension-aws==2.1.0 ; python_version >= "3.9" and python_version < "4.0"
-opentelemetry-sdk==1.29.0 ; python_version >= "3.9" and python_version < "4.0"
+opentelemetry-sdk==1.22.0 ; python_version >= "3.9" and python_version < "4.0"
 opentelemetry-semantic-conventions==0.43b0 ; python_version >= "3.9" and python_version < "4.0"
 opentelemetry-util-http==0.43b0 ; python_version >= "3.9" and python_version < "4.0"
 packaging==24.2 ; python_version >= "3.9" and python_version < "4.0"
