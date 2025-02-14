@@ -10,7 +10,7 @@ orbs:
 jobs:
   tests:
     docker:
-      - image: cimg/python:3.9.0-node
+      - image: cimg/python:2-node
       - image: postgres:13
         environment:
           POSTGRES_DB: "market_access_public"
