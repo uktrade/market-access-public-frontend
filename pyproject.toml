@@ -5,7 +5,7 @@ description = "Hello"
 authors = ["Ferenc Csepregi <feri@31.digital>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.9.2"
 directory-client-core = "^7.2.12"
 directory-forms-api-client = "==7.4.2"
 django = "4.2.18"
@@ -29,7 +29,7 @@ django-webpack-loader = "~=3.1.0"
 certifi = "2024.12.14"
 pyOpenSSL = "^24.0.0"
 sqlparse = "0.5.3"
-cryptography = "43.0.3"
+cryptography = "44.0.1"
 greenlet = "==3.0.3"
 importlib-metadata = "*"
 opentelemetry-distro = "0.43b0"
