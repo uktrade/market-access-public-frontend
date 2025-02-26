@@ -40,6 +40,7 @@ django-log-formatter-asim = "^0.0.6"
 dbt-copilot-python = "^0.2.0"
 dj-database-url = "^2.1.0"
 tzdata = "^2024.1"
+marshmallow = "3.26.0"
 
 [tool.poetry.dev-dependencies]
 black = "~=24.10.0"
