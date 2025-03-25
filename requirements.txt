@@ -24,7 +24,7 @@ django-log-formatter-asim==0.0.6 ; python_full_version >= "3.9.2" and python_ver
 django-model-utils==5.0.0 ; python_full_version >= "3.9.2" and python_full_version < "4.0.0"
 django-settings-export==1.2.1 ; python_full_version >= "3.9.2" and python_full_version < "4.0.0"
 django-webpack-loader==3.1.1 ; python_full_version >= "3.9.2" and python_full_version < "4.0.0"
-django==4.2.18 ; python_full_version >= "3.9.2" and python_version < "4"
+django==4.2.20 ; python_full_version >= "3.9.2" and python_version < "4"
 djangorestframework==3.15.2 ; python_full_version >= "3.9.2" and python_full_version < "4.0.0"
 ecs-logging==2.2.0 ; python_full_version >= "3.9.2" and python_version < "4"
 elastic-apm==6.23.0 ; python_full_version >= "3.9.2" and python_version < "4"
