@@ -636,19 +636,19 @@ test = ["GitPython", "flake8 (==5.0.4)", "freezegun (==1.0.0)", "pytest (==5.4.0
 
 [[package]]
 name = "directory-forms-api-client"
-version = "7.4.2"
+version = "7.5.1"
 description = "Python API client for Directory forms ."
 optional = false
 python-versions = "*"
 files = [
-    {file = "directory_forms_api_client-7.4.2-py3-none-any.whl", hash = "sha256:4edfecfd79fd482120fb5a055c89c0a680c9e36e6a632ad5fcfcadbe89c12e12"},
+    {file = "directory_forms_api_client-7.5.1-py3-none-any.whl", hash = "sha256:0782b5c5b47e4c355a474d094fe42648f79176f33260e36b573489d337e0ebf4"},
 ]
 
 [package.dependencies]
 directory-client-core = ">=7.2.12,<8.0.0"
 
 [package.extras]
-test = ["GitPython", "django (>=4.2.10,<5.0)", "flake8 (==3.8.3)", "pytest (==6.1.0)", "pytest-codecov", "pytest-cov", "pytest-django (==3.10.0)", "requests (>=2.22.0,<3.0.0)", "requests-mock (==1.8.0)", "setuptools (>=45.2.0,<50.0.0)", "twine", "wheel (>=0.34.2,<1.0.0)"]
+test = ["GitPython", "django (>=4.2.10,<5.0)", "flake8 (==3.8.3)", "psycopg2 (==2.9.9)", "pytest (==6.1.0)", "pytest-codecov", "pytest-cov", "pytest-django (==3.10.0)", "requests (>=2.22.0,<3.0.0)", "requests-mock (==1.8.0)", "setuptools (>=45.2.0,<50.0.0)", "twine", "wheel (>=0.34.2,<1.0.0)"]
 
 [[package]]
 name = "distlib"
@@ -1149,13 +1149,13 @@ tornado = ["tornado (>=0.2)"]
 
 [[package]]
 name = "identify"
-version = "2.6.9"
+version = "2.6.10"
 description = "File identification library for Python"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "identify-2.6.9-py2.py3-none-any.whl", hash = "sha256:c98b4322da415a8e5a70ff6e51fbc2d2932c015532d77e9f8537b4ba7813b150"},
-    {file = "identify-2.6.9.tar.gz", hash = "sha256:d40dfe3142a1421d8518e3d3985ef5ac42890683e32306ad614a29490abeb6bf"},
+    {file = "identify-2.6.10-py2.py3-none-any.whl", hash = "sha256:5f34248f54136beed1a7ba6a6b5c4b6cf21ff495aac7c359e1ef831ae3b8ab25"},
+    {file = "identify-2.6.10.tar.gz", hash = "sha256:45e92fd704f3da71cc3880036633f48b4b7265fd4de2b57627cb157216eb7eb8"},
 ]
 
 [package.extras]
@@ -1456,13 +1456,13 @@ files = [
 
 [[package]]
 name = "mypy-extensions"
-version = "1.0.0"
+version = "1.1.0"
 description = "Type system extensions for programs checked with the mypy type checker."
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.8"
 files = [
-    {file = "mypy_extensions-1.0.0-py3-none-any.whl", hash = "sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d"},
-    {file = "mypy_extensions-1.0.0.tar.gz", hash = "sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"},
+    {file = "mypy_extensions-1.1.0-py3-none-any.whl", hash = "sha256:1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505"},
+    {file = "mypy_extensions-1.1.0.tar.gz", hash = "sha256:52e68efc3284861e772bbcd66823fde5ae21fd2fdb51c62a211403730b916558"},
 ]
 
 [[package]]
@@ -1699,13 +1699,13 @@ files = [
 
 [[package]]
 name = "packaging"
-version = "24.2"
+version = "25.0"
 description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
-    {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
+    {file = "packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484"},
+    {file = "packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"},
 ]
 
 [[package]]
@@ -2289,13 +2289,13 @@ tornado = ["tornado (>=6)"]
 
 [[package]]
 name = "setuptools"
-version = "78.1.0"
+version = "80.1.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "setuptools-78.1.0-py3-none-any.whl", hash = "sha256:3e386e96793c8702ae83d17b853fb93d3e09ef82ec62722e61da5cd22376dcd8"},
-    {file = "setuptools-78.1.0.tar.gz", hash = "sha256:18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"},
+    {file = "setuptools-80.1.0-py3-none-any.whl", hash = "sha256:ea0e7655c05b74819f82e76e11a85b31779fee7c4969e82f72bab0664e8317e4"},
+    {file = "setuptools-80.1.0.tar.gz", hash = "sha256:2e308396e1d83de287ada2c2fd6e64286008fe6aca5008e0b6a8cb0e2c86eedd"},
 ]
 
 [package.extras]
@@ -2754,4 +2754,4 @@ testing = ["coverage[toml]", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9.2"
-content-hash = "534205744cd89406d82a7cc8a605360a526ba58ae58f983fafd068ebd13c0950"
+content-hash = "928b42253005d0450a588c33dd3d87702e8d51ad34e8c27eec532e2ea8cf7054"
